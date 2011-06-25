@@ -20,10 +20,6 @@ class Caserma extends Controller {
 
     $fineaddestramento = mktime();
     
-    /**
-     * 
-     */
-    
     $coda->create ( array (
         'idutente' => UtenteWeb::status ()->user->id,
         'idtruppa' => $idtruppa,
