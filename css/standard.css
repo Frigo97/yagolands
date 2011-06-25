@@ -1,0 +1,35 @@
+.clearboth {
+    clear:both;
+}
+
+.paddgin5 {
+    padding: 5px;
+}
+
+.paddgin10 {
+    padding: 10px;
+}
+
+.paddgin15 {
+    padding: 15px;
+}
+
+.paddgin20 {
+    padding: 20px;
+}
+
+.testoverde {
+    color: darkgreen;
+}
+
+.arial {
+    font-family: Arial;
+}
+
+.size12px {
+    font-size: 12px;
+}
+
+.size14px {
+    font-size: 14px;
+}

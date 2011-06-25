@@ -1,0 +1,142 @@
+body {
+  background-color: beige;
+  margin: 0px;
+}
+
+#contenitore {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 210px;
+  margin-right: 210px;
+}
+
+#coda-lavori {
+  /*    margin-top: -40px;
+      margin-left: 210px;
+      margin-right: 210px;*/
+}
+
+#side-left {
+  top: 160px;
+  left: 0px;
+  margin: 8px; 
+  width: 200px; 
+  position: absolute;
+}
+
+.side-left div.username:hover {
+  color: darkgoldenrod;
+  border-left: #ccc 3px solid;
+
+}
+
+.side-left div.username {
+  padding-left: 5px;
+  text-decoration: underline;
+  color: darkgreen;
+  cursor: pointer;
+}
+
+#side-right {
+  top: 160px;
+  right: 0px;
+  margin: 8px;
+  width: 200px; 
+  position: absolute;  
+}
+
+#posizione ,#costruzionipresenti {
+  width: 90%;
+  margin: 2px;
+}
+
+a {
+  color: darkorange;
+}
+
+#fascia-header {
+  text-align: center;
+  height: 90px;
+  background-color: #B49D8E;
+}
+
+#porta-header {
+}
+
+table.tabella {
+  border-top: #ccc 1px solid;
+  border-right: #ccc 1px solid;
+  border-bottom: #ccc 1px solid;
+  border-left: #ccc 1px solid;
+  margin: 0px;
+}
+
+table.tabella th {
+  border-left: #ccc 1px solid;
+  padding: 5px;
+}
+
+table.tabella td {
+  border-left: #ccc 1px solid;
+  border-top: #ccc 1px solid;
+  padding: 5px;
+}
+
+table.tabella td.tfoot {
+  text-align: right;
+}
+
+.titolo-pagina {
+  text-align: right;
+  background-color: burlywood;
+  padding: 10px;
+}
+
+.menu-pagina {
+  padding: 10px;
+  background-color: bisque;
+}
+
+.menu-pagina a {
+  color: tomato;
+  text-decoration: none;
+}
+
+.coda-di-produzione {
+  width: 90%;
+  padding: 5%;
+}
+
+.dettaglio-colonna-sinistra {
+  border: #ccc 1px solid; 
+  float: left; 
+  width: 66%;
+}
+
+.dettaglio-colonna-destra {
+  width: 33%; 
+  float: right; 
+}
+
+.paragrafo-edificio {
+  margin: 10px;
+  padding: 10px;
+  border: #ccc 1px solid;
+}
+
+.tabella-offerte-mercato table {
+  border-top: #ccc 1px solid;
+  border-left: #ccc 1px solid;
+  border-bottom: #ccc 1px solid;
+}
+
+.tabella-offerte-mercato td {
+  border: #ccc 1px solid;
+}
+
+.autofill {
+  color: darkorange;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 14px;
+}

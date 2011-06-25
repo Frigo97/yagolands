@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60.493153"
+   height="60.12455"
+   id="svg5507"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="Nuovo documento 2">
+  <defs
+     id="defs5509" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2847831"
+     inkscape:cx="26.256304"
+     inkscape:cy="1.9553393"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="742"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5512">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-345.79094,-501.50096)">
+    <g
+       style="fill:none"
+       id="g5548"
+       transform="matrix(1.0515623,0,0,1.0512125,141.3584,83.640268)"
+       inkscape:export-filename="C:\xampp\htdocs\yago\images\sea.png"
+       inkscape:export-xdpi="78.545456"
+       inkscape:export-ydpi="78.545456">
+      <path
+         inkscape:export-ydpi="78.545456"
+         inkscape:export-xdpi="78.545456"
+         inkscape:export-filename="C:\xampp\htdocs\yago\images\vuoto.png"
+         transform="matrix(-0.336112,0,0,0.2910815,326.80543,324.27672)"
+         d="m 387.5186,303.92487 0,91.16033 -78.94716,45.58016 -78.94716,-45.58016 0,-91.16033 78.94716,-45.58016 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="0.52359878"
+         sodipodi:arg1="-0.52359878"
+         sodipodi:r2="91.160324"
+         sodipodi:r1="91.160324"
+         sodipodi:cy="349.50504"
+         sodipodi:cx="308.57144"
+         sodipodi:sides="3"
+         id="path5550"
+         style="opacity:0.2;fill:none;stroke:#000000;stroke-width:12.78823757;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="star" />
+    </g>
+  </g>
+</svg>
