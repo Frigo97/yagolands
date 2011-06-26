@@ -18,37 +18,26 @@ class Caserma extends Controller {
     $truppe = new MTruppe;
     $utenti = new MUtenti;
 
-    $idtruppa = $_POST['unita'];
+    $idTroops = $_POST['unita'];
     $quantita = $_POST['numeroTruppe'];
 
     $risorseUtente = Config::getRisorseUtente ();
-    $risorsetruppa = Config::getRisorseTruppa ( $idtruppa );
-
-    Log::save ( array (
-        'string' => 'Utente' . var_export ( $risorseUtente, true )
-    ) );
-    Log::save ( array (
-        'string' => 'Truppa' . var_export ( $risorsetruppa, true )
-    ) );
+    $risorsetruppa = $truppe->getResources ( $idTroops );
 
     $nehai = true;
     foreach ( Config::getArrayRisorse () as $item )
-      if ( $risorseUtente[$item] <= $quantita * $risorsetruppa[$item] ) {
-        // Log::save ( array ( 'string' => 'Risorse necessarie di' . ($item) . ': ' . ($quantita * $risorsetruppa[$item]) ) );
-        // Log::save ( array ( 'string' => 'Risorse di proprietà: ' . ($risorseUtente[$item]) ) );
+      if ( $risorseUtente[$item] <= $quantita * $risorsetruppa[$item] )
         $nehai = false;
-      }
-    // Log::save ( array ( 'string' => $nehai === true ? 'Hai risorse a sufficienza' : 'Non hai risorse a sufficienza' ) );
 
     if ( $nehai === true ) {
-      $fineaddestramento = mktime () + $truppe->getSommaRisorse ( $idtruppa );
+      $fineaddestramento = mktime () + $truppe->getSommaRisorse ( $idTroops );
 
       for ( $i = 1; $i <= $quantita; $i ++  )
         $coda->create ( array (
             'idutente' => (int) UtenteWeb::status ()->user->id,
-            'idtruppa' => (int) $idtruppa,
+            'idtruppa' => (int) $idTroops,
             'quantita' => 1,
-            'fineaddestramento' => date ( 'Y-m-d H:i:s', mktime () + $truppe->getSommaRisorse ( $idtruppa ) * $i )
+            'fineaddestramento' => date ( 'Y-m-d H:i:s', mktime () + $truppe->getSommaRisorse ( $idTroops ) * $i )
         ) );
 
       $utenti->update ( array (

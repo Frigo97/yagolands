@@ -30,21 +30,31 @@ $(document).ready(function(){
     loadjson: function() {
             
       /**
-             * @todo mostrare anche il nome del proprietario ed eventualmente un link per "tornare a casa"
-             * @todo salvare tutta la mappa in un cookie o in uno storage e disegnarla lato client?
-             */
+       * @todo mostrare anche il nome del proprietario ed eventualmente un link per "tornare a casa"
+       * @todo salvare tutta la mappa in un cookie o in uno storage e disegnarla lato client?
+       */
             
-      $.getJSON('index.php?json=json/cells', function(data) {
-        $('.alveare').each(function(){
-          $(this).attr('src','images/celle/cella.svg');
-        });
-        $.each(data, function(key, val) {
-          if(val.owner == 'you')
-            $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/'+val.cell+'.svg');
-          else
-            $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/others_'+val.cell+'.svg');
-        });
-      }); 
+      $.ajax({
+        url: 'index.php?json=json/cells' ,
+        dataType: 'json',
+        cache:true,
+        ifModified:true,
+        complete:function(a,b){
+          console.log(a);
+          console.log(b);
+        },
+        success:function(data){
+          $('.alveare').each(function(){
+            $(this).attr('src','images/celle/cella.svg');
+          });
+          $.each(data, function(key, val) {
+            if(val.owner == 'you')
+              $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/'+val.cell+'.svg');
+            else
+              $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/others_'+val.cell+'.svg');
+          });
+        }
+      });
             
       $.getJSON('index.php?json=json/endcoda',function(data){
         $('#cosa-lavori').html('');
@@ -119,8 +129,8 @@ $(document).ready(function(){
       });
             
       /**
-             * Questo javascript è visibile. Siamo sicuri che vada bene così?
-             */
+       * Questo javascript è visibile. Siamo sicuri che vada bene così?
+       */
       $.getJSON('index.php?json=json/createplace',function(data){
         $('#createplace').html(data.empty == "false" ? 
           '' : '<a href="javascript:$.ajax(\'index.php?json=cells/createplace\');Yago.redraw();">crea terreni</a>');
@@ -136,16 +146,16 @@ $(document).ready(function(){
     },
         
     /**
-         *
-         */
+     *
+     */
     reloadjson: function() {
       Yago.redraw();
-      setTimeout('Yago.reloadjson();',4000);
+      setTimeout('Yago.reloadjson();',10000);
     },
         
     /**
-         * Questo metodo disegna la vista
-         */
+     * Questo metodo disegna la vista
+     */
     draw: function (pos) {
  
       //            console.log('x: ' + pos.x);
@@ -159,13 +169,13 @@ $(document).ready(function(){
       });
             
       /**
-             * Ripulisco la parte di schermo che deve contenere l'alveare
-             */
+       * Ripulisco la parte di schermo che deve contenere l'alveare
+       */
       $('#vista').html('');
         
       /**
-             * Ricalcolo tutte le dimensioni
-             */
+       * Ricalcolo tutte le dimensioni
+       */
       this.heightCell = dimensioneCella;
       this.x = pos.x;
       this.y = pos.y;

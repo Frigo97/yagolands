@@ -103,14 +103,14 @@ class Config extends Yagolands {
   }
 
   /**
-   * @todo testare che le risorse orarie siano sempre un numero intero.
+   * Questo metodo dice quante risorse orarie si tanno producento in un campo.
    *
    * @param int $livelloEdificio
    * @return int 
    */
   public static function risorseAllOra ( $livelloEdificio = 1 ) {
 
-    $moltiplicatore = 5; /* La base è 5 unità ogni ora. */
+    $moltiplicatore = 10; /* La base è 5 unità ogni ora. */
 
     if ( $livelloEdificio == 1 )
       return $moltiplicatore;
@@ -150,9 +150,9 @@ class Config extends Yagolands {
    * @param int $id
    * @return array
    */
-  public static function getRisorseTruppa ( $idutente = null ) {
+  public static function getRisorseTruppa ( $idtruppa = null ) {
 
-    if ( $idutente === null ) {
+    if ( $idtruppa === null ) {
       Log::save ( array (
           'string' => 'Config::getRisorseTruppa(); chiamata senza l\'id',
           'livello' => 'errore',
@@ -162,7 +162,7 @@ class Config extends Yagolands {
 
     $truppe = new MTruppe;
 
-    foreach ( $truppe->find ( Config::getArrayRisorse (), array ( 'id' => $idutente ) ) as $item )
+    foreach ( $truppe->find ( Config::getArrayRisorse (), array ( 'id' => $idtruppa ) ) as $item )
       return array (
           'ferro' => $item['ferro'],
           'grano' => $item['grano'],

@@ -25,7 +25,10 @@ class Model extends Yagolands {
       $this->dbh = @new PDO ( 'mysql:host=127.0.0.1;port=8889;dbname=yago2', 'root', 'root' );
     } catch ( PDOException $PDOException ) {
 
-      Log::save ( array ( 'string' => $PDOException->getMessage () ) );
+      Log::save ( array ( 
+          'string' => $PDOException->getMessage () ,
+          'livello' => 'errore'
+              ) );
       die ( 'Database fuori servizio.' );
     }
 

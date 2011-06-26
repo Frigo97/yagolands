@@ -1,10 +1,38 @@
 <?php
 
+/**
+ * We need these classes for test with phpUnit :-\
+ * We need these?
+ * 
+ * @author Simone (Demo) Gentilio
+ */
+include_once __DIR__ . '/../classes/Yagolands.php';
+include_once __DIR__ . '/../classes/Config.php';
+include_once __DIR__ . '/../classes/Model.php';
+include_once __DIR__ . '/../classes/Log.php';
 
 /**
  * This is the "Truppe" model. Truppe means troops.
  */
 class MTruppe extends Model {
+
+  /**
+   * This method returns an array that contains all the resources of a troop.
+   *
+   * @param int $id
+   * @return array
+   */
+  public function getResources ( $idTroops = null ) {
+
+    foreach ( $this->find ( Config::getArrayRisorse (), array ( 'id' => $idTroops ) ) as $item )
+      return array (
+          'ferro' => $item['ferro'],
+          'grano' => $item['grano'],
+          'legno' => $item['legno'],
+          'roccia' => $item['roccia']
+      );
+
+  }
 
   /**
    * Here we say at the constructor that this model work with "truppe" table
