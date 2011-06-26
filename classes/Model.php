@@ -58,6 +58,24 @@ class Model extends Yagolands {
   }
 
   /**
+   * Increment a value
+   *
+   * @param string $valueName the name of the field tu update
+   * @param array $where array list of conditions
+   */
+  public function incvalue ( $valueName, $where = array ( ) ) {
+
+    $conditions = $this->renderWhere ( $where );
+
+    $query = 'update ' . ($this->table) . ' set ' . ($valueName) . ' = ' . ($valueName) . ' + 1 ' . ($conditions == '' ? '' : ' where ' . $conditions);
+
+    Log::save ( array ( 'string' => $query ) );
+
+    $this->dbh->query ( $query );
+
+  }
+
+  /**
    *
    * @param type $where
    * @return type 
@@ -199,7 +217,9 @@ class Model extends Yagolands {
 
     if ( $debug )
       return $query;
-    
+
+    //Log::save ( array ( 'string' => $query ) );
+
     $this->dbh->query ( $query );
 
   }

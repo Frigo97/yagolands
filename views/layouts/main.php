@@ -25,6 +25,8 @@
         <div class="grano">grano: <span id="grano"></span></div>
         <div class="legno">legno: <span id="legno"></span></div>
         <div class="roccia">roccia: <span id="roccia"></span></div>
+        <h2>Le tue truppe</h2>
+        <div id="mytroops"></div>
         <h2>I tuoi difici</h2>
         <div id="mybuildings"></div>
         <h2>La tua produzione</h2>
@@ -63,6 +65,8 @@
         <div id="buildable"></div>
         <h2>Cosa stai costruendo</h2>
         <div id="coda-lavori"></div>
+        <h2>Cosa stai addestrando</h2>
+        <div id="coda-addestramenti"></div>
       <?php endif; ?>
     </div>
   </body>

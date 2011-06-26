@@ -33,6 +33,52 @@ class Json extends Controller {
 
   }
 
+  public function actionEndcodatruppe () {
+    $coda = new MCodadiaddestramento();
+    $truppe = new MTruppe();
+    $arrayAddestramenti = array ( );
+    $codavuota = true;
+    $numeroaddestramenti = 0;
+    foreach ( $coda->findAll ( array ( ), array (
+        'idutente' => UtenteWeb::status ()->user->id
+    ) ) as $item ) {
+      $hour = substr ( $item['fineaddestramento'], 11, 2 );
+      $minute = substr ( $item['fineaddestramento'], 14, 2 );
+      $second = substr ( $item['fineaddestramento'], 17, 2 );
+      $year = substr ( $item['fineaddestramento'], 0, 4 );
+      $month = substr ( $item['fineaddestramento'], 5, 2 );
+      $day = substr ( $item['fineaddestramento'], 8, 2 );
+      $codavuota = false;
+      if ( $item['idutente'] == UtenteWeb::status ()->user->id ) {
+        $numeroaddestramenti ++;
+        $arrayAddestramenti[] = array (
+            'truppa' => $truppe->getNome ( $item['idtruppa'] ), // @todo implementare getNome
+            'anno' => $year,
+            'mese' => $month,
+            'giorno' => $day,
+            'ore' => $hour,
+            'minuti' => $minute,
+            'secondi' => $second,
+            'secondtstoleft' => mktime ( $hour, $minute, $second, $month, $day, $year ) - mktime (),
+        );
+      }
+    }
+    if ( $codavuota == true )
+      JSONMessages::message ( array (
+          'codavuota' => 'true'
+      ) );
+
+    JSONMessages::message (
+            array_merge (
+                    array (
+                'codavuota' => 'false',
+                'addestramentiincoda' => $numeroaddestramenti
+                    ), $arrayAddestramenti
+            )
+    );
+
+  }
+
   /**
    * @todo Creare una classe che faccia la conversione da datetime a singoli campettini
    */
@@ -98,6 +144,22 @@ class Json extends Controller {
     }
 
     JSONMessages::message ( $edificicostruiti );
+
+  }
+
+  public function actionMytroops () {
+
+    $truppe = new MTruppe;
+    $esercito = new MEsercito;
+
+    $truppeaddestrate = array ( );
+
+    foreach ( $esercito->find ( array ( ), array ( 'idutente' => UtenteWeb::status ()->user->id ) ) as $item ) {
+      $truppeaddestrate[$item['idtruppa']]['nome'] = $truppe->getNome ( $item['idtruppa'] );
+      $truppeaddestrate[$item['idtruppa']]['quantita'] = $item['quantita'];
+    }
+
+    JSONMessages::message ( $truppeaddestrate );
 
   }
 
@@ -305,8 +367,8 @@ class Json extends Controller {
   }
 
   public function actionCells () {
-    
-    
+
+
 
     $celle = new MCells;
     $proprieta = new MProprieta;

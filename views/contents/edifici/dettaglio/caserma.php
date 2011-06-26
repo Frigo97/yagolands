@@ -46,9 +46,9 @@ $risorseUtente = Config::getRisorseUtente ();
     $massimoRapporto = 0;
     $arrayRapporti = array ( );
     foreach ( Config::getArrayRisorse () as $item ) {
-      $arrayRapporti[] .= ( (int) ($risorseUtente[$item] / $itemTruppe[$item]));
+      $arrayRapporti[] .= ( (int) ( (int)$risorseUtente[$item] / (int) $itemTruppe[$item]));
     }
-    echo max ( $arrayRapporti );
+    echo min ( $arrayRapporti );
       ?></div></td>
         <td><input type="text" class="texttruppe" id="txt_id_<?php echo $itemTruppe['id']; ?>" /></td>
         <td>

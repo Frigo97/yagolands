@@ -121,6 +121,17 @@ class Yago2 extends Controller {
     $utenti = new MUtenti;
     $costruzioni = new MCostruzioni;
     $edifici = new MEdifici;
+    $esercito = new MEsercito;
+
+    /**
+     * Questo cronjob ha il compito di controllare le code di costruzione.
+     */
+    foreach ( $pdo->query ( 'select * from codadiaddestramento where fineaddestramento <= \'' . (date ( 'Y-m-d H:i:s' )) . '\'' ) as $addestramentoFinito ) {
+
+      $esercito->addOne ( $addestramentoFinito['idtruppa'] );
+
+      $pdo->query ( 'delete from codadiaddestramento where id = ' . $addestramentoFinito['id'] );
+    };
 
     /**
      * Questo cronjob ha il compito di controllare le code di costruzione.

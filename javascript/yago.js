@@ -60,6 +60,22 @@ $(document).ready(function(){
           }
         }
         $('#coda-lavori').html(htmlcodalavori);
+      });            
+      
+      $.getJSON('index.php?json=json/endcodatruppe',function(data){
+        $('#cosa-addestramenti').html('');
+        htmlcodaaddestramenti = '';
+        if(data.codavuota == 'false') {
+          for(i=0;i<data.addestramentiincoda;i++) {
+                     
+            var hh = Math.floor(data[i].secondtstoleft / 3600);
+            var mm = Math.floor((data[i].secondtstoleft - (hh*3600)) / 60);
+            var ss = data[i].secondtstoleft - (hh*3600) - (mm*60);
+                        
+            htmlcodaaddestramenti += '<div class="coda-di-addestramento">Ci sono truppe in addestramento.</div>';
+          }
+        }
+        $('#coda-addestramenti').html(htmlcodaaddestramenti);
       });
             
       /** @todo consentire di accedere alla pagina dell'edificio */
@@ -91,7 +107,14 @@ $(document).ready(function(){
       $.getJSON('index.php?json=json/mybuildings',function(data){
         $('#mybuildings').html('');
         for (i in data ) {
-          $('#mybuildings').append('<div><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=moveto/building\',data: {idedificio:'+i+'}}).success(function(){Yago.redraw();/**/});">'+data[i].nome+' livello '+data[i].livello+'</div>');   
+          $('#mybuildings').append('<div><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=moveto/building\',data: {idedificio:'+i+'}}).success(function(){Yago.redraw();/**/});">'+data[i].nome+' livello '+data[i].livello+'</a></div>');   
+        }
+      });
+            
+      $.getJSON('index.php?json=json/mytroops',function(data){
+        $('#mytroops').html('');
+        for (i in data ) {
+          $('#mytroops').append('<div>'+data[i].quantita+' '+data[i].nome+'</div>');   
         }
       });
             

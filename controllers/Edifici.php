@@ -18,6 +18,7 @@ class Edifici extends Controller {
    * @todo mettere delle pagine nascoste =)
    * @todo caricare capienza edificio solo se l'edificio lo richiede
    * @todo calcolare il livello dell'edificio solo se lo stesso lo richiede
+   * @todo se la caserma è in costruzione si dovrebbe mostrare un messaggio di attesa ...
    *
    * @param Controller $obj 
    */

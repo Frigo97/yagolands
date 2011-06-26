@@ -1,0 +1,1241 @@
+[02:15:56] update utenti set utenti.ferro = 977184, utenti.grano = 976567, utenti.legno = 846720, utenti.roccia = 1050624 where id = 1
+[02:15:56] update costruzioni set costruzioni.mktimefinelavoro = 1309047979 where id = 1
+[02:15:56] update utenti set utenti.ferro = 977215, utenti.grano = 976567, utenti.legno = 846720, utenti.roccia = 1050624 where id = 1
+[02:15:56] update costruzioni set costruzioni.mktimefinelavoro = 1309047982 where id = 4
+[02:15:56] update utenti set utenti.ferro = 977215, utenti.grano = 976567, utenti.legno = 846720, utenti.roccia = 1050655 where id = 1
+[02:15:56] update costruzioni set costruzioni.mktimefinelavoro = 1309047962 where id = 2
+[02:15:56] update utenti set utenti.ferro = 977215, utenti.grano = 976567, utenti.legno = 846751, utenti.roccia = 1050655 where id = 1
+[02:15:56] update costruzioni set costruzioni.mktimefinelavoro = 1309047949 where id = 3
+[02:15:56] Utentearray (
+  'ferro' => '977215',
+  'grano' => '976567',
+  'legno' => '846751',
+  'roccia' => '1050655',
+)
+[02:15:56] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:55:42] update utenti set utenti.ferro = 977215, utenti.grano = 976569, utenti.legno = 846751, utenti.roccia = 1050655 where id = 1
+[02:55:42] update costruzioni set costruzioni.mktimefinelavoro = 1309050065 where id = 1
+[02:55:42] update utenti set utenti.ferro = 977217, utenti.grano = 976569, utenti.legno = 846751, utenti.roccia = 1050655 where id = 1
+[02:55:42] update costruzioni set costruzioni.mktimefinelavoro = 1309050062 where id = 4
+[02:55:42] update utenti set utenti.ferro = 977217, utenti.grano = 976569, utenti.legno = 846751, utenti.roccia = 1050657 where id = 1
+[02:55:42] update costruzioni set costruzioni.mktimefinelavoro = 1309050082 where id = 2
+[02:55:42] update utenti set utenti.ferro = 977217, utenti.grano = 976569, utenti.legno = 846753, utenti.roccia = 1050657 where id = 1
+[02:55:42] update costruzioni set costruzioni.mktimefinelavoro = 1309050095 where id = 3
+[02:55:42] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:55:42] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:56:12] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:56:12] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:03] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:57:03] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:03] Non hai risorse a sufficienza
+[02:57:08] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:57:08] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:08] Non hai risorse a sufficienza
+[02:57:12] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:57:12] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:12] Non hai risorse a sufficienza
+[02:57:19] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:57:19] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:19] Non hai risorse a sufficienza
+[02:57:28] Utentearray (
+  'ferro' => '977217',
+  'grano' => '976569',
+  'legno' => '846753',
+  'roccia' => '1050657',
+)
+[02:57:28] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:28] Hai risorse a sufficienza
+[02:57:28] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (1, 1, 30, "2011-06-26 02:59:04")
+[02:57:28] update utenti set utenti.ferro = 976587, utenti.grano = 975849, utenti.legno = 846003, utenti.roccia = 1049877 where id = 1
+[02:57:41] Utentearray (
+  'ferro' => '976587',
+  'grano' => '975849',
+  'legno' => '846003',
+  'roccia' => '1049877',
+)
+[02:57:41] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:41] Non hai risorse a sufficienza
+[02:57:55] Utentearray (
+  'ferro' => '976587',
+  'grano' => '975849',
+  'legno' => '846003',
+  'roccia' => '1049877',
+)
+[02:57:55] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:55] Non hai risorse a sufficienza
+[02:57:58] Utentearray (
+  'ferro' => '976587',
+  'grano' => '975849',
+  'legno' => '846003',
+  'roccia' => '1049877',
+)
+[02:57:58] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:57:58] Non hai risorse a sufficienza
+[02:59:18] Utentearray (
+  'ferro' => '976587',
+  'grano' => '975849',
+  'legno' => '846003',
+  'roccia' => '1049877',
+)
+[02:59:18] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:59:18] Risorse necessarie digrano: 1116096
+[02:59:18] Risorse di proprietà: 975849
+[02:59:18] Risorse necessarie dilegno: 1162600
+[02:59:18] Risorse di proprietà: 846003
+[02:59:18] Risorse necessarie diroccia: 1209104
+[02:59:18] Risorse di proprietà: 1049877
+[02:59:18] Non hai risorse a sufficienza
+[02:59:36] Utentearray (
+  'ferro' => '976587',
+  'grano' => '975849',
+  'legno' => '846003',
+  'roccia' => '1049877',
+)
+[02:59:36] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:59:36] Hai risorse a sufficienza
+[02:59:36] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (1, 1, 1000, "2011-06-26 03:01:12")
+[02:59:36] update utenti set utenti.ferro = 955587, utenti.grano = 951849, utenti.legno = 821003, utenti.roccia = 1023877 where id = 1
+[02:59:43] Utentearray (
+  'ferro' => '955587',
+  'grano' => '951849',
+  'legno' => '821003',
+  'roccia' => '1023877',
+)
+[02:59:43] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:59:43] Risorse necessarie digrano: 960000
+[02:59:43] Risorse di proprietà: 951849
+[02:59:43] Risorse necessarie dilegno: 1000000
+[02:59:43] Risorse di proprietà: 821003
+[02:59:43] Risorse necessarie diroccia: 1040000
+[02:59:43] Risorse di proprietà: 1023877
+[02:59:43] Non hai risorse a sufficienza
+[02:59:50] Utentearray (
+  'ferro' => '955587',
+  'grano' => '951849',
+  'legno' => '821003',
+  'roccia' => '1023877',
+)
+[02:59:50] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:59:50] Hai risorse a sufficienza
+[02:59:50] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (1, 1, 10000, "2011-06-26 03:01:26")
+[02:59:50] update utenti set utenti.ferro = 745587, utenti.grano = 711849, utenti.legno = 571003, utenti.roccia = 763877 where id = 1
+[02:59:55] Utentearray (
+  'ferro' => '745587',
+  'grano' => '711849',
+  'legno' => '571003',
+  'roccia' => '763877',
+)
+[02:59:55] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[02:59:55] Hai risorse a sufficienza
+[02:59:55] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (1, 1, 10000, "2011-06-26 03:01:31")
+[02:59:55] update utenti set utenti.ferro = 535587, utenti.grano = 471849, utenti.legno = 321003, utenti.roccia = 503877 where id = 1
+[03:00:01] Utentearray (
+  'ferro' => '535587',
+  'grano' => '471849',
+  'legno' => '321003',
+  'roccia' => '503877',
+)
+[03:00:01] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:00:01] Risorse necessarie dilegno: 375000
+[03:00:01] Risorse di proprietà: 321003
+[03:00:01] Non hai risorse a sufficienza
+[03:00:07] Utentearray (
+  'ferro' => '535587',
+  'grano' => '471849',
+  'legno' => '321003',
+  'roccia' => '503877',
+)
+[03:00:07] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:00:07] Risorse necessarie digrano: 480000
+[03:00:07] Risorse di proprietà: 471849
+[03:00:07] Risorse necessarie dilegno: 500000
+[03:00:07] Risorse di proprietà: 321003
+[03:00:07] Risorse necessarie diroccia: 520000
+[03:00:07] Risorse di proprietà: 503877
+[03:00:07] Non hai risorse a sufficienza
+[03:00:23] Utentearray (
+  'ferro' => '535587',
+  'grano' => '471849',
+  'legno' => '321003',
+  'roccia' => '503877',
+)
+[03:00:23] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:00:23] Hai risorse a sufficienza
+[03:00:23] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (1, 1, 10000, "2011-06-26 03:01:59")
+[03:00:23] update utenti set utenti.ferro = 325587, utenti.grano = 231849, utenti.legno = 71003, utenti.roccia = 243877 where id = 1
+[03:00:35] Utentearray (
+  'ferro' => '325587',
+  'grano' => '231849',
+  'legno' => '71003',
+  'roccia' => '243877',
+)
+[03:00:35] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:00:35] Risorse necessarie digrano: 240000
+[03:00:35] Risorse di proprietà: 231849
+[03:00:35] Risorse necessarie dilegno: 250000
+[03:00:35] Risorse di proprietà: 71003
+[03:00:35] Risorse necessarie diroccia: 260000
+[03:00:35] Risorse di proprietà: 243877
+[03:00:35] Non hai risorse a sufficienza
+[03:01:15] Utentearray (
+  'ferro' => '325587',
+  'grano' => '231849',
+  'legno' => '71003',
+  'roccia' => '243877',
+)
+[03:01:15] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:01:15] Risorse necessarie dilegno: 125000
+[03:01:15] Risorse di proprietà: 71003
+[03:01:15] Non hai risorse a sufficienza
+[03:01:25] update utenti set utenti.x = 0, utenti.y = 0
+[03:01:25] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:01:29] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:01:33] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:01:36] update utenti set utenti.ferro = 100, utenti.grano = 100, utenti.legno = 100, utenti.roccia = 100
+[03:01:36] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:01:36] update utenti set utenti.x = 0 where id = 1
+[03:01:36] update utenti set utenti.y = 0 where id = 1
+[03:01:36] update utenti set utenti.x = 3, utenti.y = 6 where id = 2
+[03:01:36] update utenti set utenti.x = 0 where id = 2
+[03:01:36] update utenti set utenti.y = 0 where id = 2
+[03:01:36] update utenti set utenti.x = 9, utenti.y = 6 where id = 3
+[03:01:36] update utenti set utenti.x = 0 where id = 3
+[03:01:36] update utenti set utenti.y = 0 where id = 3
+[03:01:36] update utenti set utenti.x = 12, utenti.y = 0 where id = 4
+[03:01:36] update utenti set utenti.x = 0 where id = 4
+[03:01:36] update utenti set utenti.y = 0 where id = 4
+[03:01:36] update utenti set utenti.x = 9, utenti.y = -6 where id = 5
+[03:01:36] update utenti set utenti.x = 0 where id = 5
+[03:01:36] update utenti set utenti.y = 0 where id = 5
+[03:01:36] update utenti set utenti.x = 3, utenti.y = -6 where id = 6
+[03:01:36] update utenti set utenti.x = 0 where id = 6
+[03:01:36] update utenti set utenti.y = 0 where id = 6
+[03:01:36] update utenti set utenti.x = 0, utenti.y = 0 where id = 7
+[03:01:36] update utenti set utenti.x = 0 where id = 7
+[03:01:36] update utenti set utenti.y = 0 where id = 7
+[03:01:36] update utenti set utenti.x = 0, utenti.y = 12 where id = 8
+[03:01:36] update utenti set utenti.x = 0 where id = 8
+[03:01:36] update utenti set utenti.y = 0 where id = 8
+[03:01:36] update utenti set utenti.x = 6, utenti.y = 24 where id = 9
+[03:01:36] update utenti set utenti.x = 0 where id = 9
+[03:01:36] update utenti set utenti.y = 0 where id = 9
+[03:01:36] update utenti set utenti.x = 15, utenti.y = 30 where id = 10
+[03:01:36] update utenti set utenti.x = 0 where id = 10
+[03:01:36] update utenti set utenti.y = 0 where id = 10
+[03:01:36] update utenti set utenti.x = 27, utenti.y = 30 where id = 11
+[03:01:36] update utenti set utenti.x = 0 where id = 11
+[03:01:36] update utenti set utenti.y = 0 where id = 11
+[03:01:36] update utenti set utenti.x = 36, utenti.y = 24 where id = 12
+[03:01:36] update utenti set utenti.x = 0 where id = 12
+[03:01:36] update utenti set utenti.y = 0 where id = 12
+[03:01:36] update utenti set utenti.x = 42, utenti.y = 12 where id = 13
+[03:01:36] update utenti set utenti.x = 0 where id = 13
+[03:01:36] update utenti set utenti.y = 0 where id = 13
+[03:01:36] update utenti set utenti.x = 42, utenti.y = 0 where id = 14
+[03:01:36] update utenti set utenti.x = 0 where id = 14
+[03:01:36] update utenti set utenti.y = 0 where id = 14
+[03:01:36] update utenti set utenti.x = 36, utenti.y = -12 where id = 15
+[03:01:36] update utenti set utenti.x = 0 where id = 15
+[03:01:36] update utenti set utenti.y = 0 where id = 15
+[03:01:36] update utenti set utenti.x = 27, utenti.y = -18 where id = 16
+[03:01:36] update utenti set utenti.x = 0 where id = 16
+[03:01:36] update utenti set utenti.y = 0 where id = 16
+[03:01:36] update utenti set utenti.x = 15, utenti.y = -18 where id = 17
+[03:01:36] update utenti set utenti.x = 0 where id = 17
+[03:01:36] update utenti set utenti.y = 0 where id = 17
+[03:01:36] update donelist set donelist.1 = 0, donelist.2 = 0, donelist.3 = 0, donelist.4 = 0
+[03:01:44] update utenti set utenti.x = 6, utenti.y = 0
+[03:01:44] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:01:46] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:01:48] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:01:48] update cells set cells.cell = 10 where x = 6 and y = 0
+[03:01:48] update utenti set utenti.ferro = 90 where id = 3
+[03:01:48] update utenti set utenti.grano = 88 where id = 3
+[03:01:48] update utenti set utenti.legno = 80 where id = 3
+[03:01:48] update utenti set utenti.roccia = 79 where id = 3
+[03:01:48] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:01:50] update utenti set utenti.x = 6, utenti.y = -1 where id = 3
+[03:01:51] update cells set cells.cell = 8 where x = 6 and y = -1
+[03:01:51] update utenti set utenti.ferro = 70 where id = 3
+[03:01:51] update utenti set utenti.grano = 75 where id = 3
+[03:01:51] update utenti set utenti.legno = 70 where id = 3
+[03:01:51] update utenti set utenti.roccia = 67 where id = 3
+[03:01:51] update utenti set utenti.x = 6, utenti.y = -1 where id = 3
+[03:01:52] update utenti set utenti.x = 6, utenti.y = -1 where id = 3
+[03:01:52] update utenti set utenti.x = 6, utenti.y = 1 where id = 3
+[03:01:54] update cells set cells.cell = 7 where x = 6 and y = 1
+[03:01:54] update utenti set utenti.ferro = 60 where id = 3
+[03:01:54] update utenti set utenti.grano = 55 where id = 3
+[03:01:54] update utenti set utenti.legno = 58 where id = 3
+[03:01:54] update utenti set utenti.roccia = 56 where id = 3
+[03:01:55] update utenti set utenti.x = 6, utenti.y = 1 where id = 3
+[03:01:56] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:01:56] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:01:57] update cells set cells.cell = 9 where x = 7 and y = 0
+[03:01:57] update utenti set utenti.ferro = 39 where id = 3
+[03:01:57] update utenti set utenti.grano = 41 where id = 3
+[03:01:57] update utenti set utenti.legno = 48 where id = 3
+[03:01:57] update utenti set utenti.roccia = 36 where id = 3
+[03:01:57] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:00] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:04] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:08] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:12] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:16] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:20] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:24] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:28] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:32] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:36] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:40] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:44] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:48] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:52] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:02:52", costruzioni.mktimefinelavoro = 1309050172, costruzioni.idutente = 3, costruzioni.idedificio = 10, costruzioni.livello = 1, costruzioni.x = 6, costruzioni.y = 0 where x = 6 and y = 0
+[03:02:52] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:02:56] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:00] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:04] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:08] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:12] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:16] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:20] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:24] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:28] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:32] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:36] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:40] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:44] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:48] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:03:48", costruzioni.mktimefinelavoro = 1309050228, costruzioni.idutente = 3, costruzioni.idedificio = 8, costruzioni.livello = 1, costruzioni.x = 6, costruzioni.y = -1 where x = 6 and y = -1
+[03:03:48] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:52] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:03:56] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:00] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:04] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:08] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:12] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:16] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:20] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:24] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:28] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:32] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:36] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:40] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:04:40", costruzioni.mktimefinelavoro = 1309050280, costruzioni.idutente = 3, costruzioni.idedificio = 7, costruzioni.livello = 1, costruzioni.x = 6, costruzioni.y = 1 where x = 6 and y = 1
+[03:04:40] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:44] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:48] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:52] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:04:56] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:00] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:04] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:08] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:12] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:16] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:20] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:24] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:28] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:32] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:36] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:40] update utenti set utenti.x = 7, utenti.y = 0 where id = 3
+[03:05:43] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:05:44] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:05:44", costruzioni.mktimefinelavoro = 1309050344, costruzioni.idutente = 3, costruzioni.idedificio = 9, costruzioni.livello = 1, costruzioni.x = 7, costruzioni.y = 0 where x = 7 and y = 0
+[03:05:44] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:05:46] update cells set cells.cell = 1 where x = 5 and y = 0
+[03:05:46] update utenti set utenti.ferro = 19 where id = 3
+[03:05:46] update utenti set utenti.grano = 6 where id = 3
+[03:05:46] update utenti set utenti.legno = 38 where id = 3
+[03:05:46] update utenti set utenti.roccia = 21 where id = 3
+[03:05:46] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:05:48] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:05:52] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:05:56] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:00] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:04] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:08] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:12] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:16] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:20] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:24] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:28] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:32] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:36] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:40] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:44] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:48] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:52] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:06:56] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:00] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:04] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:08] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:07:08", costruzioni.mktimefinelavoro = 1309050428, costruzioni.idutente = 3, costruzioni.idedificio = 1, costruzioni.livello = 1, costruzioni.x = 5, costruzioni.y = 0 where x = 5 and y = 0
+[03:07:08] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:12] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:16] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:20] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:24] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:28] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:32] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:36] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:40] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:44] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:48] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:52] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:07:56] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:00] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:04] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:08] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:12] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:16] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:20] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:24] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:28] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:32] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:36] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:40] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:44] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:48] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:52] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:08:56] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:09:00] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:09:04] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:09:08] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:09:12] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:09:16] update utenti set utenti.x = 5, utenti.y = 0 where id = 3
+[03:09:18] update utenti set utenti.x = 6, utenti.y = 0
+[03:09:18] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:09:20] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:22] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:26] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:30] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:34] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:38] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:42] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:46] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:50] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:54] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:09:58] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:02] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:06] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:10] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:14] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:18] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:22] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:26] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:30] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:34] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:38] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:42] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:46] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:50] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:54] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:10:58] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:11:02] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:11:02] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:11:03] update cells set cells.cell = 2 where x = 7 and y = -1
+[03:11:03] update utenti set utenti.ferro = 967 where id = 3
+[03:11:03] update utenti set utenti.grano = 978 where id = 3
+[03:11:03] update utenti set utenti.legno = 944 where id = 3
+[03:11:03] update utenti set utenti.roccia = 989 where id = 3
+[03:11:03] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:11:04] update utenti set utenti.x = 7, utenti.y = 1 where id = 3
+[03:11:05] update cells set cells.cell = 5 where x = 7 and y = 1
+[03:11:05] update utenti set utenti.ferro = 935 where id = 3
+[03:11:05] update utenti set utenti.grano = 944 where id = 3
+[03:11:05] update utenti set utenti.legno = 923 where id = 3
+[03:11:05] update utenti set utenti.roccia = 966 where id = 3
+[03:11:05] update utenti set utenti.x = 7, utenti.y = 1 where id = 3
+[03:11:06] update utenti set utenti.x = 7, utenti.y = 1 where id = 3
+[03:11:07] update utenti set utenti.x = 6, utenti.y = 2 where id = 3
+[03:11:08] update cells set cells.cell = 6 where x = 6 and y = 2
+[03:11:08] update utenti set utenti.ferro = 881 where id = 3
+[03:11:08] update utenti set utenti.grano = 910 where id = 3
+[03:11:08] update utenti set utenti.legno = 867 where id = 3
+[03:11:08] update utenti set utenti.roccia = 912 where id = 3
+[03:11:08] update utenti set utenti.x = 6, utenti.y = 2 where id = 3
+[03:11:09] update utenti set utenti.x = 7, utenti.y = -2 where id = 3
+[03:11:10] update utenti set utenti.x = 7, utenti.y = -2 where id = 3
+[03:11:10] update utenti set utenti.x = 6, utenti.y = -2 where id = 3
+[03:11:12] update cells set cells.cell = 4 where x = 6 and y = -2
+[03:11:12] update utenti set utenti.ferro = 861 where id = 3
+[03:11:12] update utenti set utenti.grano = 870 where id = 3
+[03:11:12] update utenti set utenti.legno = 833 where id = 3
+[03:11:12] update utenti set utenti.roccia = 899 where id = 3
+[03:11:12] update utenti set utenti.x = 6, utenti.y = -2 where id = 3
+[03:11:14] update utenti set utenti.x = 6, utenti.y = -2 where id = 3
+[03:11:18] update utenti set utenti.x = 6, utenti.y = -2 where id = 3
+[03:11:22] update utenti set utenti.x = 6, utenti.y = -2 where id = 3
+[03:11:26] update utenti set utenti.x = 6, utenti.y = -2 where id = 3
+[03:11:26] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:11:26] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:17:24] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:17:24", costruzioni.mktimefinelavoro = 1309051044, costruzioni.idutente = 3, costruzioni.idedificio = 2, costruzioni.livello = 1, costruzioni.x = 7, costruzioni.y = -1 where x = 7 and y = -1
+[03:17:24] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:17:24", costruzioni.mktimefinelavoro = 1309051044, costruzioni.idutente = 3, costruzioni.idedificio = 5, costruzioni.livello = 1, costruzioni.x = 7, costruzioni.y = 1 where x = 7 and y = 1
+[03:17:24] update utenti set utenti.ferro = 861, utenti.grano = 871, utenti.legno = 833, utenti.roccia = 899 where id = 3
+[03:17:24] update costruzioni set costruzioni.mktimefinelavoro = 1309051088 where id = 3
+[03:17:24] update utenti set utenti.ferro = 862, utenti.grano = 871, utenti.legno = 833, utenti.roccia = 899 where id = 3
+[03:17:24] update costruzioni set costruzioni.mktimefinelavoro = 1309051140 where id = 2
+[03:17:24] update utenti set utenti.ferro = 862, utenti.grano = 871, utenti.legno = 834, utenti.roccia = 899 where id = 3
+[03:17:24] update costruzioni set costruzioni.mktimefinelavoro = 1309051196 where id = 1
+[03:17:27] Utentearray (
+  'ferro' => '862',
+  'grano' => '871',
+  'legno' => '834',
+  'roccia' => '899',
+)
+[03:17:27] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:17:27] Risorse necessarie digrano: 984
+[03:17:27] Risorse di proprietà: 871
+[03:17:27] Risorse necessarie dilegno: 1025
+[03:17:27] Risorse di proprietà: 834
+[03:17:27] Risorse necessarie diroccia: 1066
+[03:17:27] Risorse di proprietà: 899
+[03:17:27] Non hai risorse a sufficienza
+[03:17:45] update utenti set utenti.ferro = 862, utenti.grano = 871, utenti.legno = 834, utenti.roccia = 900 where id = 3
+[03:17:45] update costruzioni set costruzioni.mktimefinelavoro = 1309051066 where id = 4
+[03:17:47] Utentearray (
+  'ferro' => '862',
+  'grano' => '871',
+  'legno' => '834',
+  'roccia' => '900',
+)
+[03:17:47] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:17:47] Risorse necessarie digrano: 984
+[03:17:47] Risorse di proprietà: 871
+[03:17:47] Risorse necessarie dilegno: 1025
+[03:17:47] Risorse di proprietà: 834
+[03:17:47] Risorse necessarie diroccia: 1066
+[03:17:47] Risorse di proprietà: 900
+[03:17:47] Non hai risorse a sufficienza
+[03:19:57] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:19:57", costruzioni.mktimefinelavoro = 1309051197, costruzioni.idutente = 3, costruzioni.idedificio = 6, costruzioni.livello = 1, costruzioni.x = 6, costruzioni.y = 2 where x = 6 and y = 2
+[03:20:01] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:20:01", costruzioni.mktimefinelavoro = 1309051201, costruzioni.idutente = 3, costruzioni.idedificio = 4, costruzioni.livello = 1, costruzioni.x = 6, costruzioni.y = -2 where x = 6 and y = -2
+[03:20:01] Utentearray (
+  'ferro' => '862',
+  'grano' => '871',
+  'legno' => '834',
+  'roccia' => '900',
+)
+[03:20:01] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:20:01] Risorse necessarie digrano: 984
+[03:20:01] Risorse di proprietà: 871
+[03:20:01] Risorse necessarie dilegno: 1025
+[03:20:01] Risorse di proprietà: 834
+[03:20:01] Risorse necessarie diroccia: 1066
+[03:20:01] Risorse di proprietà: 900
+[03:20:01] Non hai risorse a sufficienza
+[03:20:05] Utentearray (
+  'ferro' => '862',
+  'grano' => '871',
+  'legno' => '834',
+  'roccia' => '900',
+)
+[03:20:05] Truppaarray (
+  'ferro' => '40',
+  'grano' => '40',
+  'legno' => '43',
+  'roccia' => '42',
+)
+[03:20:05] Risorse necessarie dilegno: 903
+[03:20:05] Risorse di proprietà: 834
+[03:20:05] Non hai risorse a sufficienza
+[03:20:32] Utentearray (
+  'ferro' => '862',
+  'grano' => '871',
+  'legno' => '834',
+  'roccia' => '900',
+)
+[03:20:32] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:20:32] Hai risorse a sufficienza
+[03:20:32] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (3, 1, 10, "2011-06-26 03:22:08")
+[03:20:32] update utenti set utenti.ferro = 652, utenti.grano = 631, utenti.legno = 584, utenti.roccia = 640 where id = 3
+[03:20:47] Utentearray (
+  'ferro' => '652',
+  'grano' => '631',
+  'legno' => '584',
+  'roccia' => '640',
+)
+[03:20:47] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:20:47] Hai risorse a sufficienza
+[03:20:47] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (3, 1, 10, "2011-06-26 03:22:23")
+[03:20:47] update utenti set utenti.ferro = 442, utenti.grano = 391, utenti.legno = 334, utenti.roccia = 380 where id = 3
+[03:20:52] Utentearray (
+  'ferro' => '442',
+  'grano' => '391',
+  'legno' => '334',
+  'roccia' => '380',
+)
+[03:20:52] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:20:52] Hai risorse a sufficienza
+[03:20:52] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (3, 1, 10, "2011-06-26 03:22:28")
+[03:20:52] update utenti set utenti.ferro = 232, utenti.grano = 151, utenti.legno = 84, utenti.roccia = 120 where id = 3
+[03:20:54] update utenti set utenti.x = 6, utenti.y = 0
+[03:20:55] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:20:57] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:20:57] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:20:59] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:21:09] Utentearray (
+  'ferro' => '232',
+  'grano' => '151',
+  'legno' => '84',
+  'roccia' => '120',
+)
+[03:21:09] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:21:09] Risorse necessarie digrano: 264
+[03:21:09] Risorse di proprietà: 151
+[03:21:09] Risorse necessarie dilegno: 275
+[03:21:09] Risorse di proprietà: 84
+[03:21:09] Risorse necessarie diroccia: 286
+[03:21:09] Risorse di proprietà: 120
+[03:21:09] Non hai risorse a sufficienza
+[03:21:21] update utenti set utenti.x = 6, utenti.y = 0
+[03:21:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:21:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:21:30] update utenti set utenti.x = 6, utenti.y = 0
+[03:21:30] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:21:32] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:21:32] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:21:50] Utentearray (
+  'ferro' => '232',
+  'grano' => '151',
+  'legno' => '84',
+  'roccia' => '120',
+)
+[03:21:50] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:21:50] Hai risorse a sufficienza
+[03:21:50] insert into codadiaddestramento (idutente, idtruppa, quantita, fineaddestramento) values (3, 1, 3, "2011-06-26 03:23:26")
+[03:21:50] update utenti set utenti.ferro = 169, utenti.grano = 79, utenti.legno = 9, utenti.roccia = 42 where id = 3
+[03:21:53] update utenti set utenti.x = 6, utenti.y = 0
+[03:21:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:21:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:22:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:23:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:24:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:25:58] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:06] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:42] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:50] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:54] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:26:58] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:02] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:06] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:10] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:14] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:18] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:22] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:26] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:30] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:34] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:38] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:42] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:46] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:50] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:54] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:27:58] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:02] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:06] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:10] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:14] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:18] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:22] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:26] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:30] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:34] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:38] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:42] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:46] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:50] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:54] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:28:58] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:02] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:06] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:10] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:14] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:17] update utenti set utenti.x = 6, utenti.y = 0
+[03:29:18] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:22] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:30] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:34] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:38] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:42] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:46] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:46] update utenti set utenti.ferro = 1000, utenti.grano = 1000, utenti.legno = 1000, utenti.roccia = 1000
+[03:29:46] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:50] update utenti set utenti.ferro = 1000, utenti.grano = 1000, utenti.legno = 1000, utenti.roccia = 1001 where id = 3
+[03:29:50] update costruzioni set costruzioni.mktimefinelavoro = 1309051794 where id = 4
+[03:29:50] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:54] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:29:58] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:02] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:06] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:10] update utenti set utenti.ferro = 1000, utenti.grano = 1001, utenti.legno = 1000, utenti.roccia = 1001 where id = 3
+[03:30:10] update costruzioni set costruzioni.mktimefinelavoro = 1309051812 where id = 3
+[03:30:10] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:14] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:18] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:22] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:26] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:30] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:31] update utenti set utenti.ferro = 1000, utenti.grano = 1000, utenti.legno = 1000, utenti.roccia = 1000
+[03:30:31] update utenti set utenti.x = 6, utenti.y = 0
+[03:30:31] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:35] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:30:37] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:30:37] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:30:39] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:30:43] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:30:47] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:30:55] Utentearray (
+  'ferro' => '1000',
+  'grano' => '1000',
+  'legno' => '1000',
+  'roccia' => '1000',
+)
+[03:30:55] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:30:55] update utenti set utenti.ferro = 202, utenti.grano = 88, utenti.legno = 50, utenti.roccia = 12 where id = 3
+[03:31:15] update utenti set utenti.ferro = 203, utenti.grano = 88, utenti.legno = 50, utenti.roccia = 12 where id = 3
+[03:31:15] update costruzioni set costruzioni.mktimefinelavoro = 1309051890 where id = 2
+[03:31:23] update utenti set utenti.x = 0, utenti.y = 0
+[03:31:23] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:31:25] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:31:27] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:31:27] update cells set cells.cell = 8 where x = 0 and y = 0
+[03:31:27] update utenti set utenti.ferro = 980 where id = 1
+[03:31:27] update utenti set utenti.grano = 987 where id = 1
+[03:31:27] update utenti set utenti.legno = 990 where id = 1
+[03:31:27] update utenti set utenti.roccia = 988 where id = 1
+[03:31:27] update utenti set utenti.x = 0, utenti.y = 0 where id = 1
+[03:31:29] update utenti set utenti.x = 1, utenti.y = -1 where id = 1
+[03:31:30] update cells set cells.cell = 9 where x = 1 and y = -1
+[03:31:30] update utenti set utenti.ferro = 959 where id = 1
+[03:31:30] update utenti set utenti.grano = 973 where id = 1
+[03:31:30] update utenti set utenti.legno = 980 where id = 1
+[03:31:30] update utenti set utenti.roccia = 968 where id = 1
+[03:31:30] update utenti set utenti.x = 1, utenti.y = -1 where id = 1
+[03:31:31] update utenti set utenti.x = 1, utenti.y = -1 where id = 1
+[03:31:35] update utenti set utenti.x = 1, utenti.y = -1 where id = 1
+[03:31:39] update utenti set utenti.x = 1, utenti.y = -1 where id = 1
+[03:31:42] update utenti set utenti.x = 1, utenti.y = 0 where id = 1
+[03:31:43] update utenti set utenti.x = 1, utenti.y = 0 where id = 1
+[03:31:44] update cells set cells.cell = 7 where x = 1 and y = 0
+[03:31:44] update utenti set utenti.ferro = 949 where id = 1
+[03:31:44] update utenti set utenti.grano = 953 where id = 1
+[03:31:44] update utenti set utenti.legno = 968 where id = 1
+[03:31:44] update utenti set utenti.roccia = 957 where id = 1
+[03:31:44] update utenti set utenti.x = 1, utenti.y = 0 where id = 1
+[03:31:45] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:31:47] update cells set cells.cell = 10 where x = 2 and y = 0
+[03:31:47] update utenti set utenti.ferro = 939 where id = 1
+[03:31:47] update utenti set utenti.grano = 941 where id = 1
+[03:31:47] update utenti set utenti.legno = 948 where id = 1
+[03:31:47] update utenti set utenti.roccia = 936 where id = 1
+[03:31:47] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:31:47] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:31:51] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:31:55] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:31:59] update utenti set utenti.ferro = 203, utenti.grano = 88, utenti.legno = 51, utenti.roccia = 12 where id = 3
+[03:31:59] update costruzioni set costruzioni.mktimefinelavoro = 1309051922 where id = 1
+[03:31:59] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:03] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:07] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:11] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:15] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:19] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:23] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:32:23", costruzioni.mktimefinelavoro = 1309051943, costruzioni.idutente = 1, costruzioni.idedificio = 8, costruzioni.livello = 1, costruzioni.x = 0, costruzioni.y = 0 where x = 0 and y = 0
+[03:32:23] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:27] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:31] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:35] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:39] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:43] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:47] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:51] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:55] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:32:59] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:03] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:07] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:11] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:15] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:19] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:23] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:27] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:33:27", costruzioni.mktimefinelavoro = 1309052007, costruzioni.idutente = 1, costruzioni.idedificio = 9, costruzioni.livello = 1, costruzioni.x = 1, costruzioni.y = -1 where x = 1 and y = -1
+[03:33:27] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:31] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:35] update utenti set utenti.x = 2, utenti.y = 0 where id = 1
+[03:33:36] update utenti set utenti.x = 3, utenti.y = 0 where id = 1
+[03:33:39] update utenti set utenti.x = 3, utenti.y = 0 where id = 1
+[03:33:44] update utenti set utenti.x = 6, utenti.y = 0
+[03:33:44] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:33:48] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:33:52] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:33:56] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:00] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:04] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:08] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:12] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:16] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:20] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:34:20", costruzioni.mktimefinelavoro = 1309052060, costruzioni.idutente = 1, costruzioni.idedificio = 7, costruzioni.livello = 1, costruzioni.x = 1, costruzioni.y = 0 where x = 1 and y = 0
+[03:34:20] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:24] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:28] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:32] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:36] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:40] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:44] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:48] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:52] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:34:56] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:00] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:04] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:08] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:12] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:16] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:20] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:24] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:35:24", costruzioni.mktimefinelavoro = 1309052124, costruzioni.idutente = 1, costruzioni.idedificio = 10, costruzioni.livello = 1, costruzioni.x = 2, costruzioni.y = 0 where x = 2 and y = 0
+[03:35:24] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:28] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:32] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:40] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:44] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:35:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:36:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:37:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:38:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:13] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:17] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:21] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:25] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:29] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:33] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:37] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:41] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:45] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:49] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:53] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:39:57] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:01] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:05] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:09] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:12] update utenti set utenti.x = 6, utenti.y = 0
+[03:40:12] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:16] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:18] update utenti set utenti.ferro = 1000, utenti.grano = 1000, utenti.legno = 1000, utenti.roccia = 1000
+[03:40:18] update utenti set utenti.x = 6, utenti.y = 0
+[03:40:18] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:40:20] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:40:20] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:40:22] update utenti set utenti.x = 7, utenti.y = -1 where id = 3
+[03:40:31] Utentearray (
+  'ferro' => '1000',
+  'grano' => '1000',
+  'legno' => '1000',
+  'roccia' => '1000',
+)
+[03:40:31] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:40:31] update utenti set utenti.ferro = 790, utenti.grano = 760, utenti.legno = 750, utenti.roccia = 740 where id = 3
+[03:41:52] Utentearray (
+  'ferro' => '790',
+  'grano' => '760',
+  'legno' => '750',
+  'roccia' => '740',
+)
+[03:41:52] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)
+[03:41:52] update utenti set utenti.ferro = 706, utenti.grano = 664, utenti.legno = 650, utenti.roccia = 636 where id = 3
+[03:42:20] update utenti set utenti.ferro = 706, utenti.grano = 665, utenti.legno = 650, utenti.roccia = 636 where id = 3
+[03:42:20] update costruzioni set costruzioni.mktimefinelavoro = 1309052548 where id = 3
+[03:42:20] update utenti set utenti.ferro = 706, utenti.grano = 665, utenti.legno = 650, utenti.roccia = 637 where id = 3
+[03:42:20] update costruzioni set costruzioni.mktimefinelavoro = 1309052566 where id = 4
+[03:42:20] update utenti set utenti.x = 6, utenti.y = 0
+[03:42:20] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:42:24] update utenti set utenti.x = 6, utenti.y = 0 where id = 3
+[03:42:24] update utenti set utenti.x = 5, utenti.y = -1 where id = 3
+[03:42:27] update cells set cells.cell = 3 where x = 5 and y = -1
+[03:42:27] update utenti set utenti.ferro = 674 where id = 3
+[03:42:27] update utenti set utenti.grano = 653 where id = 3
+[03:42:27] update utenti set utenti.legno = 637 where id = 3
+[03:42:27] update utenti set utenti.roccia = 614 where id = 3
+[03:42:27] update utenti set utenti.x = 5, utenti.y = -1 where id = 3
+[03:42:28] update utenti set utenti.x = 5, utenti.y = -1 where id = 3
+[03:42:28] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:32] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:36] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:40] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:44] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:48] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:52] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:42:56] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:00] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:04] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:08] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:12] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:16] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:20] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:24] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:28] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:32] update utenti set utenti.ferro = 675, utenti.grano = 653, utenti.legno = 637, utenti.roccia = 614 where id = 3
+[03:43:32] update costruzioni set costruzioni.mktimefinelavoro = 1309052614 where id = 2
+[03:43:32] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:36] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:40] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:44] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:48] update costruzioni set costruzioni.datafinelavoro = "2011-06-26 03:43:48", costruzioni.mktimefinelavoro = 1309052628, costruzioni.idutente = 3, costruzioni.idedificio = 3, costruzioni.livello = 1, costruzioni.x = 5, costruzioni.y = -1 where x = 5 and y = -1
+[03:43:48] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:52] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:43:56] update utenti set utenti.x = 5, utenti.y = 1 where id = 3
+[03:44:07] update utenti set utenti.ferro = 675, utenti.grano = 653, utenti.legno = 638, utenti.roccia = 614 where id = 3
+[03:44:07] update costruzioni set costruzioni.mktimefinelavoro = 1309052652 where id = 1
+[03:53:35] update utenti set utenti.ferro = 1000, utenti.grano = 1001, utenti.legno = 1000, utenti.roccia = 1000 where id = 1
+[03:53:35] update costruzioni set costruzioni.mktimefinelavoro = 1309053650 where id = 12
+[03:53:35] update utenti set utenti.ferro = 1001, utenti.grano = 1001, utenti.legno = 1000, utenti.roccia = 1000 where id = 1
+[03:53:35] update costruzioni set costruzioni.mktimefinelavoro = 1309053767 where id = 10
+[03:53:35] update utenti set utenti.ferro = 1001, utenti.grano = 1001, utenti.legno = 1000, utenti.roccia = 1001 where id = 1
+[03:53:35] update costruzioni set costruzioni.mktimefinelavoro = 1309053703 where id = 11
+[03:53:35] update utenti set utenti.ferro = 1001, utenti.grano = 1001, utenti.legno = 1001, utenti.roccia = 1001 where id = 1
+[03:53:35] update costruzioni set costruzioni.mktimefinelavoro = 1309053586 where id = 13
+[04:16:46] Utentearray (
+  'ferro' => '676',
+  'grano' => '654',
+  'legno' => '639',
+  'roccia' => '615',
+)
+[04:16:46] Truppaarray (
+  'ferro' => '40',
+  'grano' => '40',
+  'legno' => '43',
+  'roccia' => '42',
+)
+[04:19:12] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:19:12] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:19:12] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:19:12] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:20:49] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:20:49] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:20:49] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:09] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:09] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:09] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:09] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:09] update esercito set quantita = quantita + 1  where idtruppa = 3 and idutente = 3
+[04:21:18] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:18] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:18] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:18] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:21:18] update esercito set quantita = quantita + 1  where idtruppa = 3 and idutente = 3
+[04:23:27] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:23:27] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:23:27] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:23:27] update esercito set quantita = quantita + 1  where idtruppa = 1 and idutente = 3
+[04:23:27] update esercito set quantita = quantita + 1  where idtruppa = 3 and idutente = 3
+[04:23:27] update esercito set quantita = quantita + 1  where idtruppa = 3 and idutente = 3
+[04:29:38] Utentearray (
+  'ferro' => '597',
+  'grano' => '575',
+  'legno' => '554',
+  'roccia' => '532',
+)
+[04:29:38] Truppaarray (
+  'ferro' => '21',
+  'grano' => '24',
+  'legno' => '25',
+  'roccia' => '26',
+)

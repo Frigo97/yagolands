@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Questo è il controller Site. Qui sono raccolte tutte le azioni che
  * riguardano il sito web. In questo caso Yago.
@@ -11,215 +12,243 @@
  */
 class Site extends Controller {
 
-    /**
-     * Questo metodo, mostra tutte le task e restituisce un json che per 
-     * ognuna fa sapere se sono in possesso o meno di un utente. L'utente
-     * viene passato da querystring.
-     * 
-     * @sample index.php?3=site/permissions
-     * 
-     * @param Controller $obj 
-     */
-    public function actionPermissions (Controller $obj ) {
+  /**
+   * Questo metodo, mostra tutte le task e restituisce un json che per 
+   * ognuna fa sapere se sono in possesso o meno di un utente. L'utente
+   * viene passato da querystring.
+   * 
+   * @sample index.php?3=site/permissions
+   * 
+   * @param Controller $obj 
+   */
+  public function actionPermissions ( Controller $obj ) {
 
-        $json = array ( );
+    $json = array ( );
 
-        $task = new MTask;
-        $permessi = new MPermessi;
-        $ruoli = new MRuoli;
-        $gruppi = new MGruppi;
+    $task = new MTask;
+    $permessi = new MPermessi;
+    $ruoli = new MRuoli;
+    $gruppi = new MGruppi;
 
-        $arrayTasks = array ( );
-        
-        foreach ( $task->findAll () as $nometask )
-                $arrayTasks[$nometask['nome']] = false;
+    $arrayTasks = array ( );
 
-        foreach ( $gruppi->find ( array ( 'idruolo' ), array ( 'idutente' => $obj->contest ) )as $itemruolo )
-            foreach ( $permessi->find ( array ( 'idtask' ), array ( 'idruolo' => $itemruolo['idruolo'] ) )as $itemtask )
-                foreach ( $task->find ( array ( 'nome' ), array ( 'id' => $itemtask['idtask'] ) )as $nometask )
-                    $arrayTasks[$nometask['nome']] = true;
+    foreach ( $task->findAll () as $nometask )
+      $arrayTasks[$nometask['nome']] = false;
 
-        die ( json_encode ( $arrayTasks ) );
+    foreach ( $gruppi->find ( array ( 'idruolo' ), array ( 'idutente' => $obj->contest ) )as $itemruolo )
+      foreach ( $permessi->find ( array ( 'idtask' ), array ( 'idruolo' => $itemruolo['idruolo'] ) )as $itemtask )
+        foreach ( $task->find ( array ( 'nome' ), array ( 'id' => $itemtask['idtask'] ) )as $nometask )
+          $arrayTasks[$nometask['nome']] = true;
 
-    }
+    die ( json_encode ( $arrayTasks ) );
 
-    /**
-     * Questa action contente di gestire gli utenti. Allo stato iniziale,
-     * vengono caricati tutti gli utenti e le task, ma senza connessione logica.
-     * 
-     * Sulla sinistra appariranno i nomi degli utenti. Ciascun nome sarà
-     * cliccabile. Cliccando su di un nome si caricheranno i suoi permessi.
-     * 
-     * @param Controller $obj 
-     */
-    public function actionManageusers ( Controller $obj ) {
+  }
 
-        $obj->layout = 'admin';
+  /**
+   * Questa action contente di gestire gli utenti. Allo stato iniziale,
+   * vengono caricati tutti gli utenti e le task, ma senza connessione logica.
+   * 
+   * Sulla sinistra appariranno i nomi degli utenti. Ciascun nome sarà
+   * cliccabile. Cliccando su di un nome si caricheranno i suoi permessi.
+   * 
+   * @param Controller $obj 
+   */
+  public function actionManageusers ( Controller $obj ) {
 
-        /**
-         * Carico tutti gli utenti
-         */
-        $utenti = new MUtenti;
-        $obj->modelutenti = $utenti->findAll ();
-
-        /**
-         * Carico tutti i permessi
-         */
-        $tasks = new MTask;
-        $obj->tasklist = $tasks->findAll ();
-
-    }
+    $obj->layout = 'admin';
 
     /**
-     * Questo metodo azzera TUTTI i parametri del gioco. Sarà come se non si 
-     * fosse mai iniziato.
-     * 
-     * @param Controller $obj 
+     * Carico tutti gli utenti
      */
-    public function actionReset (Controller $obj ) {
-
-        $cells = new MCells;
-        $costruzioni = new MCostruzioni;
-        $codadicostruzione = new MCodadicostruzione;
-        $proprieta = new MProprieta;
-        $utenti = new MUtenti;
-        $donelist = new MDonelist;
-        $posizioneiniziale = new NuovaPosizione;
-
-        $cells->truncate ();
-        $costruzioni->truncate ();
-        $codadicostruzione->truncate ();
-        $proprieta->truncate ();
-        $risorseiniziali = Config::$risorseIniziali;
-        $utenti->update ( array (
-            'ferro' => $risorseiniziali,
-            'grano' => $risorseiniziali,
-            'legno' => $risorseiniziali,
-            'roccia' => $risorseiniziali,
-        ) );
-
-        /**
-         * Azzero la pozizione degli utenti
-         */
-        $nuovaposizione = new NuovaPosizione;
-        foreach ( $utenti->findAll () as $item ) {
-            $utenti->update ( $nuovaposizione->getActivationCoords ( $item['id'] ), array ( 'id' => $item['id'] ) );
-            $utenti->update ( array ( 'x' => 0 ), array ( 'id' => $item['id'] ) );
-            $utenti->update ( array ( 'y' => 0 ), array ( 'id' => $item['id'] ) );
-        }
-
-        /**
-         * Azzero le cose fatte
-         */
-        $donelist->update ( array (
-            '1' => 0, // Fondare un villaggio
-            '2' => 0, // Costruire un campo di grano
-            '3' => 0, // Costruire un campo di legno
-            '4' => 0  // Costruire un campo di ferro
-        ) );
-
-        /**
-         * Torno alla vista
-         */
-        $this->redirect ( 'site/logout' );
-
-    }
+    $utenti = new MUtenti;
+    $obj->modelutenti = $utenti->findAll ();
 
     /**
-     *
-     * @param Controller $obj 
+     * Carico tutti i permessi
      */
-    public function actionVista ( Controller $obj ) {
+    $tasks = new MTask;
+    $obj->tasklist = $tasks->findAll ();
 
-        if ( ! UtenteWeb::status ()->isAutenticato () )
-            $this->redirect ( 'site/login' );
+  }
 
-        $nuova = new NuovaPosizione;
-        $utenti = new MUtenti;
+  /**
+   * This function grow resources to 1000. It's just for test version of yago :-p
+   *
+   * @param Controller $obj 
+   */
+  public function actionIncreaseresources ( Controller $obj ) {
 
-        $utenti->update ( $nuova->getActivationCoords ( UtenteWeb::status ()->user->id ) );
+    $utenti = new MUtenti;
 
-        $obj->pageTitle = 'Vista di Yago';
+    $utenti->update ( array (
+        'ferro' => 1000,
+        'grano' => 1000,
+        'legno' => 1000,
+        'roccia' => 1000,
+    ) );
 
-    }
+    $this->redirect ( 'site/vista' );
+
+  }
+
+  /**
+   * Questo metodo azzera TUTTI i parametri del gioco. Sarà come se non si 
+   * fosse mai iniziato.
+   * 
+   * @todo valutare se ha senso fare un foreach nella creazione dei model
+   * @todo valutare se ha senso fare un foreach nell'elenco delle truncate
+   * 
+   * @param Controller $obj 
+   */
+  public function actionReset ( Controller $obj ) {
+
+    $cells = new MCells;
+    $costruzioni = new MCostruzioni;
+    $codadicostruzione = new MCodadicostruzione;
+    $codadiaddestramento = new MCodadiaddestramento;
+    $proprieta = new MProprieta;
+    $utenti = new MUtenti;
+    $donelist = new MDonelist;
+    $posizioneiniziale = new NuovaPosizione;
+    $esercito = new MEsercito;
+
+    $cells->truncate ();
+    $costruzioni->truncate ();
+    $codadicostruzione->truncate ();
+    $codadiaddestramento->truncate ();
+    $proprieta->truncate ();
+    $esercito->truncate();
     
+    $risorseiniziali = Config::$risorseIniziali;
+    $utenti->update ( array (
+        'ferro' => $risorseiniziali,
+        'grano' => $risorseiniziali,
+        'legno' => $risorseiniziali,
+        'roccia' => $risorseiniziali,
+    ) );
+
     /**
-     * Mostro la pagina per recuperare la password.
-     *
-     * @param Controller $obj 
+     * Azzero la pozizione degli utenti
      */
-    public function actionLostpassword (Controller $obj) {
-        
-        $obj->pageTitle = 'Hai dimenticato la password';
-        
+    $nuovaposizione = new NuovaPosizione;
+    foreach ( $utenti->findAll () as $item ) {
+      $utenti->update ( $nuovaposizione->getActivationCoords ( $item['id'] ), array ( 'id' => $item['id'] ) );
+      $utenti->update ( array ( 'x' => 0 ), array ( 'id' => $item['id'] ) );
+      $utenti->update ( array ( 'y' => 0 ), array ( 'id' => $item['id'] ) );
     }
 
     /**
-     * Vengono azzerati tutte le variabili di sessione. Una volta eseguito il
-     * metodo, sarà come se l'utente non fosse mai entrato.
-     *
-     * @param Controller $obj 
+     * Azzero le cose fatte
      */
-    public function actionLogout (  Controller $obj ) {
-        UtenteWeb::status ()->logout ();
-        unset ( $_SESSION );
-        $this->redirect ( 'site/login' );
-
-    }
+    $donelist->update ( array (
+        '1' => 0, // Fondare un villaggio
+        '2' => 0, // Costruire un campo di grano
+        '3' => 0, // Costruire un campo di legno
+        '4' => 0  // Costruire un campo di ferro
+    ) );
 
     /**
-     * Questa azione mostra la pagina di login.
-     *
-     * @param Controller $obj 
+     * Torno alla vista
      */
-    public function actionLogin ( Controller $obj ) {
+    $this->redirect ( 'site/logout' );
 
-        $gruppi = new MGruppi();
-        $permessi = new MPermessi();
-        $task = new MTask();
+  }
 
-        $obj->pageTitle = 'Accedi al mondo di Yago';
-        
-        if ( $this->ciSonoVariaibliPost () ) {
-            
-            $utenti = new MUtenti;
-            foreach ( $utenti->find ( array ( ), array ( 'username' => $_POST['username'], 'password' => md5 ( $_POST['password'] ) ) ) as $item ) {
-                
-                $idutente = $item['id'];
-                $xutente = $item['x'];
-                $yutente = $item['y'];
-                $nuovaposizione = new NuovaPosizione;
-                $arrayTasks = array ( );
-                
-                foreach ( $gruppi->find ( array ( 'idruolo' ), array ( 'idutente' => $idutente ) )as $itemruolo )
-                    foreach ( $permessi->find ( array ( 'idtask' ), array ( 'idruolo' => $itemruolo['idruolo'] ) )as $itemtask )
-                        foreach ( $task->find ( array ( 'nome' ), array ( 'id' => $itemtask['idtask'] ) )as $nometask )
-                            $arrayTasks[$nometask['nome']] = true;
+  /**
+   *
+   * @param Controller $obj 
+   */
+  public function actionVista ( Controller $obj ) {
 
-                UtenteWeb::status ()->autentica ( array_merge ( array (
-                            'username' => $_POST['username'],
-                            'id' => $idutente,
-                            'x' => $xutente,
-                            'y' => $yutente,
-                                ), $arrayTasks, $nuovaposizione->getActivationCoords ( $idutente ) ) );
+    if ( ! UtenteWeb::status ()->isAutenticato () )
+      $this->redirect ( 'site/login' );
 
-                $this->redirect ( 'site/vista' );
-            }
-            $this->redirect ( 'site/login' );
-        }
+    $nuova = new NuovaPosizione;
+    $utenti = new MUtenti;
 
+    $utenti->update ( $nuova->getActivationCoords ( UtenteWeb::status ()->user->id ) );
+
+    $obj->pageTitle = 'Vista di Yago';
+
+  }
+
+  /**
+   * Mostro la pagina per recuperare la password.
+   *
+   * @param Controller $obj 
+   */
+  public function actionLostpassword ( Controller $obj ) {
+
+    $obj->pageTitle = 'Hai dimenticato la password';
+
+  }
+
+  /**
+   * Vengono azzerati tutte le variabili di sessione. Una volta eseguito il
+   * metodo, sarà come se l'utente non fosse mai entrato.
+   *
+   * @param Controller $obj 
+   */
+  public function actionLogout ( Controller $obj ) {
+    UtenteWeb::status ()->logout ();
+    unset ( $_SESSION );
+    $this->redirect ( 'site/login' );
+
+  }
+
+  /**
+   * Questa azione mostra la pagina di login.
+   *
+   * @param Controller $obj 
+   */
+  public function actionLogin ( Controller $obj ) {
+
+    $gruppi = new MGruppi();
+    $permessi = new MPermessi();
+    $task = new MTask();
+
+    $obj->pageTitle = 'Accedi al mondo di Yago';
+
+    if ( $this->ciSonoVariaibliPost () ) {
+
+      $utenti = new MUtenti;
+      foreach ( $utenti->find ( array ( ), array ( 'username' => $_POST['username'], 'password' => md5 ( $_POST['password'] ) ) ) as $item ) {
+
+        $idutente = $item['id'];
+        $xutente = $item['x'];
+        $yutente = $item['y'];
+        $nuovaposizione = new NuovaPosizione;
+        $arrayTasks = array ( );
+
+        foreach ( $gruppi->find ( array ( 'idruolo' ), array ( 'idutente' => $idutente ) )as $itemruolo )
+          foreach ( $permessi->find ( array ( 'idtask' ), array ( 'idruolo' => $itemruolo['idruolo'] ) )as $itemtask )
+            foreach ( $task->find ( array ( 'nome' ), array ( 'id' => $itemtask['idtask'] ) )as $nometask )
+              $arrayTasks[$nometask['nome']] = true;
+
+        UtenteWeb::status ()->autentica ( array_merge ( array (
+                    'username' => $_POST['username'],
+                    'id' => $idutente,
+                    'x' => $xutente,
+                    'y' => $yutente,
+                        ), $arrayTasks, $nuovaposizione->getActivationCoords ( $idutente ) ) );
+
+        $this->redirect ( 'site/vista' );
+      }
+      $this->redirect ( 'site/login' );
     }
 
-    /**
-     * Questa è l'azione di default. Il sito normalmente carica questa pagina
-     * se non c'è nessuna diversa segnalazione nella querystring.
-     * 
-     * @param Controller $obj 
-     */
-    public function actionIndex ( Controller $obj ) {
-        
-        $obj->pageTitle = 'Yago ' . ($obj->getVersion ());
+  }
 
-    }
+  /**
+   * Questa è l'azione di default. Il sito normalmente carica questa pagina
+   * se non c'è nessuna diversa segnalazione nella querystring.
+   * 
+   * @param Controller $obj 
+   */
+  public function actionIndex ( Controller $obj ) {
+
+    $obj->pageTitle = 'Yago ' . ($obj->getVersion ());
+
+  }
 
 }
