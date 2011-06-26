@@ -33,6 +33,9 @@ class Json extends Controller {
 
   }
 
+  /**
+   * Questo JSON restituisce la coda delle truppe in costruzione
+   */
   public function actionEndcodatruppe () {
     $coda = new MCodadiaddestramento();
     $truppe = new MTruppe();
@@ -129,6 +132,9 @@ class Json extends Controller {
 
   }
 
+  /**
+   * Questo JSON mostra gli edifici del giocatore corrente
+   */
   public function actionMybuildings () {
 
     $edifici = new MEdifici();
@@ -147,6 +153,9 @@ class Json extends Controller {
 
   }
 
+  /**
+   * Questo JSON mostra le truppe del giocatore corrente
+   */
   public function actionMytroops () {
 
     $truppe = new MTruppe;
@@ -163,6 +172,9 @@ class Json extends Controller {
 
   }
 
+  /**
+   * Questo JSON mostra i campi del giocatore corrente
+   */
   public function actionMyfields () {
 
     $edifici = new MEdifici();
@@ -344,6 +356,9 @@ class Json extends Controller {
 
   }
 
+  /**
+   * Questo JSON dice se in questa cella c'è una costruzione
+   */
   public function actionCostruzionipresenti () {
     $utenti = new MUtenti();
     $costruzioni = new MCostruzioni();
@@ -355,20 +370,27 @@ class Json extends Controller {
 
   }
 
+  /**
+   * Questo JSON restituisce le risorse dell'utente corrente
+   */
   public function actionRisorse () {
     JSONMessages::message ( Config::getRisorseUtente () );
 
   }
 
+  /**
+   * Questo JSON restituisce la posizione dell'utente corrente
+   */
   public function actionPosizione () {
     $utenti = new MUtenti;
     JSONMessages::message ( $utenti->getPosition () );
 
   }
 
+  /**
+   * Questo JSON restituisce tutte le celle
+   */
   public function actionCells () {
-
-
 
     $celle = new MCells;
     $proprieta = new MProprieta;
