@@ -144,35 +144,6 @@ class Config extends Yagolands {
   }
 
   /**
-   * @todo non credo sia responsabilità di Config questa informazione, ma delle truppe
-   * @todo mi chiedo se truppe ed utenti, ma anche edifici ... non debbano condividere un'interfaccia o qualche cosa di simile
-   *
-   * @param int $id
-   * @return array
-   */
-  public static function getRisorseTruppa ( $idtruppa = null ) {
-
-    if ( $idtruppa === null ) {
-      Log::save ( array (
-          'string' => 'Config::getRisorseTruppa(); chiamata senza l\'id',
-          'livello' => 'errore',
-      ) );
-      return array ( );
-    }
-
-    $truppe = new MTruppe;
-
-    foreach ( $truppe->find ( Config::getArrayRisorse (), array ( 'id' => $idtruppa ) ) as $item )
-      return array (
-          'ferro' => $item['ferro'],
-          'grano' => $item['grano'],
-          'legno' => $item['legno'],
-          'roccia' => $item['roccia']
-      );
-
-  }
-
-  /**
    *
    * @return array 
    */
