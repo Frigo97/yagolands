@@ -8,6 +8,7 @@
                 <th>grano</th>
                 <th>legno</th>
                 <th>roccia</th>
+                <th>capienza</th>
             </tr>
         </thead>
         <tbody>
@@ -19,12 +20,13 @@
                     <td><?php echo $item['grano']; ?></td>
                     <td><?php echo $item['legno']; ?></td>
                     <td><?php echo $item['roccia']; ?></td>
+                    <td><?php echo $item['livellomagazzino'] ? $item['livellomagazzino'] : 0; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="6" class="tfoot">id</td>
+                <td colspan="7" class="tfoot">id</td>
             </tr>
         </tfoot>
     </table>

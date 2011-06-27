@@ -47,7 +47,9 @@ class MCostruzioni extends Model {
                 'livello' => 'errore'
             ) );
 
-        foreach ( $this->find ( array ( ), array ( 'id' => $idedificio, 'idutente' => UtenteWeb::status ()->user->id ) ) as $item )
+        echo var_export($this->find ( array ( ), array ( 'idedificio' => $idedificio, 'idutente' => UtenteWeb::status ()->user->id ) ), true);
+        
+        foreach ( $this->find ( array ( ), array ( 'idedificio' => $idedificio, 'idutente' => UtenteWeb::status ()->user->id ) ) as $item )
             return $item['livello'];
         return 0;
 

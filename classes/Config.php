@@ -88,17 +88,17 @@ class Config extends Yagolands {
 
   }
 
-  public static function moltiplicatoreCapienzaEdificio ( $livelloEdificio = 1 ) {
+  public static function moltiplicatoreCapienzaEdificio ( $livelloEdificio = 0 ) {
 
     $moltiplicatore = 200;
-
-    if ( $livelloEdificio == 1 )
+    
+    if ( $livelloEdificio == 0 )
       return $moltiplicatore;
 
     for (; $livelloEdificio > 1; $livelloEdificio --  )
       $moltiplicatore*=Config::$incrementoDiSpazioPerEdificio;
 
-    return $moltiplicatore;
+    return (int) $moltiplicatore;
 
   }
 
