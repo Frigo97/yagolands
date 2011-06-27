@@ -75,16 +75,8 @@ $(document).ready(function(){
       $.getJSON('index.php?json=json/endcodatruppe',function(data){
         $('#cosa-addestramenti').html('');
         htmlcodaaddestramenti = '';
-        if(data.codavuota == 'false') {
-          for(i=0;i<data.addestramentiincoda;i++) {
-                     
-            var hh = Math.floor(data[i].secondtstoleft / 3600);
-            var mm = Math.floor((data[i].secondtstoleft - (hh*3600)) / 60);
-            var ss = data[i].secondtstoleft - (hh*3600) - (mm*60);
-                        
-            htmlcodaaddestramenti += '<div class="coda-di-addestramento">Ci sono truppe in addestramento.</div>';
-          }
-        }
+        if(data.codavuota == 'false')
+          htmlcodaaddestramenti += '<div class="coda-di-addestramento">'+data.addestramentiincoda+' truppe in addestramento</div>';
         $('#coda-addestramenti').html(htmlcodaaddestramenti);
       });
             

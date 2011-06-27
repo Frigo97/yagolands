@@ -35,38 +35,20 @@ class Json extends Controller {
 
   /**
    * Questo JSON restituisce la coda delle truppe in costruzione
+   * 
+   * @todo mostrare orario prossima truppa
+   * @todo mostrare fine addestramento
+   * @todo mostrare, per ogni tipologia, la quantità di truppe che si stanno addestrando
    */
   public function actionEndcodatruppe () {
     $coda = new MCodadiaddestramento();
     $truppe = new MTruppe();
-    $arrayAddestramenti = array ( );
     $codavuota = true;
-    $numeroaddestramenti = 0;
-    foreach ( $coda->findAll ( array ( ), array (
-        'idutente' => UtenteWeb::status ()->user->id
-    ) ) as $item ) {
-      $hour = substr ( $item['fineaddestramento'], 11, 2 );
-      $minute = substr ( $item['fineaddestramento'], 14, 2 );
-      $second = substr ( $item['fineaddestramento'], 17, 2 );
-      $year = substr ( $item['fineaddestramento'], 0, 4 );
-      $month = substr ( $item['fineaddestramento'], 5, 2 );
-      $day = substr ( $item['fineaddestramento'], 8, 2 );
-      $codavuota = false;
-      if ( $item['idutente'] == UtenteWeb::status ()->user->id ) {
-        $numeroaddestramenti ++;
-        $arrayAddestramenti[] = array (
-            'truppa' => $truppe->getNome ( $item['idtruppa'] ), // @todo implementare getNome
-            'anno' => $year,
-            'mese' => $month,
-            'giorno' => $day,
-            'ore' => $hour,
-            'minuti' => $minute,
-            'secondi' => $second,
-            'secondtstoleft' => mktime ( $hour, $minute, $second, $month, $day, $year ) - mktime (),
-        );
-      }
-    }
-    if ( $codavuota == true )
+    $arrayAddestramenti = array();
+    $numeroaddestramenti = $coda->countwhere ( array (
+                'idutente' => UtenteWeb::status ()->user->id
+            ) );
+    if ( $codavuota == true && $numeroaddestramenti == 0 )
       JSONMessages::message ( array (
           'codavuota' => 'true'
       ) );
