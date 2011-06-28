@@ -17,7 +17,7 @@ body {
 }
 
 #side-left {
-  top: 160px;
+  top: 0px;
   left: 0px;
   margin: 8px; 
   width: 200px; 
@@ -38,7 +38,7 @@ body {
 }
 
 #side-right {
-  top: 160px;
+  top: 0px;
   right: 0px;
   margin: 8px;
   width: 200px; 
@@ -56,6 +56,10 @@ a.yagolink, a {
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
+}
+
+a.yagolink:hover, a:hover {
+  cursor: pointer;
 }
 
 #fascia-header {

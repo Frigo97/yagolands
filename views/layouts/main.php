@@ -15,24 +15,6 @@
 
   </head>
   <body>
-    <div id="side-left" class="testoverde arial size12px">
-      <?php if ( UtenteWeb::status ()->isAutenticato () ): ?>
-        <h2>La tua posizione</h2>
-        <div id="posizione"></div>
-        <div id="costruzionipresenti"></div>
-        <h2>Le tue risorse</h2>
-        <div class="ferro">ferro: <span id="ferro"></span></div>
-        <div class="grano">grano: <span id="grano"></span></div>
-        <div class="legno">legno: <span id="legno"></span></div>
-        <div class="roccia">roccia: <span id="roccia"></span></div>
-        <h2>Le tue truppe</h2>
-        <div id="mytroops"></div>
-        <h2>I tuoi difici</h2>
-        <div id="mybuildings"></div>
-        <h2>La tua produzione</h2>
-        <div id="myfields"></div>
-      <?php endif; ?>
-    </div>
     <div id="porta-header">
       <div id="fascia-header">
         <img src="images/loghi/yagolands.png" />
@@ -55,19 +37,37 @@
     </div>
     <div id="contenitore">
       <?php echo $content; ?>
-    </div>
-    <div id="side-right" class="testoverde arial size12px">
-      <?php if ( UtenteWeb::status ()->isAutenticato () ): ?>
-        <?php if ( @UtenteWeb::status ()->user->createplace ): ?>
-          <div id="createplace"></div>
+      <div id="side-left" class="testoverde arial size12px">
+        <?php if ( UtenteWeb::status ()->isAutenticato () ): ?>
+          <h2>La tua posizione</h2>
+          <div id="posizione"></div>
+          <div id="costruzionipresenti"></div>
+          <h2>Le tue risorse</h2>
+          <div class="ferro">ferro: <span id="ferro"></span></div>
+          <div class="grano">grano: <span id="grano"></span></div>
+          <div class="legno">legno: <span id="legno"></span></div>
+          <div class="roccia">roccia: <span id="roccia"></span></div>
+          <h2>Le tue truppe</h2>
+          <div id="mytroops"></div>
+          <h2>I tuoi difici</h2>
+          <div id="mybuildings"></div>
+          <h2>La tua produzione</h2>
+          <div id="myfields"></div>
         <?php endif; ?>
-        <h2>Cosa puoi costruire</h2>
-        <div id="buildable"></div>
-        <h2>Cosa stai costruendo</h2>
-        <div id="coda-lavori"></div>
-        <h2>Cosa stai addestrando</h2>
-        <div id="coda-addestramenti"></div>
-      <?php endif; ?>
+      </div>
+      <div id="side-right" class="testoverde arial size12px">
+        <?php if ( UtenteWeb::status ()->isAutenticato () ): ?>
+          <?php if ( @UtenteWeb::status ()->user->createplace ): ?>
+            <div id="createplace"></div>
+          <?php endif; ?>
+          <h2>Cosa puoi costruire</h2>
+          <div id="buildable"></div>
+          <h2>Cosa stai costruendo</h2>
+          <div id="coda-lavori"></div>
+          <h2>Cosa stai addestrando</h2>
+          <div id="coda-addestramenti"></div>
+        <?php endif; ?>
+      </div>
     </div>
   </body>
 </html>
