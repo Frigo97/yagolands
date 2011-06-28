@@ -24,10 +24,10 @@ body {
   position: absolute;
 }
 
-.side-left div.username:hover {
+.nickname:hover {
   color: darkgoldenrod;
   border-left: #ccc 3px solid;
-
+  cursor: pointer;
 }
 
 .side-left div.username {

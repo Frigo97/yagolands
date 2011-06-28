@@ -14,7 +14,7 @@
       <?php foreach ( $this->modelutenti as $item ): ?>
         <div class="username">
           <input type="hidden" class="index" value="<?php echo $item['id']; ?>" />
-          <span><?php echo $item['username']; ?></span>
+          <span class="nickname"><?php echo $item['username']; ?></span>
         </div>
       <?php endforeach; ?>
     </div>
