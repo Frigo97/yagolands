@@ -50,7 +50,7 @@ body {
   margin: 2px;
 }
 
-a.yagolink {
+a.yagolink, a {
   font-family: Arial;
   color: #B49D8E;
   font-size: 14px;
