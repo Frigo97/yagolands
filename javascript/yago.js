@@ -10,8 +10,8 @@ $(document).ready(function(){
 
 (Yago = new function(){
   
-  var dimensioneCella = 10*4;
-  var numerodigiri = 5;
+  var dimensioneCella = 9*4;
+  var numerodigiri = 6;
     
   return {
     defineOnResize: function () {

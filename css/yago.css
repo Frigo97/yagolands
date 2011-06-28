@@ -5,9 +5,8 @@ body {
 
 #contenitore {
   position: relative;
-  margin-top: 20px;
-  margin-left: 210px;
-  margin-right: 210px;
+  width: 900px;
+  margin: auto;
 }
 
 #coda-lavori {
