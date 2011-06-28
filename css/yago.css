@@ -50,8 +50,12 @@ body {
   margin: 2px;
 }
 
-a {
-  color: darkorange;
+a.yagolink {
+  font-family: Arial;
+  color: #B49D8E;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 #fascia-header {
@@ -136,6 +140,17 @@ table.tabella td.tfoot {
 
 .autofill {
   color: darkorange;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: Arial;
+  font-size: 150%;
+}
+
+label.form-login {
   font-weight: bold;
   font-family: Arial;
   font-size: 14px;

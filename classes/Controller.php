@@ -93,7 +93,7 @@ class Controller extends Yagolands {
      * @return string 
      */
     public function link ( $params = array ( ) ) {
-        return '<a href="index.php?page=' . ($params['page']) . '">' . ($params['label']) . '</a>';
+        return '<a class="yagolink" href="index.php?page=' . ($params['page']) . '">' . ($params['label']) . '</a>';
 
     }
 
