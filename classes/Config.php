@@ -42,7 +42,7 @@ class Config extends Yagolands {
    *
    * @var int
    */
-  public static $risorseIniziali = 100;
+  public static $risorseIniziali = 400;
   /**
    *
    * @var float

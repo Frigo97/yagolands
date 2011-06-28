@@ -119,12 +119,11 @@ class Site extends Controller {
     $proprieta->truncate ();
     $esercito->truncate();
     
-    $risorseiniziali = Config::$risorseIniziali;
     $utenti->update ( array (
-        'ferro' => $risorseiniziali,
-        'grano' => $risorseiniziali,
-        'legno' => $risorseiniziali,
-        'roccia' => $risorseiniziali,
+        'ferro' => Config::$risorseIniziali,
+        'grano' => Config::$risorseIniziali,
+        'legno' => Config::$risorseIniziali,
+        'roccia' => Config::$risorseIniziali,
     ) );
 
     /**
