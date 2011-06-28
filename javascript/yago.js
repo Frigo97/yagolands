@@ -14,12 +14,16 @@ $(document).ready(function(){
   var numerodigiri = 6;
     
   return {
+    
     defineOnResize: function () {
       $(window).resize(function(){
         Yago.redraw();
         Yago.loadjson();
       });
     },
+    
+    canTouchCells: true,
+    pollingTimeout: 1000,
         
     redraw: function(){
       $.getJSON('index.php?json=json/posizione', function(data) {
@@ -34,26 +38,17 @@ $(document).ready(function(){
        * @todo salvare tutta la mappa in un cookie o in uno storage e disegnarla lato client?
        */
             
-      $.ajax({
-        url: 'index.php?json=json/cells' ,
-        dataType: 'json',
-        cache:true,
-        ifModified:true,
-        complete:function(a,b){
-          console.log(a);
-          console.log(b);
-        },
-        success:function(data){
-          $('.alveare').each(function(){
-            $(this).attr('src','images/celle/cella.svg');
-          });
-          $.each(data, function(key, val) {
-            if(val.owner == 'you')
-              $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/'+val.cell+'.svg');
-            else
-              $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/others_'+val.cell+'.svg');
-          });
-        }
+      $.getJSON('index.php?json=json/cells', function(data){
+        $('.alveare').each(function(){
+          $(this).attr('src','images/celle/cella.svg');
+        });
+        $.each(data, function(key, val) {
+          if(val.owner == 'you')
+            $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/'+val.cell+'.svg');
+          else
+            $('#x_'+val.x+'_y_'+val.y).attr('src','images/celle/others_'+val.cell+'.svg');
+        });
+        Yago.canTouchCells = false;
       });
             
       $.getJSON('index.php?json=json/endcoda',function(data){
@@ -95,7 +90,7 @@ $(document).ready(function(){
       $.getJSON('index.php?json=json/buildable',function(data){
         $('#buildable').html('');
         for (i in data) {
-          $('#buildable').append('<div><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=construct/building\',data: {idedificio:'+i+'}}).success(function(){Yago.redraw();});">'+(data[i].nome)+' livello '+(data[i].livello)+'</a>');
+          $('#buildable').append('<div><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=construct/building\',data: {idedificio:'+i+'}}).success(function(){Yago.canTouchCells=true;Yago.redraw();});">'+(data[i].nome)+' livello '+(data[i].livello)+'</a>');
         }
       });
             
@@ -142,111 +137,112 @@ $(document).ready(function(){
      */
     reloadjson: function() {
       Yago.redraw();
-      setTimeout('Yago.reloadjson();',10000);
+      setTimeout('Yago.reloadjson();',Yago.pollingTimeout);
     },
         
     /**
      * Questo metodo disegna la vista
      */
     draw: function (pos) {
- 
-      //            console.log('x: ' + pos.x);
-      //            console.log('y: ' + pos.y);
-      //            
-      $('#posizione').html('<strong>x:</strong>'+pos.x+', <strong>y:</strong>'+pos.y);
-      $.ajax({
-        type: 'POST',
-        url: 'index.php?json=utenti/salvaposizione',
-        data: pos
-      });
+      
+      if(Yago.canTouchCells) {
+      
+        $('#posizione').html('<strong>x:</strong>'+pos.x+', <strong>y:</strong>'+pos.y);
+        $.ajax({
+          type: 'POST',
+          url: 'index.php?json=utenti/salvaposizione',
+          data: pos
+        });
             
-      /**
+        /**
        * Ripulisco la parte di schermo che deve contenere l'alveare
        */
-      $('#vista').html('');
+        $('#vista').html('');
         
-      /**
+        /**
        * Ricalcolo tutte le dimensioni
        */
-      this.heightCell = dimensioneCella;
-      this.x = pos.x;
-      this.y = pos.y;
-      this.top = $('#vista').height() / 2 - dimensioneCella;
-      this.left = $('#vista').width() / 2 - this.heightCell;
-      //            this.inc = 0;
-      this.html = '';
-      this.addHtml = function () {
-        this.html += '<img src="images/celle/cella.svg" style="width:'+dimensioneCella+'px;height:'+this.heightCell+'px;position:absolute;top:'+(this.top)+'px;left:'+(this.left)+'px;" id="x_'+(this.x)+'_y_'+(this.y)+'" onclick="Yago.draw({x:'+(this.x)+',y:'+(this.y)+'});" class="alveare" />';
-      }
-      this.moveLeft = function () {
-        this.x--;
-        this.left-=dimensioneCella;
-        this.addHtml();
-      }
-      this.moveRight = function () {
-        this.x++;
-        this.left+=dimensioneCella;
-        this.addHtml();
-      }
-      this.moveRightUp = function () {
-        this.top-=this.heightCell/4*3;
-        this.left+=dimensioneCella/2;
-        this.y++
-        if(this.y%2==1 || this.y%2==-1) {
+        this.heightCell = dimensioneCella;
+        this.x = pos.x;
+        this.y = pos.y;
+        this.top = $('#vista').height() / 2 - dimensioneCella;
+        this.left = $('#vista').width() / 2 - this.heightCell;
+        //            this.inc = 0;
+        this.html = '';
+        this.addHtml = function () {
+          this.html += '<img src="images/celle/cella.svg" style="width:'+dimensioneCella+'px;height:'+this.heightCell+'px;position:absolute;top:'+(this.top)+'px;left:'+(this.left)+'px;" id="x_'+(this.x)+'_y_'+(this.y)+'" onclick="Yago.canTouchCells=true;Yago.draw({x:'+(this.x)+',y:'+(this.y)+'});" class="alveare" />';
+        }
+        this.moveLeft = function () {
+          this.x--;
+          this.left-=dimensioneCella;
+          this.addHtml();
+        }
+        this.moveRight = function () {
           this.x++;
+          this.left+=dimensioneCella;
+          this.addHtml();
         }
-        this.addHtml();
-      }
-      this.moveRightDown = function () {
-        this.top+=this.heightCell/4*3;
-        this.left+=dimensioneCella/2;
-        if(this.y--%2==0){
-          this.x++;
+        this.moveRightUp = function () {
+          this.top-=this.heightCell/4*3;
+          this.left+=dimensioneCella/2;
+          this.y++
+          if(this.y%2==1 || this.y%2==-1) {
+            this.x++;
+          }
+          this.addHtml();
         }
-        this.addHtml();
-      }
-      this.moveLeftDown = function () {
-        this.top+=this.heightCell/4*3;
-        this.left-=dimensioneCella/2;
-        this.y--;
-        if(this.y%2==0) {
-          this.x--;
+        this.moveRightDown = function () {
+          this.top+=this.heightCell/4*3;
+          this.left+=dimensioneCella/2;
+          if(this.y--%2==0){
+            this.x++;
+          }
+          this.addHtml();
         }
-        this.addHtml();
-      }
-      this.moveLeftUp = function () {
-        this.top-=this.heightCell/4*3;
-        this.left-=dimensioneCella/2;
-        this.y++;
-        if(this.y%2==0) {
-          this.x--;
+        this.moveLeftDown = function () {
+          this.top+=this.heightCell/4*3;
+          this.left-=dimensioneCella/2;
+          this.y--;
+          if(this.y%2==0) {
+            this.x--;
+          }
+          this.addHtml();
         }
-        this.addHtml();
-      }
-      this.posiziona = function () {
-        this.top-=this.heightCell/4*3;
-        this.left-=dimensioneCella/2;
-        this.y++;
-        if(this.y%2==0) {
-          this.x--;
+        this.moveLeftUp = function () {
+          this.top-=this.heightCell/4*3;
+          this.left-=dimensioneCella/2;
+          this.y++;
+          if(this.y%2==0) {
+            this.x--;
+          }
+          this.addHtml();
         }
-      }
-      this.init = function() {
-        this.addHtml();
-        for(i=0;i<numerodigiri;i++) {
-          this.posiziona();
-          for(j=i;j>=0;j--,this.moveRight());
-          for(j=i;j>=0;j--,this.moveRightDown());
-          for(j=i;j>=0;j--,this.moveLeftDown());
-          for(j=i;j>=0;j--,this.moveLeft());
-          for(j=i;j>=0;j--,this.moveLeftUp());
-          for(j=i;j>=0;j--,this.moveRightUp());
+        this.posiziona = function () {
+          this.top-=this.heightCell/4*3;
+          this.left-=dimensioneCella/2;
+          this.y++;
+          if(this.y%2==0) {
+            this.x--;
+          }
         }
-        $('#vista').append(this.html);
-      }
-      this.init();
+        this.init = function() {
+          this.addHtml();
+          for(i=0;i<numerodigiri;i++) {
+            this.posiziona();
+            for(j=i;j>=0;j--,this.moveRight());
+            for(j=i;j>=0;j--,this.moveRightDown());
+            for(j=i;j>=0;j--,this.moveLeftDown());
+            for(j=i;j>=0;j--,this.moveLeft());
+            for(j=i;j>=0;j--,this.moveLeftUp());
+            for(j=i;j>=0;j--,this.moveRightUp());
+          }
+          $('#vista').append(this.html);
+        }
+        this.init();
 
+        Yago.canTouchCells = false;
+      } // canTouchCells
       Yago.loadjson();
-    }
+    } // function 
   }
 });

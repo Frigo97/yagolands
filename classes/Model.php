@@ -25,10 +25,10 @@ class Model extends Yagolands {
       $this->dbh = @new PDO ( 'mysql:host=127.0.0.1;port=8889;dbname=yago2', 'root', 'root' );
     } catch ( PDOException $PDOException ) {
 
-      Log::save ( array ( 
-          'string' => $PDOException->getMessage () ,
+      Log::save ( array (
+          'string' => $PDOException->getMessage (),
           'livello' => 'errore'
-              ) );
+      ) );
       die ( 'Database fuori servizio.' );
     }
 
@@ -61,6 +61,22 @@ class Model extends Yagolands {
   }
 
   /**
+   *
+   * @return string restituisce il valore massimo di un campo
+   */
+  public function findMax ( $field ) {
+
+    $query = 'select max(' . ($field) . ') ' . ($field) . ' from ' . ($this->table);
+
+    if ( $this->test )
+      return $query;
+
+    foreach ( $this->dbh->query ( $query ) as $item )
+      return $item[$field];
+
+  }
+
+  /**
    * Increment a value
    *
    * @param string $valueName the name of the field tu update
@@ -86,8 +102,12 @@ class Model extends Yagolands {
   public function countwhere ( $where = array ( ) ) {
     $conditions = $this->renderWhere ( $where );
     $query = 'select count(*) num from ' . ($this->table) . ' where ' . ($conditions);
-    foreach ( $this->dbh->query ( $query ) as $item )
+    foreach ( $this->dbh->query ( $query ) as $item ) {
+      Log::save ( array ( 'string' => $query ) );
+      Log::save ( array ( 'string' => 'Ho trovato ' . ($item['num']) . ' record' ) );
       return $item['num'];
+    }
+    return 0;
 
   }
 

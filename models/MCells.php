@@ -29,7 +29,7 @@ class MCells extends Model {
      * @param int $idutente
      * @param string $username 
      */
-    function createIfNotExists ( Coordinata $coordinata, $idutente, $username ) {
+    public function createIfNotExists ( Coordinata $coordinata, $idutente, $username ) {
         if ( ! $this->cellExist ( $coordinata->getPosition () ) ) {
             $this->create ( array_merge (
                             $coordinata->getPosition (), array (

@@ -44,7 +44,7 @@ class Json extends Controller {
     $coda = new MCodadiaddestramento();
     $truppe = new MTruppe();
     $codavuota = true;
-    $arrayAddestramenti = array();
+    $arrayAddestramenti = array ( );
     $numeroaddestramenti = $coda->countwhere ( array (
                 'idutente' => UtenteWeb::status ()->user->id
             ) );
@@ -258,14 +258,12 @@ class Json extends Controller {
     $miecostruzioni = array ( );
     $livelli = array ( );
 
-    // Log::save ( array ( 'string' => 'Carico i miei edifici' ) );
     foreach ( $costruzione->find ( array ( ), array (
         'idutente' => UtenteWeb::status ()->user->id
     ) )as $item ) {
       $miecostruzioni[] = $item['idedificio'];
     }
 
-    // Log::save ( array ( 'string' => 'Carico tutti gli edifici' ) );
     foreach ( $edifici->findAll () as $key => $value ) {
 
       $risorse = array (
@@ -277,24 +275,13 @@ class Json extends Controller {
 
       if ( ! in_array ( $value['id'], $miecostruzioni ) ) {
 
-//                Log::save ( array ( 'string' => 'L\'edificio "' . ($value['nome']) . '" non è stato costruito.' ) );
-//                Log::save ( array ( 'string' => 'L\'edificio "' . ($value['nome']) . '" potrebbe avere delle dipendenze.' ) );
-
-
-
-
-
         $hadipendenze = false;
         $d = new MDipendenze;
         foreach ( $d->find ( array ( ), array ( 'iddipendente' => $value['id'], 'livellodipendente' => 1 ) ) as $dipendenza ) {
-//                    Log::save ( array ( 'string' => 'Non posso costruire l\'edificio "' . ($value['nome']) . '".' ) );
           if ( ! $costruzione->exists ( UtenteWeb::status ()->user->id, $dipendenza['iddipeso'], $dipendenza['livellodipeso'] ) )
             $hadipendenze = true;
         }
         if ( $hadipendenze == false ) {
-          // Log::save ( array ( 'string' => 'Posso costruire l\'edificio "' . ($value['nome']) . '".' ) );
-
-
           foreach ( $edifici->find ( array ( ), array ( 'id' => $value['id'] ) ) as $item ) {
             $risorseedificio = array (
                 'ferro' => $item['ferro'] * Config::moltiplicatoreRisorseEdificio ( 1 ),
@@ -398,7 +385,7 @@ class Json extends Controller {
       $celle->createIfNotExists ( $coordinata, UtenteWeb::status ()->user->id, UtenteWeb::status ()->user->username );
     }
 
-    $jsonCelle = array ( );
+    $jsonCelle = array ( 'lastupdate' => $celle->findMax ( 'datacreazione' ) );
     foreach ( $celle->findAll () as $key => $value )
       $jsonCelle[$value['id']] = array (
           'x' => $value['x'],
