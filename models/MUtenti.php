@@ -1,44 +1,50 @@
 <?php
 
 
+/**
+ * This is the user model
+ */
 class MUtenti extends Model {
 
-    private static $coordiante = null;
+  /**
+   * The constructor
+   */
+  public function __construct () {
+    parent::__construct ( 'utenti' );
 
-    public function __construct () {
-        parent::__construct ( 'utenti' );
+  }
 
+  /**
+   * This method return the name of a user by his id
+   *
+   * @param int $idutente
+   * @return string
+   */
+  public function getNome ( $idutente ) {
+    foreach ( $this->find ( array ( ), array ( 'id' => $idutente ) )as $itemUtente )
+      return $itemUtente['username'];
+
+  }
+
+  /**
+   * Questo metodo restituisce un array di due elementi che sono la posiuzione delle
+   * ascisse e delle ordinate dell'utente corrente.
+   *
+   * @return type 
+   */
+  public function getPosition () {
+    if ( UtenteWeb::status ()->user->id != null ) {
+      foreach ( $this->find ( array ( 'x', 'y' ), array ( 'id' => UtenteWeb::status ()->user->id ) ) as $item ) {
+        $return = array (
+            'x' => $item['x'],
+            'y' => $item['y']
+        );
+        return $return;
+      }
     }
+    Log::save ( array ( 'string' => 'Richiamato MUtenti::getPosition(); quando l\'utente non è loggato.', 'livello' => 'error' ) );
+    return array ( );
 
-    public function getPosition () {
-
-//        if ( MUtenti::$coordiante == null ) {
-            if ( UtenteWeb::status ()->user->id == null ) {
-                Log::save ( array (
-                    'string' => 'Richiamato MUtenti::getPosition(); quando l\'utente non è loggato.',
-                    'livello' => 'error'
-                    ) );
-                return array ( );
-            } else {
-               // Log::save ( array ( 'string' => 'Conosco l\'id dell\'utente' ) );
-                foreach ( $this->find ( array ( 'x', 'y' ), array ( 'id' => UtenteWeb::status ()->user->id ) ) as $item ) {
-                    $return = array (
-                        'x' => $item['x'],
-                        'y' => $item['y']
-                    );
-//                    Log::save ( array ( 'string' => "\r\n" . (var_export ( $return, true )) ) );
-//                    MUtenti::$coordiante = $return;
-                    return $return;
-                }
-            }
-//            Log::save ( array (
-//                'string' => 'ERRORE',
-//            ) );
-//        } else {
-//            Log::save ( array ( 'string' => 'Carico il valore statico' ) );
-//            return MUtenti::$coordiante;
-//        }
-
-    }
+  }
 
 }
