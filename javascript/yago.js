@@ -8,6 +8,14 @@ $(document).ready(function(){
 //    Yago.redraw();
 });
 
+(Yago.Trace = new function(message){
+  try {
+    console.log(message);
+  } catch (e) {
+    
+  }
+});
+
 (Yago = new function(){
   
   var dimensioneCella = 9*4;
@@ -39,7 +47,7 @@ $(document).ready(function(){
        */
             
       $.getJSON('index.php?json=json/cells', function(data){
-        console.log('index.php?json=json/cells');
+        Yago.Trace('index.php?json=json/cells');
         $('.alveare').each(function(){
           $(this).attr('src','images/celle/cella.svg');
         });
