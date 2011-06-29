@@ -17,14 +17,16 @@ class Model extends Yagolands {
    * @param boolean $test debug o production status 
    */
   public function __construct ( $table = '', $test = false ) {
-
     $this->test = $test;
     $this->table = $table;
-
     try {
-      $this->dbh = @new PDO ( 'mysql:host=127.0.0.1;port=8889;dbname=yago2', 'root', 'root' );
+      $configDb = Model::database ();
+      $PDOconn = 'mysql:';
+      $PDOconn .= 'host=' . ($configDb['host']) . ';';
+      $PDOconn .= 'port=' . ($configDb['port']) . ';';
+      $PDOconn .= 'dbname=' . ($configDb['dbname']) . ';';
+      $this->dbh = @new PDO ( $PDOconn, $configDb['user'], $configDb['password'] );
     } catch ( PDOException $PDOException ) {
-
       Log::save ( array (
           'string' => $PDOException->getMessage (),
           'livello' => 'errore'
@@ -49,12 +51,9 @@ class Model extends Yagolands {
    * @return string restituisce una query sql
    */
   public function count () {
-
     $query = 'select count(*) num from ' . ($this->table);
-
     if ( $this->test )
       return $query;
-
     foreach ( $this->dbh->query ( $query ) as $item )
       return $item['num'];
 
@@ -65,12 +64,9 @@ class Model extends Yagolands {
    * @return string restituisce il valore massimo di un campo
    */
   public function findMax ( $field ) {
-
     $query = 'select max(' . ($field) . ') ' . ($field) . ' from ' . ($this->table);
-
     if ( $this->test )
       return $query;
-
     foreach ( $this->dbh->query ( $query ) as $item )
       return $item[$field];
 
@@ -83,13 +79,8 @@ class Model extends Yagolands {
    * @param array $where array list of conditions
    */
   public function incvalue ( $valueName, $where = array ( ) ) {
-
     $conditions = $this->renderWhere ( $where );
-
     $query = 'update ' . ($this->table) . ' set ' . ($valueName) . ' = ' . ($valueName) . ' + 1 ' . ($conditions == '' ? '' : ' where ' . $conditions);
-
-    Log::save ( array ( 'string' => $query ) );
-
     $this->dbh->query ( $query );
 
   }
@@ -103,8 +94,6 @@ class Model extends Yagolands {
     $conditions = $this->renderWhere ( $where );
     $query = 'select count(*) num from ' . ($this->table) . ' where ' . ($conditions);
     foreach ( $this->dbh->query ( $query ) as $item ) {
-      Log::save ( array ( 'string' => $query ) );
-      Log::save ( array ( 'string' => 'Ho trovato ' . ($item['num']) . ' record' ) );
       return $item['num'];
     }
     return 0;
@@ -121,9 +110,7 @@ class Model extends Yagolands {
     $parametri = '';
     foreach ( $params as $item )
       $parametri .= $parametri == '' ? $item : ',' . $item;
-
     $conditions = $this->renderWhere ( $where );
-
     $query = 'select ' . ($parametri == '' ? '*' : $parametri) . ' from ' . ($this->table) . ($conditions == '' ? '' : ' where ' . $conditions);
     return $this->dbh->query ( $query );
 
@@ -135,8 +122,6 @@ class Model extends Yagolands {
    * @return type 
    */
   private function renderWhere ( $where = array ( ), $lowercase = false ) {
-
-
     $conditions = '';
     foreach ( $where as $chiave => $valore ) {
       $conditions .= $conditions == '' ?
@@ -162,15 +147,10 @@ class Model extends Yagolands {
     foreach ( $params as $item ) {
       $fields .= $fields == '' ? $item : ',' . $item;
     }
-
     $conditions = $this->renderWhere ( $where, $lowercase );
-
     $query = 'select ' . ($fields == '' ? '*' : $fields) . ' from ' . ($this->table) . ($conditions == '' ? '' : ' where ' . $conditions);
-
-
     if ( $this->test == true )
       return $query;
-
     return $this->dbh->query ( $query );
 
   }
@@ -180,14 +160,10 @@ class Model extends Yagolands {
     foreach ( $params as $item ) {
       $fields .= $fields == '' ? $item : ',' . $item;
     }
-
     $conditions = $this->renderWhere ( $where, true );
-
     $query = 'select ' . ($fields == '' ? '*' : $fields) . ' from ' . ($this->table) . ($conditions == '' ? '' : ' where ' . $conditions);
-
     if ( $this->test == true )
       return $query;
-
     return $this->dbh->query ( $query );
 
   }
@@ -217,7 +193,6 @@ class Model extends Yagolands {
     }
 
     $query = 'update ' . ($this->table) . ' set ' . ($campi) . ($condizioni != '' ? ' where ' . $condizioni : '');
-    //Log::save ( array ( 'string' => $query ) );
     return $this->dbh->exec ( $query );
 
   }
@@ -237,12 +212,8 @@ class Model extends Yagolands {
         $valori .= $valori == '' ? $valore : ', ' . ($valore);
     }
     $query = 'insert into ' . ($this->table) . ' (' . ($chiavi) . ') values (' . ($valori) . ')';
-
     if ( $debug )
       return $query;
-
-    //Log::save ( array ( 'string' => $query ) );
-
     $this->dbh->query ( $query );
 
   }
@@ -283,18 +254,13 @@ class Model extends Yagolands {
    * @return string 
    */
   public function findOrderBy ( $param = array ( ), $where = array ( ), $limit = null ) {
-
     $conditions = $this->renderWhere ( $where );
-
     $orderby = '';
     foreach ( $param as $key => $value )
       $orderby .= ( $orderby == '' ? '' : ',') . $key . ' ' . $value;
-
     $query = 'select * from ' . ($this->table) . ' ' . ($conditions == '' ? '' : 'where ' . $conditions . ' ') . (($orderby == '') ? '' : 'order by ') . ($orderby) . ($limit == null ? '' : ' limit ' . $limit);
-
     if ( $this->test == true )
       return $query;
-
     return $this->dbh->query ( $query );
 
   }

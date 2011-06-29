@@ -39,6 +39,7 @@ $(document).ready(function(){
        */
             
       $.getJSON('index.php?json=json/cells', function(data){
+        console.log('index.php?json=json/cells');
         $('.alveare').each(function(){
           $(this).attr('src','images/celle/cella.svg');
         });

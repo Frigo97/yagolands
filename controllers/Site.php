@@ -85,6 +85,8 @@ class Site extends Controller {
         'grano' => 1000,
         'legno' => 1000,
         'roccia' => 1000,
+            ), array (
+        'id' => UtenteWeb::status ()->user->id
     ) );
 
     $this->redirect ( 'site/vista' );
@@ -117,8 +119,8 @@ class Site extends Controller {
     $codadicostruzione->truncate ();
     $codadiaddestramento->truncate ();
     $proprieta->truncate ();
-    $esercito->truncate();
-    
+    $esercito->truncate ();
+
     $utenti->update ( array (
         'ferro' => Config::$risorseIniziali,
         'grano' => Config::$risorseIniziali,
