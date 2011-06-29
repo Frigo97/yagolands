@@ -14,6 +14,19 @@ $(document).ready(function(){
     
   return {
     
+    buildBuilding: function (i) {
+      $.ajax({
+        type: 'POST',
+        url: 'index.php?action=construct/building',
+        data: {
+          idedificio:i
+        }
+      }).success(function(){
+        Yago.canTouchCells=true;
+        Yago.redraw();
+      });
+    },
+    
     defineOnResize: function () {
       $(window).resize(function(){
         Yago.redraw();
@@ -89,7 +102,7 @@ $(document).ready(function(){
       $.getJSON('index.php?json=json/buildable',function(data){
         $('#buildable').html('');
         for (i in data) {
-          $('#buildable').append('<div><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=construct/building\',data: {idedificio:'+i+'}}).success(function(){Yago.canTouchCells=true;Yago.redraw();});">'+(data[i].nome)+' livello '+(data[i].livello)+'</a>');
+          $('#buildable').append('<div><a href="javascript:return false;" onclick="Yago.buildBuilding('+i+');">'+(data[i].nome)+' livello '+(data[i].livello)+'</a>');
         }
       });
             

@@ -35,6 +35,11 @@ class Model extends Yagolands {
     }
 
   }
+  
+  public function __destruct () {
+    unset ($this->dbh);
+
+  }
 
   /**
    *
