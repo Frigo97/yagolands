@@ -155,6 +155,13 @@ class Model extends Yagolands {
 
   }
 
+  /**
+   * Check strings in lower case mode.
+   *
+   * @param array $params
+   * @param array $where
+   * @return PDOStatement 
+   */
   public function findLowerCase ( $params = array ( ), $where = array ( ) ) {
     $fields = '';
     foreach ( $params as $item ) {

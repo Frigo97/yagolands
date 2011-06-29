@@ -5,15 +5,6 @@
 $(document).ready(function(){   
   Yago.defineOnResize();
   Yago.reloadjson();
-//    Yago.redraw();
-});
-
-(Yago.Trace = new function(message){
-  try {
-    console.log(message);
-  } catch (e) {
-    
-  }
 });
 
 (Yago = new function(){
@@ -47,7 +38,6 @@ $(document).ready(function(){
        */
             
       $.getJSON('index.php?json=json/cells', function(data){
-        Yago.Trace('index.php?json=json/cells');
         $('.alveare').each(function(){
           $(this).attr('src','images/celle/cella.svg');
         });
