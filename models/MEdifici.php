@@ -49,7 +49,7 @@ class MEdifici extends Model {
    * @return type 
    */
   public function getId ( $nome ) {
-    foreach ( $this->find ( array ( ), array ( 'nome' => $nome ), true ) as $item )
+    foreach ( $this->findLowerCase ( array ( ), array ( 'nome' => $nome ), true ) as $item )
       return $item['id'];
 
   }
