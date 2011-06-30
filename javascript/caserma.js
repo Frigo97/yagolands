@@ -22,7 +22,7 @@ $(document).ready(function(){
             "numeroTruppe" : numeroTruppe
           },
           success: function(data) {
-            alert("aggiorna sta pagina");
+            document.location.href = 'index.php?caserma=edifici/dettaglio';
           },
           dataType:  'json'
         });
