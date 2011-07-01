@@ -9,6 +9,12 @@ body {
   margin: auto;
 }
 
+#contenuto { 
+  position: relative;
+  width: 900px;
+  margin-left: 200px;
+}
+
 #coda-lavori {
   /*    margin-top: -40px;
       margin-left: 210px;

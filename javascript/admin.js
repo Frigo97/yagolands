@@ -13,7 +13,7 @@ $(document).ready(function(){
                     html += '<input type="checkbox" '+
                     ((data[i] == false) ? '' : 'checked="checked"') +
                     '/> - ' + i + '<br />';
-                $('#contenitore').html(html);
+                $('#contenuto').html(html);
             });
         });
     });
