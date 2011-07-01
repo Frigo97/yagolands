@@ -37,7 +37,7 @@ class Config extends Yagolands {
    *
    * @var int
    */
-  public static $passoPerAllocazioneNuoviTerreni = 6;
+  public static $passoPerAllocazioneNuoviTerreni = 7;
   /**
    *
    * @var int

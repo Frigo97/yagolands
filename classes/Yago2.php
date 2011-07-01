@@ -51,6 +51,9 @@ class Yago2 extends Controller {
      * Il controller caricherà i model giusti.
      * 
      */
+//    Log::save ( array (
+//        'string' => $this->controller . '::' . $this->action . '();'
+//    ) );
     $controller = ucfirst($this->controller);
     $action = 'action' . (ucfirst($this->action));
     $obj = new $controller();
@@ -144,6 +147,8 @@ class Yago2 extends Controller {
       $pdo->query('delete from codadicostruzione where id = ' . $lavorofinito['id']);
     };
 
+
+
     /**
      * Questo cronjob ha il compito di accrescere le risorse di un utente.
      */
@@ -163,19 +168,25 @@ class Yago2 extends Controller {
           }
           $unità = ($secondipassati - $resto) / $secondiperrisorsa;
           // Log::save ( array ( 'string' => 'Devo aggiungere ' . ($unità) . ' unità di ' . $nomeRisorsa . ' e rimarranno fuori ' . ($resto) . ' secondi.' ) );
-          $costruzioni = new MCostruzioni;
-          $edifici = new MEdifici;
-          $idEdificio = $edifici->getId('magazzino');
-          $livello = $costruzioni->getLivello($idEdificio);
-          $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
           $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
           $risorseUtente[$nomeRisorsa] += $unità;
-          if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
-            $risorseUtente[$nomeRisorsa] = $capienzaMassima;
           $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
           $costruzioni->update(array('mktimefinelavoro' => mktime() + $resto), array('id' => $itemCostruzione['id']));
         }
       }
+    }
+
+    $costruzioni = new MCostruzioni;
+    $edifici = new MEdifici;
+    $idEdificio = $edifici->getId('magazzino');
+    $livello = $costruzioni->getLivello($idEdificio);
+    $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
+    $risorseUtente = Config::getRisorseUtente();
+    foreach (Config::getArrayRisorse() as $itemRisorse) {
+      $nomeRisorsa = $itemRisorse;
+      if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
+        $risorseUtente[$nomeRisorsa] = $capienzaMassima;
+      $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
     }
 
     $obj = new Yago2();
