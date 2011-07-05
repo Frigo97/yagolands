@@ -81,7 +81,7 @@ class Mercato extends Controller {
     $nomeRisorsaCercata = $_POST['nomeRisorsaCercata'];
     $quantitaCercata = $_POST['quantitaCercata'];
 
-    foreach ( $utenti->findAll ( Config::getArrayRisorse (), $utenti->getPosition () ) as $itemUtente ) {
+    foreach ( $utenti->findAll ( Config::risorse(), $utenti->getPosition () ) as $itemUtente ) {
       $utenti->update ( array (
           $nomeRisorsaOfferta => $itemUtente [$nomeRisorsaOfferta] - $quantitaOfferta ), $utenti->getPosition ()
       );

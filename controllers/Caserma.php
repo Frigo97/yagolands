@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Questo è il controller della caserma, dove si addestrano tutte le truppe per
  * combattere nel mondo di yago.
@@ -8,11 +7,11 @@
 class Caserma extends Controller {
 
   /**
-   * Addestra le truppe
+   * Training troops
    * 
    * @todo controllare che l'utente abbia le risorse prima di iniziare effettivamente la produzione
    */
-  public function actionAddestra () {
+  public function actionAddestra() {
 
     $coda = new MCodadiaddestramento;
     $truppe = new MTruppe;
@@ -21,35 +20,40 @@ class Caserma extends Controller {
     $idTroops = $_POST['unita'];
     $quantita = $_POST['numeroTruppe'];
 
-    $risorseUtente = Config::getRisorseUtente ();
-    $risorsetruppa = $truppe->getResources ( $idTroops );
+    $risorseUtente = Config::getRisorseUtente();
+    $risorsetruppa = $truppe->getResources($idTroops);
 
     $nehai = true;
-    foreach ( Config::getArrayRisorse () as $item )
-      if ( $risorseUtente[$item] <= $quantita * $risorsetruppa[$item] )
+    foreach (Config::risorse() as $item)
+      if ($risorseUtente[$item] <= $quantita * $risorsetruppa[$item])
         $nehai = false;
 
-    if ( $nehai === true ) {
-      $fineaddestramento = mktime () + $truppe->getSommaRisorse ( $idTroops );
+    if ($nehai === true) {
+      $fineaddestramento = mktime() + $truppe->getSommaRisorse($idTroops);
 
-      for ( $i = 1; $i <= $quantita; $i ++  )
-        $coda->create ( array (
-            'idutente' => (int) UtenteWeb::status ()->user->id,
+      for ($i = 1; $i <= $quantita; $i++) {
+        $fineaddestramento = date('Y-m-d H:i:s', mktime() + $truppe->getSommaRisorse($idTroops) * $i);
+        // Log::save ( array ( 'string' => $fineaddestramento, 'livello' => 'caserma' ) );
+        $coda->create(array(
+            'idutente' => (int) UtenteWeb::status()->user->id,
             'idtruppa' => (int) $idTroops,
             'quantita' => 1,
-            'fineaddestramento' => date ( 'Y-m-d H:i:s', mktime () + $truppe->getSommaRisorse ( $idTroops ) * $i )
-        ) );
+            'fineaddestramento' => $fineaddestramento
+        ));
+      }
 
-      $utenti->update ( array (
+      $utenti->update(array(
           'ferro' => $risorseUtente['ferro'] - $quantita * ($risorsetruppa['ferro']),
           'grano' => $risorseUtente['grano'] - $quantita * ($risorsetruppa['grano']),
           'legno' => $risorseUtente['legno'] - $quantita * ($risorsetruppa['legno']),
           'roccia' => $risorseUtente['roccia'] - $quantita * ($risorsetruppa['roccia'])
-              ), array (
-          'id' => UtenteWeb::status ()->user->id
-      ) );
+              ), array(
+          'id' => UtenteWeb::status()->user->id
+      ));
     }
 
+    /* Becouse of is an ajax request: */
+    die();
   }
 
 }

@@ -182,7 +182,7 @@ class Yago2 extends Controller {
     $livello = $costruzioni->getLivello($idEdificio);
     $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
     $risorseUtente = Config::getRisorseUtente();
-    foreach (Config::getArrayRisorse() as $itemRisorse) {
+    foreach (Config::risorse() as $itemRisorse) {
       $nomeRisorsa = $itemRisorse;
       if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
         $risorseUtente[$nomeRisorsa] = $capienzaMassima;

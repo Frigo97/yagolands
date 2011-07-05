@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Questa è la classe di configurazione dove vengono memorizzate tutte quante
  * le variabili del sito. In alcuni casi si tratta di variabili semplici. Per
@@ -23,6 +22,7 @@ class Config extends Yagolands {
    * @var bool
    */
   public static $PRODUCTION = FALSE;
+
   /**
    * Ci sono casi in cui il sito deve andare offline (il sito rimane attivo ma
    * non è possibile giocare. Questo può accadere in quei casi ci sia bisogno
@@ -33,36 +33,43 @@ class Config extends Yagolands {
    * @var bool
    */
   public static $OFFLINE = TRUE;
+
   /**
    *
    * @var int
    */
   public static $passoPerAllocazioneNuoviTerreni = 7;
+
   /**
    *
    * @var int
    */
   public static $risorseIniziali = 400;
+
   /**
    *
    * @var float
    */
   public static $incrementoDiLivelloPerEdificio = 1.4;
+
   /**
    *
    * @var float
    */
   public static $incrementoDiSpazioPerEdificio = 1.4;
+
   /**
    *
    * @var float
    */
   public static $incrementoDiRisorsaPerEdificio = 1.5;
+
   /**
    *
    * @var float
    */
   public static $incrementoDiCapienzaPerMagazzino = 1.3;
+
   /**
    *
    * @var float
@@ -74,32 +81,30 @@ class Config extends Yagolands {
    * @param int $livelloEdificio
    * @return int 
    */
-  public static function moltiplicatoreRisorseEdificio ( $livelloEdificio = 1 ) {
+  public static function moltiplicatoreRisorseEdificio($livelloEdificio = 1) {
 
     $moltiplicatore = 1;
 
-    if ( $livelloEdificio == 1 )
+    if ($livelloEdificio == 1)
       return $moltiplicatore;
 
-    for (; $livelloEdificio > 1; $livelloEdificio --  )
+    for (; $livelloEdificio > 1; $livelloEdificio--)
       $moltiplicatore*=Config::$incrementoDiLivelloPerEdificio;
 
     return $moltiplicatore;
-
   }
 
-  public static function moltiplicatoreCapienzaEdificio ( $livelloEdificio = 0 ) {
+  public static function moltiplicatoreCapienzaEdificio($livelloEdificio = 0) {
 
     $moltiplicatore = 200;
-    
-    if ( $livelloEdificio == 0 )
+
+    if ($livelloEdificio == 0)
       return $moltiplicatore;
 
-    for (; $livelloEdificio > 1; $livelloEdificio --  )
+    for (; $livelloEdificio > 1; $livelloEdificio--)
       $moltiplicatore*=Config::$incrementoDiSpazioPerEdificio;
 
     return (int) $moltiplicatore;
-
   }
 
   /**
@@ -108,18 +113,17 @@ class Config extends Yagolands {
    * @param int $livelloEdificio
    * @return int 
    */
-  public static function risorseAllOra ( $livelloEdificio = 1 ) {
+  public static function risorseAllOra($livelloEdificio = 1) {
 
     $moltiplicatore = 10; /* La base è 5 unità ogni ora. */
 
-    if ( $livelloEdificio == 1 )
+    if ($livelloEdificio == 1)
       return $moltiplicatore;
 
-    for (; $livelloEdificio > 1; $livelloEdificio --  )
+    for (; $livelloEdificio > 1; $livelloEdificio--)
       $moltiplicatore*=Config::$incrementoDiRisorsaPerEdificio;
 
     return (int) $moltiplicatore;
-
   }
 
   /**
@@ -128,29 +132,18 @@ class Config extends Yagolands {
    * @param int $id
    * @return array
    */
-  public static function getRisorseUtente ( $id = null ) {
+  public static function getRisorseUtente($id = null) {
 
     $utenti = new MUtenti;
-    $idutente = $id ? $id : UtenteWeb::status ()->user->id;
+    $idutente = $id ? $id : UtenteWeb::status()->user->id;
 
-    foreach ( $utenti->find ( Config::getArrayRisorse (), array ( 'id' => $idutente ) ) as $item )
-      return array (
+    foreach ($utenti->find(Config::risorse(), array('id' => $idutente)) as $item)
+      return array(
           'ferro' => $item['ferro'],
           'grano' => $item['grano'],
           'legno' => $item['legno'],
           'roccia' => $item['roccia']
       );
-
-  }
-
-  /**
-   *
-   * @return array 
-   */
-  public static function getArrayRisorse () {
-
-    return array ( 'ferro', 'grano', 'legno', 'roccia' );
-
   }
 
 }

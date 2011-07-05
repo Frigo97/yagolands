@@ -9,8 +9,8 @@ $(document).ready(function(){
 
 (Yago = new function(){
   
-  var dimensioneCella = 9*4;
-  var numerodigiri = 6;
+  var dimensioneCella = 6*4;
+  var numerodigiri = 10;
     
   return {
     

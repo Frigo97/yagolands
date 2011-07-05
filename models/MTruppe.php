@@ -22,24 +22,22 @@ class MTruppe extends Model {
    * @param int $id
    * @return array
    */
-  public function getResources ( $idTroops = null ) {
+  public function getResources($idTroops = null) {
 
-    foreach ( $this->find ( Config::getArrayRisorse (), array ( 'id' => $idTroops ) ) as $item )
-      return array (
+    foreach ($this->find(Config::risorse(), array('id' => $idTroops)) as $item)
+      return array(
           'ferro' => $item['ferro'],
           'grano' => $item['grano'],
           'legno' => $item['legno'],
           'roccia' => $item['roccia']
       );
-
   }
 
   /**
    * Here we say at the constructor that this model work with "truppe" table
    */
-  public function __construct () {
-    parent::__construct ( 'truppe' );
-
+  public function __construct() {
+    parent::__construct('truppe');
   }
 
   /**
@@ -48,10 +46,9 @@ class MTruppe extends Model {
    * @param int $idtruppa the id of troop
    * @return string the name of the troop 
    */
-  public function getNome ( $idtruppa ) {
-    foreach ( $this->find ( array ( 'nome' ), array ( 'id' => $idtruppa ) ) as $itemTruppa )
+  public function getNome($idtruppa) {
+    foreach ($this->find(array('nome'), array('id' => $idtruppa)) as $itemTruppa)
       return $itemTruppa['nome'];
-
   }
 
   /**
@@ -60,11 +57,10 @@ class MTruppe extends Model {
    *
    * @param int $idtruppa 
    */
-  public function getSommaRisorse ( $idtruppa ) {
+  public function getSommaRisorse($idtruppa) {
 
-    foreach ( $this->find ( array ( ), array ( 'id' => $idtruppa ) ) as $item )
+    foreach ($this->find(array(), array('id' => $idtruppa)) as $item)
       return $item['ferro'] + $item['grano'] + $item['legno'] + $item['roccia'];
-
   }
 
 }

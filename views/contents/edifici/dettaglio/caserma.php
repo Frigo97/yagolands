@@ -45,7 +45,7 @@ $risorseUtente = Config::getRisorseUtente ();
      */
     $massimoRapporto = 0;
     $arrayRapporti = array ( );
-    foreach ( Config::getArrayRisorse () as $item ) {
+    foreach ( Config::risorse() as $item ) {
       $arrayRapporti[] .= ( (int) ( (int)$risorseUtente[$item] / (int) $itemTruppe[$item]));
     }
     echo min ( $arrayRapporti );

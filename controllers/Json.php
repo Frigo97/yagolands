@@ -238,7 +238,7 @@ class Json extends Controller {
             );
           }
 
-          foreach ( Config::getArrayRisorse () as $risorsa )
+          foreach ( Config::risorse() as $risorsa )
             if ( $mierisorse[$risorsa] < ($risorseedificio[$risorsa]) )
               JSONMessages::message ();
 
@@ -292,7 +292,7 @@ class Json extends Controller {
           }
 
           $haabbastanzarisorse = true;
-          foreach ( Config::getArrayRisorse () as $nomeRisorsa ) {
+          foreach ( Config::risorse() as $nomeRisorsa ) {
             if ( $haabbastanzarisorse == true )
               if ( $mierisorse[$nomeRisorsa] < $risorseedificio[$nomeRisorsa] ) {
                 $haabbastanzarisorse = false;
