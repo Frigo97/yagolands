@@ -9,6 +9,10 @@
 <?php else: ?>
 
   <div id="contenitore">
+    <div style="margin-left: 200px; margin-top: 10px; position: absolute;">
+      <h1>Attenzione!</h1>
+      yagolands è ancora in beta test. Per provarlo puoi trovare le istruzioni <a href="https://github.com/sensorario/yagolands/wiki/Try-yago" target="_blank">qui</a>. Se preferisci puoi provare l'accounte di test <strong>semola</strong> ed inseire come password <strong>password</strong>.
+    </div>
     <div id="side-left">
       <h1>Login</h1>
       <form name="crea_utenti" action="index.php?load=site/login" method="post">
@@ -18,10 +22,6 @@
         <input type="password" name="password" id="password" /><br />
         <button>crea</button>
       </form>
-    </div>
-    <div id="side-right">
-      <h1>Attenzione!</h1>
-      yagolands è ancora in beta test. Per provarlo puoi trovare le istruzioni <a href="https://github.com/sensorario/yagolands/wiki/Try-yago" target="_blank">qui</a>. Se preferisci puoi provare l'accounte di test <strong>semola</strong> ed inseire come password <strong>password</strong>.
     </div>
   </div>
 
