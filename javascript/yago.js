@@ -35,7 +35,7 @@ $(document).ready(function(){
     },
     
     canTouchCells: true,
-    pollingTimeout: 1000,
+    pollingTimeout: 5000,
         
     redraw: function(){
       $.getJSON('index.php?json=json/posizione', function(data) {
