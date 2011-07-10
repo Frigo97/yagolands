@@ -51,9 +51,6 @@ class Yago2 extends Controller {
      * Il controller caricherà i model giusti.
      * 
      */
-//    Log::save ( array (
-//        'string' => $this->controller . '::' . $this->action . '();'
-//    ) );
     $controller = ucfirst($this->controller);
     $action = 'action' . (ucfirst($this->action));
     $obj = new $controller();
@@ -113,80 +110,84 @@ class Yago2 extends Controller {
      */
     $date_default_timezone_set = date_default_timezone_set('Europe/Rome');
 
-    $pdo = new Model;
-    $utenti = new MUtenti;
-    $costruzioni = new MCostruzioni;
-    $edifici = new MEdifici;
-    $esercito = new MEsercito;
+    if (UtenteWeb::status()->isAutenticato()) {
 
-    /**
-     * Questo cronjob ha il compito di controllare le code di costruzione.
-     */
-    foreach ($pdo->query('select * from codadiaddestramento where fineaddestramento <= \'' . (date('Y-m-d H:i:s')) . '\'') as $addestramentoFinito) {
-      $esercito->addOne($addestramentoFinito['idtruppa'], $addestramentoFinito['idutente']);
-      $pdo->query('delete from codadiaddestramento where id = ' . $addestramentoFinito['id']);
-    };
+      $pdo = new Model;
+      $utenti = new MUtenti;
+      $costruzioni = new MCostruzioni;
+      $edifici = new MEdifici;
+      $esercito = new MEsercito;
 
-    /**
-     * Questo cronjob ha il compito di controllare le code di costruzione.
-     */
-    foreach ($pdo->query('select * from codadicostruzione where finelavori <= \'' . (date('Y-m-d H:i:s')) . '\'') as $lavorofinito) {
-      $costruzione = new MCostruzioni;
-      $costruzione->update(array(
-          'datafinelavoro' => date('Y-m-d H:i:s'),
-          'mktimefinelavoro' => mktime(),
-          'idutente' => $lavorofinito['idutente'],
-          'idedificio' => $lavorofinito['idedificioincostruzione'],
-          'livello' => $lavorofinito['livelloincostruzione'],
-          'x' => $lavorofinito['x'],
-          'y' => $lavorofinito['y'],
-              ), array(
-          'x' => $lavorofinito['x'],
-          'y' => $lavorofinito['y'],
-      ));
-      $pdo->query('delete from codadicostruzione where id = ' . $lavorofinito['id']);
-    };
+      /**
+       * Questo cronjob ha il compito di controllare le code di costruzione.
+       */
+      foreach ($pdo->query('select * from codadiaddestramento where fineaddestramento <= \'' . (date('Y-m-d H:i:s')) . '\'') as $addestramentoFinito) {
+        $esercito->addOne($addestramentoFinito['idtruppa'], $addestramentoFinito['idutente']);
+        $pdo->query('delete from codadiaddestramento where id = ' . $addestramentoFinito['id']);
+      };
 
+      /**
+       * Questo cronjob ha il compito di controllare le code di costruzione.
+       */
+      foreach ($pdo->query('select * from codadicostruzione where finelavori <= \'' . (date('Y-m-d H:i:s')) . '\'') as $lavorofinito) {
+        $costruzione = new MCostruzioni;
+        $costruzione->update(array(
+            'datafinelavoro' => date('Y-m-d H:i:s'),
+            'mktimefinelavoro' => mktime(),
+            'idutente' => $lavorofinito['idutente'],
+            'idedificio' => $lavorofinito['idedificioincostruzione'],
+            'livello' => $lavorofinito['livelloincostruzione'],
+            'x' => $lavorofinito['x'],
+            'y' => $lavorofinito['y'],
+                ), array(
+            'x' => $lavorofinito['x'],
+            'y' => $lavorofinito['y'],
+        ));
+        $pdo->query('delete from codadicostruzione where id = ' . $lavorofinito['id']);
+      };
 
-
-    /**
-     * Questo cronjob ha il compito di accrescere le risorse di un utente.
-     */
-    foreach ($edifici->findAll(array('id', 'camporisorsa'), array('risorsa' => 1)) as $itemEdificio) {
-      foreach ($costruzioni->find(array('id', 'idutente', 'mktimefinelavoro', 'livello'), array('idedificio' => $itemEdificio['id'])) as $itemCostruzione) {
-        $secondipassati = mktime() - $itemCostruzione['mktimefinelavoro'];
-        $secondiperrisorsa = (int) (3600 / Config::risorseAllOra($itemCostruzione['livello']));
-        $nomeRisorsa = $itemEdificio['camporisorsa'];
-        $unitadaaggiungere = $secondipassati / $secondiperrisorsa;
-        $temporimanente = ($unitadaaggiungere) - ((int) ($unitadaaggiungere));
-        $minutiperrisorsa = (int) (60 / Config::risorseAllOra($itemCostruzione['livello']));
-        if ($secondipassati > $secondiperrisorsa) {
-          try {
-            $resto = @$secondipassati % @$secondiperrisorsa;
-          } catch (Exception $E) {
-            $resto = 0;
+      /**
+       * Questo cronjob ha il compito di accrescere le risorse di un utente.
+       */
+      foreach ($edifici->findAll(array('id', 'camporisorsa'), array('risorsa' => 1)) as $itemEdificio) {
+        foreach ($costruzioni->find(array('id', 'idutente', 'mktimefinelavoro', 'livello'), array('idedificio' => $itemEdificio['id'])) as $itemCostruzione) {
+          $secondipassati = mktime() - $itemCostruzione['mktimefinelavoro'];
+          $secondiperrisorsa = (int) (3600 / Config::risorseAllOra($itemCostruzione['livello']));
+          $nomeRisorsa = $itemEdificio['camporisorsa'];
+          $unitadaaggiungere = $secondipassati / $secondiperrisorsa;
+          $temporimanente = ($unitadaaggiungere) - ((int) ($unitadaaggiungere));
+          $minutiperrisorsa = (int) (60 / Config::risorseAllOra($itemCostruzione['livello']));
+          if ($secondipassati > $secondiperrisorsa) {
+            try {
+              $resto = @$secondipassati % @$secondiperrisorsa;
+            } catch (Exception $E) {
+              $resto = 0;
+            }
+            $unità = ($secondipassati - $resto) / $secondiperrisorsa;
+            // Log::save ( array ( 'string' => 'Devo aggiungere ' . ($unità) . ' unità di ' . $nomeRisorsa . ' e rimarranno fuori ' . ($resto) . ' secondi.' ) );
+            $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
+            $risorseUtente[$nomeRisorsa] += $unità;
+            $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
+            $costruzioni->update(array('mktimefinelavoro' => mktime() + $resto), array('id' => $itemCostruzione['id']));
           }
-          $unità = ($secondipassati - $resto) / $secondiperrisorsa;
-          // Log::save ( array ( 'string' => 'Devo aggiungere ' . ($unità) . ' unità di ' . $nomeRisorsa . ' e rimarranno fuori ' . ($resto) . ' secondi.' ) );
-          $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
-          $risorseUtente[$nomeRisorsa] += $unità;
-          $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
-          $costruzioni->update(array('mktimefinelavoro' => mktime() + $resto), array('id' => $itemCostruzione['id']));
         }
       }
-    }
 
-    $costruzioni = new MCostruzioni;
-    $edifici = new MEdifici;
-    $idEdificio = $edifici->getId('magazzino');
-    $livello = $costruzioni->getLivello($idEdificio);
-    $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
-    $risorseUtente = Config::getRisorseUtente();
-    foreach (Config::risorse() as $itemRisorse) {
-      $nomeRisorsa = $itemRisorse;
-      if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
-        $risorseUtente[$nomeRisorsa] = $capienzaMassima;
-      $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
+      /**
+       * Questo cronjob limita le risorse nel magazzino
+       */
+      $costruzioni = new MCostruzioni;
+      $edifici = new MEdifici;
+      $idEdificio = $edifici->getId('magazzino');
+      $livello = $costruzioni->getLivello($idEdificio);
+      $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
+      $risorseUtente = Config::getRisorseUtente();
+      foreach (Config::risorse() as $itemRisorse) {
+        $nomeRisorsa = $itemRisorse;
+        if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
+          $risorseUtente[$nomeRisorsa] = $capienzaMassima;
+        $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
+      }
     }
 
     $obj = new Yago2();
