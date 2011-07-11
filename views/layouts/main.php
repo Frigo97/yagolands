@@ -49,7 +49,7 @@
           <div class="roccia">roccia: <span id="roccia"></span></div>
           <h2>Le tue truppe</h2>
           <div id="mytroops"></div>
-          <h2>I tuoi difici</h2>
+          <h2>I tuoi Edifici</h2>
           <div id="mybuildings"></div>
           <h2>La tua produzione</h2>
           <div id="myfields"></div>
