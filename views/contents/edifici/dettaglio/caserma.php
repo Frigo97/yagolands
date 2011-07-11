@@ -69,7 +69,7 @@ $costruzioni = new MCostruzioni;
 $utenti = new MUtenti;
 foreach ($costruzioni->find(array(), array('idedificio' => 1)) as $caserme) {
   if ($caserme['idutente'] != UtenteWeb::status()->id) {
-    echo 'Attacca il villaggio di ' . $utenti->getNome($caserme['idutente']) . '<br />';
+    echo '<a href="index.php?'.$caserme['idutente'].'=attacca/utente">Attacca il villaggio di ' . $utenti->getNome($caserme['idutente']) . '</a><br />';
   }
 }
 ?>

@@ -1,18 +1,16 @@
 <?php
 
-
 /**
  * Questo è il model degli edifici
  */
 class MEdifici extends Model {
-  
+
   /**
    * Richiamo il costruttore di Model passando il nome della tabella che deve
    * essere associata a questo model
    */
-  public function __construct () {
-    parent::__construct ( 'edifici' );
-
+  public function __construct() {
+    parent::__construct('edifici');
   }
 
   /**
@@ -21,11 +19,10 @@ class MEdifici extends Model {
    * @param int $id
    * @return bool 
    */
-  public function isBuilding ( $id ) {
-    foreach ( $this->find ( array ( ), array ( 'id' => $id, 'edificio' => 1 ) ) as $item )
+  public function isBuilding($id) {
+    foreach ($this->find(array(), array('id' => $id, 'edificio' => 1)) as $item)
       return true;
     return false;
-
   }
 
   /**
@@ -36,10 +33,9 @@ class MEdifici extends Model {
    * @param int $id
    * @return string 
    */
-  public function getNome ( $id ) {
-    foreach ( $this->find ( array ( ), array ( 'id' => $id ) ) as $item )
+  public function getNome($id) {
+    foreach ($this->find(array(), array('id' => $id)) as $item)
       return $item['nome'];
-
   }
 
   /**
@@ -48,10 +44,9 @@ class MEdifici extends Model {
    * @param type $nome
    * @return type 
    */
-  public function getId ( $nome ) {
-    foreach ( $this->findLowerCase ( array ( ), array ( 'nome' => $nome ), true ) as $item )
+  public function getId($nome) {
+    foreach ($this->findLowerCase(array(), array('nome' => $nome), true) as $item)
       return $item['id'];
-
   }
 
   /**
@@ -63,11 +58,10 @@ class MEdifici extends Model {
    * @param int $id
    * @return string 
    */
-  public function getNomePerContest ( $id ) {
-    $nome = $this->getNome ( $id );
-    $nome = strtolower ( $nome );
-    return str_replace ( " ", "", $nome );
-
+  public function getNomePerContest($id) {
+    $nome = $this->getNome($id);
+    $nome = strtolower($nome);
+    return str_replace(" ", "", $nome);
   }
 
   /**
@@ -77,16 +71,15 @@ class MEdifici extends Model {
    * @param type $id
    * @return type 
    */
-  public function getRisorseComeArray ( $id ) {
+  public function getRisorseComeArray($id) {
 
-    foreach ( $this->find ( array ( ), array ( 'id' => $id ) ) as $item )
-      return array (
+    foreach ($this->find(array(), array('id' => $id)) as $item)
+      return array(
           'ferro' => $item['ferro'],
           'grano' => $item['grano'],
           'legno' => $item['legno'],
           'roccia' => $item['roccia']
       );
-
   }
 
   /**
@@ -96,11 +89,10 @@ class MEdifici extends Model {
    * @param int $id
    * @return int
    */
-  public function getSommaRisorse ( $id ) {
+  public function getSommaRisorse($id) {
 
-    foreach ( $this->find ( array ( ), array ( 'id' => $id ) ) as $item )
+    foreach ($this->find(array(), array('id' => $id)) as $item)
       return $item['ferro'] + $item['grano'] + $item['legno'] + $item['roccia'];
-
   }
 
 }
