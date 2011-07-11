@@ -10,8 +10,8 @@ $truppe = new MTruppe;
 $edifici = new MEdifici;
 $costruzioni = new MCostruzioni;
 
-$this->modelTruppe = $truppe->findAll ();
-$risorseUtente = Config::getRisorseUtente ();
+$this->modelTruppe = $truppe->findAll();
+$risorseUtente = Config::getRisorseUtente();
 ?>
 
 
@@ -26,13 +26,13 @@ $risorseUtente = Config::getRisorseUtente ();
     <th>quantita</th>
     <th>azione</th>
   </tr>
-  <?php foreach ( $this->modelTruppe as $itemTruppe ) : ?>
+  <?php foreach ($this->modelTruppe as $itemTruppe) : ?>
     <?php
-    $idutente = UtenteWeb::status ()->user->id;
+    $idutente = UtenteWeb::status()->user->id;
     $idedificio = $itemTruppe['idedificiodipendente'];
     $livello = $itemTruppe['livelloedificiodipendente'];
     ?>
-    <?php if ( $costruzioni->exists ( $idutente, $idedificio, $livello ) ) : ?>
+    <?php if ($costruzioni->exists($idutente, $idedificio, $livello)) : ?>
       <tr>
         <td><?php echo $itemTruppe['nome']; ?></td>
         <td><?php echo $itemTruppe['ferro']; ?></td>
@@ -44,17 +44,32 @@ $risorseUtente = Config::getRisorseUtente ();
      * Tirarlo fuori da qui e creare una funzione ad oc
      */
     $massimoRapporto = 0;
-    $arrayRapporti = array ( );
-    foreach ( Config::risorse() as $item ) {
-      $arrayRapporti[] .= ( (int) ( (int)$risorseUtente[$item] / (int) $itemTruppe[$item]));
+    $arrayRapporti = array();
+    foreach (Config::risorse() as $item) {
+      $arrayRapporti[] .= ( (int) ( (int) $risorseUtente[$item] / (int) $itemTruppe[$item]));
     }
-    echo min ( $arrayRapporti );
+    echo min($arrayRapporti);
       ?></div></td>
         <td><input type="text" class="texttruppe" id="txt_id_<?php echo $itemTruppe['id']; ?>" /></td>
         <td>
           <button class="btn_trains" id="id_<?php echo $itemTruppe['id']; ?>">addestra</button>
         </td>
       </tr>
-  <?php endif; ?>
+    <?php endif; ?>
   <?php endforeach; ?>
 </table>
+
+
+<hr />
+
+<div class="paragrafo-edificio">Puoi anche lanciare attacchi agli edifici dei nemici.</div>
+
+<?php
+$costruzioni = new MCostruzioni;
+$utenti = new MUtenti;
+foreach ($costruzioni->find(array(), array('idedificio' => 1)) as $caserme) {
+  if ($caserme['idutente'] != UtenteWeb::status()->id) {
+    echo 'Attacca il villaggio di ' . $utenti->getNome($caserme['idutente']) . '<br />';
+  }
+}
+?>

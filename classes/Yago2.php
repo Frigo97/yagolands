@@ -164,7 +164,6 @@ class Yago2 extends Controller {
               $resto = 0;
             }
             $unità = ($secondipassati - $resto) / $secondiperrisorsa;
-            // Log::save ( array ( 'string' => 'Devo aggiungere ' . ($unità) . ' unità di ' . $nomeRisorsa . ' e rimarranno fuori ' . ($resto) . ' secondi.' ) );
             $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
             $risorseUtente[$nomeRisorsa] += $unità;
             $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
