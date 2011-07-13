@@ -178,12 +178,13 @@ class Yago2 extends Controller {
        */
       $costruzioni = new MCostruzioni;
       $edifici = new MEdifici;
-      foreach(array('magazzino', 'granaio') as $itemContenitore) {
+      foreach (array('magazzino', 'granaio') as $itemContenitore) {
         $idEdificio = $edifici->getId($itemContenitore);
         $livello = $costruzioni->getLivello($idEdificio);
         $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
         $risorseUtente = Config::getRisorseUtente();
-        foreach (Config::risorse() as $itemRisorse) {
+        $arrayRisorse = $itemContenitore == 'magazzino' ? array('ferro', 'legno', 'roccia') : array('grano');
+        foreach ($arrayRisorse as $itemRisorse) {
           $nomeRisorsa = $itemRisorse;
           if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
             $risorseUtente[$nomeRisorsa] = $capienzaMassima;
