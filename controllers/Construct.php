@@ -24,6 +24,10 @@ class Construct extends Controller {
 
     if ($costruzioni->countwhere($utenti->getPosition()) == 0) {
 
+      // Se voglio fare il livello 0 ma l'edificio ce l'ho già, mi fermo
+      if ($utenti->hasBuilding($_POST['idedificio']))
+        die(json_encode(array()));
+
       /**
        * @todo togliere il mktime o la data. In ogni caso, uniformare
        */
