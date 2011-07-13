@@ -172,20 +172,23 @@ class Yago2 extends Controller {
         }
       }
 
+
       /**
-       * Questo cronjob limita le risorse nel magazzino
+       * Questo cronjob limita le risorse nel magazzino e del granaio
        */
       $costruzioni = new MCostruzioni;
       $edifici = new MEdifici;
-      $idEdificio = $edifici->getId('magazzino');
-      $livello = $costruzioni->getLivello($idEdificio);
-      $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
-      $risorseUtente = Config::getRisorseUtente();
-      foreach (Config::risorse() as $itemRisorse) {
-        $nomeRisorsa = $itemRisorse;
-        if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
-          $risorseUtente[$nomeRisorsa] = $capienzaMassima;
-        $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
+      foreach(array('magazzino', 'granaio') as $itemContenitore) {
+        $idEdificio = $edifici->getId($itemContenitore);
+        $livello = $costruzioni->getLivello($idEdificio);
+        $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
+        $risorseUtente = Config::getRisorseUtente();
+        foreach (Config::risorse() as $itemRisorse) {
+          $nomeRisorsa = $itemRisorse;
+          if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
+            $risorseUtente[$nomeRisorsa] = $capienzaMassima;
+          $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
+        }
       }
     }
 
