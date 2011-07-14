@@ -12,6 +12,7 @@ function __autoload ( $class ) {
 
 }
 
+include_once 'classes/Error.php';
 include_once 'controllers/Site.php';
 include_once 'controllers/Caserma.php';
 include_once 'controllers/Cells.php';
