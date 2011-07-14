@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Questo è il controller Site. Qui sono raccolte tutte le azioni che
  * riguardano il sito web. In questo caso Yago.
@@ -21,27 +20,26 @@ class Site extends Controller {
    * 
    * @param Controller $obj 
    */
-  public function actionPermissions ( Controller $obj ) {
+  public function actionPermissions(Controller $obj) {
 
-    $json = array ( );
+    $json = array();
 
     $task = new MTask;
     $permessi = new MPermessi;
     $ruoli = new MRuoli;
     $gruppi = new MGruppi;
 
-    $arrayTasks = array ( );
+    $arrayTasks = array();
 
-    foreach ( $task->findAll () as $nometask )
+    foreach ($task->findAll() as $nometask)
       $arrayTasks[$nometask['nome']] = false;
 
-    foreach ( $gruppi->find ( array ( 'idruolo' ), array ( 'idutente' => $obj->contest ) )as $itemruolo )
-      foreach ( $permessi->find ( array ( 'idtask' ), array ( 'idruolo' => $itemruolo['idruolo'] ) )as $itemtask )
-        foreach ( $task->find ( array ( 'nome' ), array ( 'id' => $itemtask['idtask'] ) )as $nometask )
+    foreach ($gruppi->find(array('idruolo'), array('idutente' => $obj->contest))as $itemruolo)
+      foreach ($permessi->find(array('idtask'), array('idruolo' => $itemruolo['idruolo']))as $itemtask)
+        foreach ($task->find(array('nome'), array('id' => $itemtask['idtask']))as $nometask)
           $arrayTasks[$nometask['nome']] = true;
 
-    die ( json_encode ( $arrayTasks ) );
-
+    die(json_encode($arrayTasks));
   }
 
   /**
@@ -53,7 +51,7 @@ class Site extends Controller {
    * 
    * @param Controller $obj 
    */
-  public function actionManageusers ( Controller $obj ) {
+  public function actionManageusers(Controller $obj) {
 
     $obj->layout = 'admin';
 
@@ -61,14 +59,13 @@ class Site extends Controller {
      * Carico tutti gli utenti
      */
     $utenti = new MUtenti;
-    $obj->modelutenti = $utenti->findAll ();
+    $obj->modelutenti = $utenti->findAll();
 
     /**
      * Carico tutti i permessi
      */
     $tasks = new MTask;
-    $obj->tasklist = $tasks->findAll ();
-
+    $obj->tasklist = $tasks->findAll();
   }
 
   /**
@@ -76,21 +73,20 @@ class Site extends Controller {
    *
    * @param Controller $obj 
    */
-  public function actionIncreaseresources ( Controller $obj ) {
+  public function actionIncreaseresources(Controller $obj) {
 
     $utenti = new MUtenti;
 
-    $utenti->update ( array (
+    $utenti->update(array(
         'ferro' => 1000,
         'grano' => 1000,
         'legno' => 1000,
         'roccia' => 1000,
-            ), array (
-        'id' => UtenteWeb::status ()->user->id
-    ) );
+            ), array(
+        'id' => UtenteWeb::status()->user->id
+    ));
 
-    $this->redirect ( 'site/vista' );
-
+    $this->redirect('site/vista');
   }
 
   /**
@@ -102,7 +98,7 @@ class Site extends Controller {
    * 
    * @param Controller $obj 
    */
-  public function actionReset ( Controller $obj ) {
+  public function actionReset(Controller $obj) {
 
     $cells = new MCells;
     $costruzioni = new MCostruzioni;
@@ -114,63 +110,68 @@ class Site extends Controller {
     $posizioneiniziale = new NuovaPosizione;
     $esercito = new MEsercito;
 
-    $cells->truncate ();
-    $costruzioni->truncate ();
-    $codadicostruzione->truncate ();
-    $codadiaddestramento->truncate ();
-    $proprieta->truncate ();
-    $esercito->truncate ();
+    $cells->truncate();
+    $costruzioni->truncate();
+    $codadicostruzione->truncate();
+    $codadiaddestramento->truncate();
+    $proprieta->truncate();
+    $esercito->truncate();
 
-    $utenti->update ( array (
+    if ($esercito->count() > 0) {
+      Log::save(array(
+          'string' => 'C\'è un errore: dovrebbero esserci 0 truppe ma ne ho trovate ' . ($esercito->count()),
+          'livello' => 'errore'
+      ));
+    }
+
+    $utenti->update(array(
         'ferro' => Config::$risorseIniziali,
         'grano' => Config::$risorseIniziali,
         'legno' => Config::$risorseIniziali,
         'roccia' => Config::$risorseIniziali,
-    ) );
+    ));
 
     /**
      * Azzero la pozizione degli utenti
      */
     $nuovaposizione = new NuovaPosizione;
-    foreach ( $utenti->findAll () as $item ) {
-      $utenti->update ( $nuovaposizione->getActivationCoords ( $item['id'] ), array ( 'id' => $item['id'] ) );
-      $utenti->update ( array ( 'x' => 0 ), array ( 'id' => $item['id'] ) );
-      $utenti->update ( array ( 'y' => 0 ), array ( 'id' => $item['id'] ) );
+    foreach ($utenti->findAll() as $item) {
+      $utenti->update($nuovaposizione->getActivationCoords($item['id']), array('id' => $item['id']));
+      $utenti->update(array('x' => 0), array('id' => $item['id']));
+      $utenti->update(array('y' => 0), array('id' => $item['id']));
     }
 
     /**
      * Azzero le cose fatte
      */
-    $donelist->update ( array (
+    $donelist->update(array(
         '1' => 0, // Fondare un villaggio
         '2' => 0, // Costruire un campo di grano
         '3' => 0, // Costruire un campo di legno
         '4' => 0  // Costruire un campo di ferro
-    ) );
+    ));
 
     /**
      * Torno alla vista
      */
-    $this->redirect ( 'site/logout' );
-
+    $this->redirect('site/logout');
   }
 
   /**
    *
    * @param Controller $obj 
    */
-  public function actionVista ( Controller $obj ) {
+  public function actionVista(Controller $obj) {
 
-    if ( ! UtenteWeb::status ()->isAutenticato () )
-      $this->redirect ( 'site/login' );
+    if (!UtenteWeb::status()->isAutenticato())
+      $this->redirect('site/login');
 
     $nuova = new NuovaPosizione;
     $utenti = new MUtenti;
 
-    $utenti->update ( $nuova->getActivationCoords ( UtenteWeb::status ()->user->id ) );
+    $utenti->update($nuova->getActivationCoords(UtenteWeb::status()->user->id));
 
     $obj->pageTitle = 'Vista di Yago';
-
   }
 
   /**
@@ -178,10 +179,9 @@ class Site extends Controller {
    *
    * @param Controller $obj 
    */
-  public function actionLostpassword ( Controller $obj ) {
+  public function actionLostpassword(Controller $obj) {
 
     $obj->pageTitle = 'Hai dimenticato la password';
-
   }
 
   /**
@@ -190,11 +190,10 @@ class Site extends Controller {
    *
    * @param Controller $obj 
    */
-  public function actionLogout ( Controller $obj ) {
-    UtenteWeb::status ()->logout ();
-    unset ( $_SESSION );
-    $this->redirect ( 'site/login' );
-
+  public function actionLogout(Controller $obj) {
+    UtenteWeb::status()->logout();
+    unset($_SESSION);
+    $this->redirect('site/login');
   }
 
   /**
@@ -202,7 +201,7 @@ class Site extends Controller {
    *
    * @param Controller $obj 
    */
-  public function actionLogin ( Controller $obj ) {
+  public function actionLogin(Controller $obj) {
 
     $gruppi = new MGruppi();
     $permessi = new MPermessi();
@@ -210,34 +209,33 @@ class Site extends Controller {
 
     $obj->pageTitle = 'Accedi al mondo di Yago';
 
-    if ( $this->ciSonoVariaibliPost () ) {
+    if ($this->ciSonoVariaibliPost()) {
 
       $utenti = new MUtenti;
-      foreach ( $utenti->find ( array ( ), array ( 'username' => $_POST['username'], 'password' => md5 ( $_POST['password'] ) ) ) as $item ) {
+      foreach ($utenti->find(array(), array('username' => $_POST['username'], 'password' => md5($_POST['password']))) as $item) {
 
         $idutente = $item['id'];
         $xutente = $item['x'];
         $yutente = $item['y'];
         $nuovaposizione = new NuovaPosizione;
-        $arrayTasks = array ( );
+        $arrayTasks = array();
 
-        foreach ( $gruppi->find ( array ( 'idruolo' ), array ( 'idutente' => $idutente ) )as $itemruolo )
-          foreach ( $permessi->find ( array ( 'idtask' ), array ( 'idruolo' => $itemruolo['idruolo'] ) )as $itemtask )
-            foreach ( $task->find ( array ( 'nome' ), array ( 'id' => $itemtask['idtask'] ) )as $nometask )
+        foreach ($gruppi->find(array('idruolo'), array('idutente' => $idutente))as $itemruolo)
+          foreach ($permessi->find(array('idtask'), array('idruolo' => $itemruolo['idruolo']))as $itemtask)
+            foreach ($task->find(array('nome'), array('id' => $itemtask['idtask']))as $nometask)
               $arrayTasks[$nometask['nome']] = true;
 
-        UtenteWeb::status ()->autentica ( array_merge ( array (
+        UtenteWeb::status()->autentica(array_merge(array(
                     'username' => $_POST['username'],
                     'id' => $idutente,
                     'x' => $xutente,
                     'y' => $yutente,
-                        ), $arrayTasks, $nuovaposizione->getActivationCoords ( $idutente ) ) );
+                        ), $arrayTasks, $nuovaposizione->getActivationCoords($idutente)));
 
-        $this->redirect ( 'site/vista' );
+        $this->redirect('site/vista');
       }
-      $this->redirect ( 'site/login' );
+      $this->redirect('site/login');
     }
-
   }
 
   /**
@@ -246,10 +244,9 @@ class Site extends Controller {
    * 
    * @param Controller $obj 
    */
-  public function actionIndex ( Controller $obj ) {
+  public function actionIndex(Controller $obj) {
 
-    $obj->pageTitle = 'Yago ' . ($obj->getVersion ());
-
+    $obj->pageTitle = 'Yago ' . ($obj->getVersion());
   }
 
 }
