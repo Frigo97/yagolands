@@ -20,10 +20,11 @@ class Stats extends Controller {
 
     $obj->totalPages = $utenti->count() / $limit;
     $obj->model = $utenti->findLimit(array(
-                '*', '(select livello from costruzioni where idutente = utenti.id and idedificio = 4) livellomagazzino'
-                    ), array(), array(
-                'start' => $start,
-                'limit' => $limit
+        '*', '(select livello from costruzioni where idutente = utenti.id and idedificio = 4) livellomagazzino'
+        , '(select livello from costruzioni where idutente = utenti.id and idedificio = 5) livellogranaio'
+            ), array(), array(
+        'start' => $start,
+        'limit' => $limit
             ));
   }
 
