@@ -239,7 +239,11 @@ class Json extends Controller {
             JSONMessages::message(array(
                 $idedificio => array(
                     'livello' => $livellodacostruire,
-                    'nome' => $edifici->getNome($idedificio)
+                    'nome' => $edifici->getNome($idedificio),
+                    'ferro' => $risorseedificio['ferro'],
+                    'grano' => $risorseedificio['grano'],
+                    'roccia' => $risorseedificio['roccia'],
+                    'legno' => $risorseedificio['legno']
                 )
             ));
         }

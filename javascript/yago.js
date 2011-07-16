@@ -102,7 +102,7 @@ $(document).ready(function(){
       $.getJSON('index.php?json=json/buildable',function(data){
         $('#buildable').html('');
         for (i in data) {
-          $('#buildable').append('<div><a href="javascript:return false;" onclick="Yago.buildBuilding('+i+');">'+(data[i].nome)+' livello '+(data[i].livello)+'</a>');
+          $('#buildable').append('<div><a href="javascript:return false;" onclick="Yago.buildBuilding('+i+');"> costruisci '+(data[i].nome)+' livello '+(data[i].livello)+'</a> (fe: '+ data[i].ferro +',gr: '+ data[i].grano +',ro: '+ data[i].roccia +',le: '+ data[i].legno +')');
         }
       });
             
@@ -159,7 +159,7 @@ $(document).ready(function(){
       
       if(Yago.canTouchCells) {
       
-        $('#posizione').html('<strong>x:</strong>'+pos.x+', <strong>y:</strong>'+pos.y);
+        // $('#posizione').html('<strong>x:</strong>'+pos.x+', <strong>y:</strong>'+pos.y);
         $.ajax({
           type: 'POST',
           url: 'index.php?json=utenti/salvaposizione',
