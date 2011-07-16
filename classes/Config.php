@@ -56,25 +56,25 @@ class Config extends Yagolands {
    *
    * @var float
    */
-  public static $incrementoDiSpazioPerEdificio = 1.4;
+  public static $incrementoDiSpazioPerEdificio = 1.5;
 
   /**
    *
    * @var float
    */
-  public static $incrementoDiRisorsaPerEdificio = 1.5;
+  public static $incrementoDiRisorsaPerEdificio = 1.2;
 
   /**
    *
    * @var float
    */
-  public static $incrementoDiCapienzaPerMagazzino = 1.3;
+  public static $incrementoDiCapienzaPerMagazzino = 1.4;
 
   /**
    *
    * @var float
    */
-  public static $incrementoDiCapienzaPerGranaio = 1.3;
+  public static $incrementoDiCapienzaPerGranaio = 1.4;
 
   /**
    *

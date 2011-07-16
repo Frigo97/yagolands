@@ -29,7 +29,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="7" class="tfoot">
+        <td colspan="8" class="tfoot">
           <?php if ($this->page > 0): ?>
             <a href="index.php?<?php echo ($this->page - 1); ?>=stats/stats">&Lt;</a>
           <?php endif; ?>

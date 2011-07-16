@@ -119,7 +119,7 @@ class Yago2 extends Controller {
       $esercito = new MEsercito;
 
       /**
-       * Questo cronjob ha il compito di controllare le code di costruzione.
+       * Questo cronjob ha il compito di controllare le code di addestramento.
        */
       foreach ($pdo->query('select * from codadiaddestramento where fineaddestramento <= \'' . (date('Y-m-d H:i:s')) . '\'') as $addestramentoFinito) {
         $esercito->addOne($addestramentoFinito['idtruppa'], $addestramentoFinito['idutente']);
@@ -153,21 +153,31 @@ class Yago2 extends Controller {
         foreach ($costruzioni->find(array('id', 'idutente', 'mktimefinelavoro', 'livello'), array('idedificio' => $itemEdificio['id'])) as $itemCostruzione) {
           $secondipassati = mktime() - $itemCostruzione['mktimefinelavoro'];
           $secondiperrisorsa = (int) (3600 / Config::risorseAllOra($itemCostruzione['livello']));
-          $nomeRisorsa = $itemEdificio['camporisorsa'];
-          $unitadaaggiungere = $secondipassati / $secondiperrisorsa;
-          $temporimanente = ($unitadaaggiungere) - ((int) ($unitadaaggiungere));
-          $minutiperrisorsa = (int) (60 / Config::risorseAllOra($itemCostruzione['livello']));
-          if ($secondipassati > $secondiperrisorsa) {
-            try {
-              $resto = @$secondipassati % @$secondiperrisorsa;
-            } catch (Exception $E) {
-              $resto = 0;
+
+          if ($secondiperrisorsa > 0) {
+
+            $nomeRisorsa = $itemEdificio['camporisorsa'];
+            $unitadaaggiungere = $secondipassati / $secondiperrisorsa;
+            $temporimanente = ($unitadaaggiungere) - ((int) ($unitadaaggiungere));
+            $minutiperrisorsa = (int) (60 / Config::risorseAllOra($itemCostruzione['livello']));
+
+            if ($secondipassati > $secondiperrisorsa) {
+              try {
+                $resto = @$secondipassati % @$secondiperrisorsa;
+              } catch (Exception $E) {
+                $resto = 0;
+              }
+              $unità = ($secondipassati - $resto) / $secondiperrisorsa;
+              $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
+              $risorseUtente[$nomeRisorsa] += $unità;
+              $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
+              $costruzioni->update(array('mktimefinelavoro' => mktime() + $resto), array('id' => $itemCostruzione['id']));
             }
-            $unità = ($secondipassati - $resto) / $secondiperrisorsa;
-            $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
-            $risorseUtente[$nomeRisorsa] += $unità;
-            $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
-            $costruzioni->update(array('mktimefinelavoro' => mktime() + $resto), array('id' => $itemCostruzione['id']));
+          } else {
+            Log::save(array(
+                'string' => 'yagolands non prevede che vi siano più di 1 risorsa al secondo',
+                'livello' => 'errore'
+            ));
           }
         }
       }
@@ -186,8 +196,9 @@ class Yago2 extends Controller {
         $arrayRisorse = $itemContenitore == 'magazzino' ? array('ferro', 'legno', 'roccia') : array('grano');
         foreach ($arrayRisorse as $itemRisorse) {
           $nomeRisorsa = $itemRisorse;
-          if ($risorseUtente[$nomeRisorsa] > $capienzaMassima)
+          if ($risorseUtente[$nomeRisorsa] > $capienzaMassima) {
             $risorseUtente[$nomeRisorsa] = $capienzaMassima;
+          }
           $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
         }
       }
