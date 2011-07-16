@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Questo controller gestisce tutte le azioni del mercato.
  * 
@@ -14,21 +13,21 @@ class Mercato extends Controller {
    *
    * @return bool
    */
-  private function userHasResources () {
+  private function userHasResources() {
     $utenti = new MUtenti;
-    foreach ( $utenti->find ( array ( ), $utenti->getPosition () ) as $itemUtenti ) {
-      if ( $itemUtenti[$_POST['nomeRisorsaOfferta']] < $_POST['quantitaOfferta'] ) {
-        Log::save ( array (
+    foreach ($utenti->find(array(), $utenti->getPosition()) as $itemUtenti) {
+      if ($itemUtenti[$_POST['nomeRisorsaOfferta']] < $_POST['quantitaOfferta']) {
+        Log::save(array(
             'string' => "\$itemUtenti[\$_POST['nomeRisorsaOfferta']] = " .
             ($itemUtenti[$_POST['nomeRisorsaOfferta']]) . "\r\n" .
             "\$_POST['quantitaOfferta'] = " .
-            ($_POST['quantitaOfferta'])
-        ) );
+            ($_POST['quantitaOfferta']),
+            'livello' => Log::$INFO_LEVEL
+        ));
         return false;
       }
     }
     return true;
-
   }
 
   /**
@@ -37,19 +36,18 @@ class Mercato extends Controller {
    *
    * @return bool
    */
-  private function unbalancedSupply () {
+  private function unbalancedSupply() {
     $rapporto = $_POST['quantitaCercata'] / $_POST['quantitaOfferta'];
-    if ( $rapporto >= 0.5 && $rapporto <= 2 )
+    if ($rapporto >= 0.5 && $rapporto <= 2)
       return false;
     return true;
-
   }
 
   /**
    * Con questo metodo tolgo le risorse dall'utente e le metto nel mercato
    * in modo tale che tutti gli altri giocatori le possano vedere.
    */
-  private function mettiOffertaInMercato () {
+  private function mettiOffertaInMercato() {
 
     $offerte = new MOfferte;
 
@@ -58,21 +56,20 @@ class Mercato extends Controller {
     $nomeRisorsaCercata = $_POST['nomeRisorsaCercata'];
     $quantitaCercata = $_POST['quantitaCercata'];
 
-    $offerte->create ( array (
-        'idutente' => (int) UtenteWeb::status ()->user->id,
+    $offerte->create(array(
+        'idutente' => (int) UtenteWeb::status()->user->id,
         'risorsaofferta' => $nomeRisorsaOfferta,
         'quantitaofferta' => (int) $quantitaOfferta,
         'risorsacercata' => $nomeRisorsaCercata,
         'quantitacercata' => (int) $quantitaCercata,
-    ) );
-
+    ));
   }
 
   /**
    * Quando viene creata una offerta per il mercato, le risorse vengono trasferite li
    * quindi non si devono più vedere tra le risorse disponibili in magazzino
    */
-  private function togliRisorseDaiMagazzini () {
+  private function togliRisorseDaiMagazzini() {
 
     $utenti = new MUtenti;
 
@@ -81,12 +78,11 @@ class Mercato extends Controller {
     $nomeRisorsaCercata = $_POST['nomeRisorsaCercata'];
     $quantitaCercata = $_POST['quantitaCercata'];
 
-    foreach ( $utenti->findAll ( Config::risorse(), $utenti->getPosition () ) as $itemUtente ) {
-      $utenti->update ( array (
-          $nomeRisorsaOfferta => $itemUtente [$nomeRisorsaOfferta] - $quantitaOfferta ), $utenti->getPosition ()
+    foreach ($utenti->findAll(Config::risorse(), $utenti->getPosition()) as $itemUtente) {
+      $utenti->update(array(
+          $nomeRisorsaOfferta => $itemUtente [$nomeRisorsaOfferta] - $quantitaOfferta), $utenti->getPosition()
       );
     }
-
   }
 
   /**
@@ -94,34 +90,33 @@ class Mercato extends Controller {
    *
    * @param Controller $obj 
    */
-  public function actionAccettaofferta ( Controller $obj ) {
+  public function actionAccettaofferta(Controller $obj) {
 
     $offerte = new MOfferte();
     $utenti = new MUtenti();
 
-    foreach ( $offerte->find ( array ( ), array ( 'id' => $obj->contest ) ) as $itemOfferta ) {
-      $risorseDiChiOffre = Config::getRisorseUtente ( $itemOfferta['idutente'] );
-      $risorseDiChiCerca = Config::getRisorseUtente ();
+    foreach ($offerte->find(array(), array('id' => $obj->contest)) as $itemOfferta) {
+      $risorseDiChiOffre = Config::getRisorseUtente($itemOfferta['idutente']);
+      $risorseDiChiCerca = Config::getRisorseUtente();
 
       /* Utente che accetta l'offerta  */
-      $utenti->update ( array (
+      $utenti->update(array(
           $itemOfferta['risorsaofferta'] => $risorseDiChiCerca[$itemOfferta['risorsaofferta']] + $itemOfferta['quantitaofferta'],
           $itemOfferta['risorsacercata'] => $risorseDiChiCerca[$itemOfferta['risorsacercata']] - $itemOfferta['quantitacercata']
-              ), array (
-          'id' => UtenteWeb::status ()->user->id
-      ) );
+              ), array(
+          'id' => UtenteWeb::status()->user->id
+      ));
 
       /* Utente che ha creato l'offerta */
-      $utenti->update ( array (
+      $utenti->update(array(
           $itemOfferta['risorsacercata'] => $risorseDiChiOffre[$itemOfferta['risorsacercata']] + $itemOfferta['quantitacercata']
-              ), array (
+              ), array(
           'id' => $itemOfferta['idutente']
-      ) );
-      $offerte->delete ( $obj->contest );
+      ));
+      $offerte->delete($obj->contest);
     }
 
-    JSONMessages::message ( array ( 'success' => true ) );
-
+    JSONMessages::message(array('success' => true));
   }
 
   /**
@@ -132,25 +127,24 @@ class Mercato extends Controller {
    *
    * @param Controller $obj 
    */
-  public function actionOfferta ( Controller $obj ) {
+  public function actionOfferta(Controller $obj) {
 
-    if ( ! $this->userHasResources () )
-      JSONErrorMessages::message (
+    if (!$this->userHasResources())
+      JSONErrorMessages::message(
               false, 'Non hai risorse a sufficienza'
       );
 
-    if ( $this->unbalancedSupply () )
-      JSONErrorMessages::message (
+    if ($this->unbalancedSupply())
+      JSONErrorMessages::message(
               false, 'Il rapporto tra le due quantità non può essere più del doppio.'
       );
 
-    $this->togliRisorseDaiMagazzini ();
-    $this->mettiOffertaInMercato ();
+    $this->togliRisorseDaiMagazzini();
+    $this->mettiOffertaInMercato();
 
-    JSONErrorMessages::message (
+    JSONErrorMessages::message(
             true, 'L\'offerta è stata messa sul mercato.'
     );
-
   }
 
 }

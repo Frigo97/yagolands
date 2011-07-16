@@ -35,27 +35,29 @@
         Entra nel mondo di yago!
       <?php endif; ?>
     </div>
-    <div class="center">
+    <?php if (UtenteWeb::status()->isAutenticato()): ?>
+      <div class="center">
 
-      <?php $costruzione = new MCostruzioni(); ?>
+        <?php $costruzione = new MCostruzioni(); ?>
 
-      ferro: <span id="ferro"></span> /
-      <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(8)) ?> /
-      <?php echo Config::risorseAllOra($costruzione->getLivello(8)) ?>
+        ferro: <span id="ferro"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(8)) ?> /
+        <?php echo Config::risorseAllOra($costruzione->getLivello(8)) ?>
 
-      legno: <span id="legno" alt="quantità in magazzino"></span> /
-      <span alt="quantità massima"><?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(10)) ?> /</span>
-      <span alt="produzione oraria"><?php echo Config::risorseAllOra($costruzione->getLivello(10)) ?></span>
+        legno: <span id="legno" alt="quantità in magazzino"></span> /
+        <span alt="quantità massima"><?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(10)) ?> /</span>
+        <span alt="produzione oraria"><?php echo Config::risorseAllOra($costruzione->getLivello(10)) ?></span>
 
-      roccia: <span id="roccia"></span> /
-      <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(9)) ?> /
-      <?php echo Config::risorseAllOra($costruzione->getLivello(9)) ?>
+        roccia: <span id="roccia"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(9)) ?> /
+        <?php echo Config::risorseAllOra($costruzione->getLivello(9)) ?>
 
-      grano: <span id="grano"></span> /
-      <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(7)) ?> /
-      <?php echo Config::risorseAllOra($costruzione->getLivello(7)) ?>
+        grano: <span id="grano"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(7)) ?> /
+        <?php echo Config::risorseAllOra($costruzione->getLivello(7)) ?>
 
-    </div>
+      </div>
+    <?php endif; ?>
     <div id="contenitore">
       <?php echo $content; ?>
       <div id="side-left" class="testoverde arial size12px">

@@ -36,7 +36,6 @@ class UtenteWeb extends Yagolands {
     }
 
     public function autentica ( $params = array ( ) ) {
-//        Log::save ( array ( 'string' => var_export ( $params, true ) ) );
         foreach ( $params as $key => $value ) {
             $this->user->$key = $value;
         }

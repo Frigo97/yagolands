@@ -28,7 +28,7 @@ class Model extends Yagolands {
     } catch (PDOException $PDOException) {
       Log::save(array(
           'string' => $PDOException->getMessage(),
-          'livello' => 'errore'
+          'livello' => Log::$ERROR_LEVEL
       ));
       die('Database fuori servizio.');
     }

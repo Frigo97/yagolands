@@ -94,12 +94,9 @@ class Construct extends Controller {
         $livelloattuale = $item['livello'];
         $nuovolivello = $livelloattuale + 1;
 
-//                Log::save ( array ( 'string' => 'Tolgo risorse all\'utente.' ) );
-//                Log::save ( array ( 'string' => 'Per costruire l\'edificio ' . ($edifici->getNome ( $_POST['idedificio'] ) . ' di livello ' . ($nuovolivello) . ' occorre: ') ) );
         foreach (Config::risorse() as $itemRisorse)
           foreach ($utenti->find(array(), array('id' => UtenteWeb::status()->user->id)) as $itemm) {
             $utenti->update(array($itemRisorse => $itemm[$itemRisorse] - ($risorseedificio[$itemRisorse] * Config::moltiplicatoreRisorseEdificio($nuovolivello))), array('id' => UtenteWeb::status()->user->id));
-//                        Log::save ( array ( 'string' => 'tolgo ' . ($risorseedificio[$itemRisorse] * Config::moltiplicatoreRisorseEdificio ( $nuovolivello )) . ' che poi è ' . $risorseedificio[$itemRisorse] . '*' . Config::moltiplicatoreRisorseEdificio ( $nuovolivello ) ) );
           }
 
 

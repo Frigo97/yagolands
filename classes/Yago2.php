@@ -77,7 +77,7 @@ class Yago2 extends Controller {
     } else {
       Log::save(array(
           'string' => 'Si sta cercando di caricare una view non disponibile: ' . ($filename),
-          'livello' => 'errore'
+          'livello' => Log::$ERROR_LEVEL
       ));
     }
 
@@ -89,7 +89,7 @@ class Yago2 extends Controller {
     } else {
       Log::save(array(
           'string' => 'Si sta cercando di caricare un layout non disponibile: ' . ($filename),
-          'livello' => 'errore'
+          'livello' => Log::$ERROR_LEVEL
       ));
     }
 
@@ -176,7 +176,7 @@ class Yago2 extends Controller {
           } else {
             Log::save(array(
                 'string' => 'yagolands non prevede che vi siano più di 1 risorsa al secondo',
-                'livello' => 'errore'
+                'livello' => Log::$ERROR_LEVEL
             ));
           }
         }

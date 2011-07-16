@@ -44,7 +44,7 @@ class MCostruzioni extends Model {
     if ( UtenteWeb::status ()->user->id == null )
       Log::save ( array (
           'string' => 'Si sta cercando di usare MCostruzioni::getLivello senza essere autenticati.',
-          'livello' => 'errore'
+          'livello' => Log::$ERROR_LEVEL
       ) );
 
     foreach ( $this->find ( array ( ), array ( 'idedificio' => $idedificio, 'idutente' => UtenteWeb::status ()->user->id ) ) as $item )

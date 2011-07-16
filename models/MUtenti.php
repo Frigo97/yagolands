@@ -49,7 +49,6 @@ class MUtenti extends Model {
         return $return;
       }
     }
-    Log::save(array('string' => 'Richiamato MUtenti::getPosition(); quando l\'utente non è loggato.', 'livello' => 'error'));
     return array();
   }
 

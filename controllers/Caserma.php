@@ -33,7 +33,6 @@ class Caserma extends Controller {
 
       for ($i = 1; $i <= $quantita; $i++) {
         $fineaddestramento = date('Y-m-d H:i:s', mktime() + $truppe->getSommaRisorse($idTroops) * $i);
-        // Log::save ( array ( 'string' => $fineaddestramento, 'livello' => 'caserma' ) );
         $coda->create(array(
             'idutente' => (int) UtenteWeb::status()->user->id,
             'idtruppa' => (int) $idTroops,

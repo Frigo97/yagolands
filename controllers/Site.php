@@ -120,7 +120,7 @@ class Site extends Controller {
     if ($esercito->count() > 0) {
       Log::save(array(
           'string' => 'C\'è un errore: dovrebbero esserci 0 truppe ma ne ho trovate ' . ($esercito->count()),
-          'livello' => 'errore'
+          'livello' => Log::$ERROR_LEVEL
       ));
     }
 
