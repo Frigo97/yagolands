@@ -4,4 +4,4 @@
 Le risorse prodotte in un'ora sono da calcolare.
 
 
-In questo momento stai producendo <?php echo Config::moltiplicatoreCapienzaEdificio ( $this->livelloEdificio ); ?> unità di risorsa ogni ora.
+In questo momento stai producendo <?php echo Config::risorseAllOra ( $this->livelloEdificio ); ?> unità di risorsa ogni ora.
