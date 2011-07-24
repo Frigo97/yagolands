@@ -41,19 +41,19 @@
         <?php $costruzione = new MCostruzioni(); ?>
 
         ferro: <span id="ferro"></span> /
-        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(8)) ?> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?> /
         <?php echo Config::risorseAllOra($costruzione->getLivello(8)) ?>
 
         legno: <span id="legno" alt="quantità in magazzino"></span> /
-        <span alt="quantità massima"><?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(10)) ?> /</span>
+        <span alt="quantità massima"><?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?> /</span>
         <span alt="produzione oraria"><?php echo Config::risorseAllOra($costruzione->getLivello(10)) ?></span>
 
         roccia: <span id="roccia"></span> /
-        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(9)) ?> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?> /
         <?php echo Config::risorseAllOra($costruzione->getLivello(9)) ?>
 
         grano: <span id="grano"></span> /
-        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(7)) ?> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(5)) ?> /
         <?php echo Config::risorseAllOra($costruzione->getLivello(7)) ?>
 
       </div>
