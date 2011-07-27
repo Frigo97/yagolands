@@ -9,6 +9,7 @@
     <?php if ($this->controller == 'site'): ?>
       <?php if ($this->action != 'login'): ?>
         <script src="javascript/jquery.js"></script>
+        <script src="javascript/jquery.the_final_countdown.js"></script>
         <script src="javascript/yago.js"></script>
       <?php endif; ?>
     <?php endif; ?>

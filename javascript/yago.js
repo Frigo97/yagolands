@@ -14,6 +14,30 @@ $(document).ready(function(){
     
   return {
     
+    callEndCodaCalled: false,
+    
+    callEndCoda: function () {
+      if(!Yago.callEndCodaCalled)
+        $.getJSON('index.php?json=json/endcoda',function(data){
+          $('#cosa-lavori').html('');
+          htmlcodalavori = '';
+          if(data.codavuota == 'false') {
+            for(i=0;i<data.costruzioniincoda;i++) {
+              htmlcodalavori += '<div class="coda-di-produzione"><input type="hidden" id="the_final_countdown_'+i+'" value="'+data[i].secondtstoleft+'" />L\'edificio <strong>'+data[i].nome+'</strong> di <strong>livello '+data[i].livello+'</strong> sarà terminato tra <span id="the_final_countdown_'+i+'_text" ></span></div>';
+            }
+          }
+          $('#coda-lavori').html(htmlcodalavori);
+          for(i=0;i<data.costruzioniincoda;i++) {
+            console.log('@@@@@@@@'+$('#the_final_countdown_'+i).val());
+            $('#the_final_countdown_'+i+'_text').createTimer({
+              time_in_seconds: $('#the_final_countdown_'+i).val(),
+              time_format: 'HH:MM:ss'
+            });
+          }
+          Yago.callEndCodaCalled = true;
+        });
+    },
+    
     buildBuilding: function (i) {
       $.ajax({
         type: 'POST',
@@ -22,6 +46,7 @@ $(document).ready(function(){
           idedificio:i
         }
       }).success(function(){
+        Yago.callEndCodaCalled = false;
         Yago.canTouchCells=true;
         Yago.redraw();
       });
@@ -63,21 +88,8 @@ $(document).ready(function(){
         Yago.canTouchCells = false;
       });
             
-      $.getJSON('index.php?json=json/endcoda',function(data){
-        $('#cosa-lavori').html('');
-        htmlcodalavori = '';
-        if(data.codavuota == 'false') {
-          for(i=0;i<data.costruzioniincoda;i++) {
-                     
-            var hh = Math.floor(data[i].secondtstoleft / 3600);
-            var mm = Math.floor((data[i].secondtstoleft - (hh*3600)) / 60);
-            var ss = data[i].secondtstoleft - (hh*3600) - (mm*60);
-                        
-            htmlcodalavori += '<div class="coda-di-produzione">L\'edificio <strong>'+data[i].nome+'</strong> di <strong>livello '+data[i].livello+'</strong> sarà terminato tra '+hh+':'+mm+':'+ss+' h alle '+data[i].ore+':'+data[i].minuti+':'+data[i].secondi+'</div>';
-          }
-        }
-        $('#coda-lavori').html(htmlcodalavori);
-      });            
+            
+      this.callEndCoda();
       
       $.getJSON('index.php?json=json/endcodatruppe',function(data){
         $('#cosa-addestramenti').html('');
@@ -167,13 +179,13 @@ $(document).ready(function(){
         });
             
         /**
-       * Ripulisco la parte di schermo che deve contenere l'alveare
-       */
+         * Ripulisco la parte di schermo che deve contenere l'alveare
+         */
         $('#vista').html('');
         
         /**
-       * Ricalcolo tutte le dimensioni
-       */
+         * Ricalcolo tutte le dimensioni
+         */
         this.heightCell = dimensioneCella;
         this.x = pos.x;
         this.y = pos.y;
