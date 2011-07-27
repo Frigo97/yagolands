@@ -28,7 +28,6 @@ $(document).ready(function(){
           }
           $('#coda-lavori').html(htmlcodalavori);
           for(i=0;i<data.costruzioniincoda;i++) {
-            console.log('@@@@@@@@'+$('#the_final_countdown_'+i).val());
             $('#the_final_countdown_'+i+'_text').createTimer({
               time_in_seconds: $('#the_final_countdown_'+i).val(),
               time_format: 'HH:MM:ss'
