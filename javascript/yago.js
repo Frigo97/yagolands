@@ -30,7 +30,11 @@ $(document).ready(function(){
           for(i=0;i<data.costruzioniincoda;i++) {
             $('#the_final_countdown_'+i+'_text').createTimer({
               time_in_seconds: $('#the_final_countdown_'+i).val(),
-              time_format: 'HH:MM:ss'
+              time_format: 'HH:MM:ss',
+              buzzer: function () {
+                Yago.callEndCodaCalled = false;
+                this.callEndCoda();
+              }
             });
           }
           Yago.callEndCodaCalled = true;
