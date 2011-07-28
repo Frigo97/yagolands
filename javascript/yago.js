@@ -1,8 +1,7 @@
-
 /**
  * Attendo il caricamento del DOM e poi lancio i miei script javascript.
  */
-$(document).ready(function(){   
+$(document).ready(function(){
   Yago.defineOnResize();
   Yago.reloadjson();
 });
@@ -30,7 +29,7 @@ $(document).ready(function(){
           for(i=0;i<data.costruzioniincoda;i++) {
             $('#the_final_countdown_'+i+'_text').createTimer({
               time_in_seconds: $('#the_final_countdown_'+i).val(),
-              time_format: '00:MM:ss',
+              time_format: 'UTC:HH:MM:ss',
               buzzer: function () {
                 Yago.callEndCodaCalled = false;
                 this.callEndCoda();
