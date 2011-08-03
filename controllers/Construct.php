@@ -95,6 +95,11 @@ class Construct extends Controller {
         $nuovolivello = $livelloattuale + 1;
 
         foreach (Config::risorse() as $itemRisorse)
+          foreach ($utenti->find(array(), array('id' => UtenteWeb::status()->user->id)) as $itemm)
+            if ($itemm[$itemRisorse] < ($risorseedificio[$itemRisorse] * Config::moltiplicatoreRisorseEdificio($nuovolivello)))
+              JSONMessages::message(array());
+
+        foreach (Config::risorse() as $itemRisorse)
           foreach ($utenti->find(array(), array('id' => UtenteWeb::status()->user->id)) as $itemm) {
             $utenti->update(array($itemRisorse => $itemm[$itemRisorse] - ($risorseedificio[$itemRisorse] * Config::moltiplicatoreRisorseEdificio($nuovolivello))), array('id' => UtenteWeb::status()->user->id));
           }
