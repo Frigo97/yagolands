@@ -327,19 +327,6 @@ class Json extends Controller {
   }
 
   /**
-   * Questo JSON dice se in questa cella c'è una costruzione
-   */
-  public function actionCostruzionipresenti() {
-    $utenti = new MUtenti();
-    $costruzioni = new MCostruzioni();
-    $edific = new MEdifici();
-    foreach ($utenti->find(array('x', 'y'), array('id' => UtenteWeb::status()->user->id)) as $item)
-      foreach ($costruzioni->find(array('id', 'idedificio'), array('x' => $item['x'], 'y' => $item['y'])) as $item)
-        die(json_encode(array_merge(array('nomepercontest' => $edific->getNomePerContest($item['idedificio']), 'nome' => $edific->getNome($item['idedificio']), 'id' => $item['id']), array('id' => $item['id']))));
-    die(json_encode(array('nome' => null)));
-  }
-
-  /**
    * Questo JSON restituisce le risorse dell'utente corrente
    */
   public function actionRisorse() {

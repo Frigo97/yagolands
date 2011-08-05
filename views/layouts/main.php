@@ -75,7 +75,6 @@
             <div id="createplace"></div>
           <?php endif; ?>
           <h1>Edifici</h1>
-          <div id="costruzionipresenti"></div>
           <div id="buildable"></div>
           <div id="coda-lavori"></div>
           <h2>I tuoi Edifici</h2>

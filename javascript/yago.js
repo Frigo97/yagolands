@@ -101,18 +101,6 @@ $(document).ready(function(){
         $('#coda-addestramenti').html(htmlcodaaddestramenti);
       });
             
-      /** @todo consentire di accedere alla pagina dell'edificio */
-      $.getJSON('index.php?json=json/costruzionipresenti',function(data){
-        $('#costruzionipresenti').html(
-          data.nome == null ? '':
-          ('<a href="index.php?' + 
-            (data.nomepercontest) +
-            '=edifici/dettaglio">Entra in ' + 
-            (data.nome) +
-            '</a>')
-          );
-      });
-            
       $.getJSON('index.php?json=json/buildable',function(data){
         $('#buildable').html('');
         for (i in data) {
@@ -129,8 +117,14 @@ $(document).ready(function(){
             
       $.getJSON('index.php?json=json/mybuildings',function(data){
         $('#mybuildings').html('');
+        var nuovoNome = '';
         for (i in data ) {
-          $('#mybuildings').append('<div><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=moveto/building\',data: {idedificio:'+i+'}}).success(function(){Yago.redraw();/**/});">'+data[i].nome+' livello '+data[i].livello+'</a></div>');   
+          nuovoNome = data[i].nome;
+          while(nuovoNome.indexOf(' ') != -1)
+            nuovoNome = nuovoNome.replace(' ','');
+          nuovoNome = nuovoNome.toString().toLowerCase();
+          
+          $('#mybuildings').append('<div class="proprioEdificio"><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=moveto/building\',data: {idedificio:'+i+'}}).success(function(){Yago.redraw();/**/});">'+data[i].nome+' livello '+data[i].livello+'</a> <a href="index.php?'+nuovoNome+'=edifici/dettaglio" class="vai">vai</a></div>');   
         }
       });
             

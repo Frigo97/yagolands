@@ -50,7 +50,7 @@ body {
   position: absolute;  
 }
 
-#posizione ,#costruzionipresenti {
+#posizione {
   width: 90%;
   margin: 2px;
 }
@@ -58,7 +58,7 @@ body {
 a.yagolink, a {
   font-family: Arial;
   color: #B49D8E;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   text-decoration: none;
 }
@@ -151,7 +151,7 @@ table.tabella td.tfoot {
   color: darkorange;
   font-weight: bold;
   font-family: Arial;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 h1 {
@@ -162,5 +162,14 @@ h1 {
 label.form-login {
   font-weight: bold;
   font-family: Arial;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.proprioEdificio {
+  position: relative;
+}
+
+.vai {
+  position: absolute;
+  right: 0px;
 }
