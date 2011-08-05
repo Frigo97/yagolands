@@ -173,3 +173,8 @@ label.form-login {
   position: absolute;
   right: 0px;
 }
+
+#ferro, #grano, #legno, #roccia, .ElencoDelleRisorse {
+  font-family: arial;
+  font-size: 12px;
+}

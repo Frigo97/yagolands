@@ -37,25 +37,25 @@
       <?php endif; ?>
     </div>
     <?php if (UtenteWeb::status()->isAutenticato()): ?>
-      <div class="center">
+    <div class="center ElencoDelleRisorse">
 
         <?php $costruzione = new MCostruzioni(); ?>
 
-        ferro: <span id="ferro"></span> /
-        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?> /
-        <?php echo Config::risorseAllOra($costruzione->getLivello(8)) ?>
+        <img src="../../images/celle/8.svg" height="24" /> <span id="ferro"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?>
+        (<?php echo Config::risorseAllOra($costruzione->getLivello(8)) ?>/h)
 
-        legno: <span id="legno" alt="quantità in magazzino"></span> /
-        <span alt="quantità massima"><?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?> /</span>
-        <span alt="produzione oraria"><?php echo Config::risorseAllOra($costruzione->getLivello(10)) ?></span>
+        <img src="../../images/celle/10.svg" height="24" /> <span id="legno"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?>
+        (<?php echo Config::risorseAllOra($costruzione->getLivello(10)) ?>/h)
 
-        roccia: <span id="roccia"></span> /
-        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?> /
-        <?php echo Config::risorseAllOra($costruzione->getLivello(9)) ?>
+        <img src="../../images/celle/9.svg" height="24" /> <span id="roccia"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(4)) ?>
+        (<?php echo Config::risorseAllOra($costruzione->getLivello(9)) ?>/h)
 
-        grano: <span id="grano"></span> /
-        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(5)) ?> /
-        <?php echo Config::risorseAllOra($costruzione->getLivello(7)) ?>
+        <img src="../../images/celle/7.svg" height="24" /> <span id="grano"></span> /
+        <?php echo Config::moltiplicatoreCapienzaEdificio($costruzione->getLivello(5)) ?>
+        (<?php echo Config::risorseAllOra($costruzione->getLivello(7)) ?>/h)
 
       </div>
     <?php endif; ?>
