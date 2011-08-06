@@ -124,7 +124,7 @@ $(document).ready(function(){
             nuovoNome = nuovoNome.replace(' ','');
           nuovoNome = nuovoNome.toString().toLowerCase();
           
-          $('#mybuildings').append('<div class="proprioEdificio"><a href="javascript:$.ajax({type: \'POST\',url: \'index.php?action=moveto/building\',data: {idedificio:'+i+'}}).success(function(){Yago.redraw();/**/});">'+data[i].nome+' livello '+data[i].livello+'</a> <a href="index.php?'+nuovoNome+'=edifici/dettaglio" class="vai">vai</a></div>');   
+          $('#mybuildings').append('<div class="proprioEdificio"><a href="javascript:Yago.canTouchCells=true;Yago.draw({x:'+(data[i].x)+',y:'+(data[i].y)+'});">'+data[i].nome+' livello '+data[i].livello+'</a> <a href="index.php?'+nuovoNome+'=edifici/dettaglio" class="vai">vai</a></div>');   
         }
       });
             

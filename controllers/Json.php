@@ -124,6 +124,8 @@ class Json extends Controller {
       if ($edifici->isBuilding($item['idedificio'])) {
         $edificicostruiti[$item['idedificio']]['nome'] = $edifici->getNome($item['idedificio']);
         $edificicostruiti[$item['idedificio']]['livello'] = $item['livello'];
+        $edificicostruiti[$item['idedificio']]['x'] = $item['x'];
+        $edificicostruiti[$item['idedificio']]['y'] = $item['y'];
       }
     }
 
