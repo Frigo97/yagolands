@@ -291,16 +291,6 @@ class Json extends Controller {
         /* se non ha dipendenze */
         if ($hadipendenze == false) {
 
-          /* Carico le risorse di questo edificio */
-//          foreach ($edifici->find(array(), array('id' => $value['id'])) as $item) {
-//            $risorseedificio = array(
-//                'ferro' => $item['ferro'],
-//                'grano' => $item['grano'],
-//                'legno' => $item['legno'],
-//                'roccia' => $item['roccia']
-//            );
-//          }
-
           $haRisorseASufficienza = true;
           foreach (Config::risorse() as $risorsa)
             if ($mierisorse[$risorsa] < ($risorse[$risorsa]))
@@ -309,6 +299,10 @@ class Json extends Controller {
           if ($haRisorseASufficienza) {
             $edificicostruibili[$value['id']]['nome'] = $value['nome'];
             $edificicostruibili[$value['id']]['livello'] = 1;
+            $edificicostruibili[$value['id']]['ferro'] = $risorse['ferro'];
+            $edificicostruibili[$value['id']]['legno'] = $risorse['legno'];
+            $edificicostruibili[$value['id']]['grano'] = $risorse['grano'];
+            $edificicostruibili[$value['id']]['roccia'] = $risorse['roccia'];
           }
         }
       }
