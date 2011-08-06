@@ -104,7 +104,7 @@ $(document).ready(function(){
       $.getJSON('index.php?json=json/buildable',function(data){
         $('#buildable').html('');
         for (i in data) {
-          $('#buildable').append('<div><a href="javascript:return false;" onclick="Yago.buildBuilding('+i+');"> costruisci '+(data[i].nome)+' livello '+(data[i].livello)+'</a> (fe: '+ data[i].ferro +',gr: '+ data[i].grano +',ro: '+ data[i].roccia +',le: '+ data[i].legno +')');
+          $('#buildable').append('<div><a href="javascript:return false;" onclick="Yago.buildBuilding('+i+');">amplia '+(data[i].nome)+' a liv. '+(data[i].livello)+'</a> (fe: '+ data[i].ferro +',gr: '+ data[i].grano +',ro: '+ data[i].roccia +',le: '+ data[i].legno +')');
         }
       });
             

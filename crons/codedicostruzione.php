@@ -13,6 +13,7 @@ $pdo = new Model;
 $costruzione = new MCostruzioni;
 
 foreach ($pdo->query('select * from codadicostruzione where finelavori <= \'' . (date('Y-m-d H:i:s')) . '\'') as $lavorofinito) {
+  Log::save(array('string'=>var_dump($lavorofinito,true)));
   $costruzione->update(array(
       'datafinelavoro' => date('Y-m-d H:i:s'),
       'mktimefinelavoro' => mktime(),

@@ -17,32 +17,25 @@ $esercito = new MEsercito;
 
 foreach ($utenti->findAll() as $itemUtenti) {
 
-  Log::save(array('string' => 'itemUtenti => ' . var_export($itemUtenti['id'], true)));
-
   foreach (array('magazzino', 'granaio') as $itemContenitore) {
 
-    Log::save(array('string' => 'edificio => ' . var_export($itemContenitore, true)));
-    
     $idCostruzione = $costruzioni->getIdCostruzione($edifici->getId($itemContenitore), $itemUtenti['id']);
 
-    Log::save(array('string' => 'costruzione => ' . var_export($idCostruzione, true)));
-    
-    $livello = $costruzioni->getLivelloProprietario($idCostruzione, $idutente);
+    $livello = $costruzioni->getLivelloProprietario($idCostruzione, $itemUtenti['id']);
 
-    Log::save(array('string' => 'livello => ' . var_export($livello, true)));
-    
     $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
-    
-    $risorseUtente = Config::getRisorseUtente($idutente);
-    
+
+    $risorseUtente = Config::getRisorseUtente($itemUtenti['id']);
+
     $arrayRisorse = $itemContenitore == 'magazzino' ? array('ferro', 'legno', 'roccia') : array('grano');
-    
+
     foreach ($arrayRisorse as $itemRisorse) {
       $nomeRisorsa = $itemRisorse;
+
       if ($risorseUtente[$nomeRisorsa] > $capienzaMassima) {
         $risorseUtente[$nomeRisorsa] = $capienzaMassima;
       }
-      $utenti->update($risorseUtente, array('id' => $idutente));
+      $utenti->update($risorseUtente, array('id' => $itemUtenti['id']));
     }
   }
 }
