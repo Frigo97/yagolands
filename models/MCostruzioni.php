@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Questo è il model delle costruzioni e qui si gestiscono tutti i comportamenti
  * che fanno riferimento alle costrizioni.
@@ -12,9 +11,8 @@ class MCostruzioni extends Model {
   /**
    * Beh questo è il costruttore... che cosa ci vuoi fare con il costruttore?
    */
-  public function __construct () {
-    parent::__construct ( 'costruzioni' );
-
+  public function __construct() {
+    parent::__construct('costruzioni');
   }
 
   /**
@@ -23,11 +21,10 @@ class MCostruzioni extends Model {
    * @param type $idcostruzione
    * @return string 
    */
-  public function getNome ( $idcostruzione, MEdifici $edificio ) {
-    foreach ( $this->find ( array ( 'idedificio' ), array ( 'id' => $idcostruzione ) ) as $itemCostruzione )
-      foreach ( $edificio->findAll ( array ( 'nome' ), array ( 'id' => $itemCostruzione['idedificio'] ) ) as $itemEdificio )
+  public function getNome($idcostruzione, MEdifici $edificio) {
+    foreach ($this->find(array('idedificio'), array('id' => $idcostruzione)) as $itemCostruzione)
+      foreach ($edificio->findAll(array('nome'), array('id' => $itemCostruzione['idedificio'])) as $itemEdificio)
         return $itemEdificio['nome'];
-
   }
 
   /**
@@ -39,18 +36,57 @@ class MCostruzioni extends Model {
    * @param int $idedificio
    * @return int 
    */
-  public function getLivello ( $idedificio ) {
+  public function getLivello($idedificio) {
 
-    if ( UtenteWeb::status ()->user->id == null )
-      Log::save ( array (
+    if (UtenteWeb::status()->user->id == null)
+      Log::save(array(
           'string' => 'Si sta cercando di usare MCostruzioni::getLivello senza essere autenticati.',
           'livello' => Log::$ERROR_LEVEL
-      ) );
+      ));
 
-    foreach ( $this->find ( array ( ), array ( 'idedificio' => $idedificio, 'idutente' => UtenteWeb::status ()->user->id ) ) as $item )
+    foreach ($this->find(array(), array('idedificio' => $idedificio, 'idutente' => UtenteWeb::status()->user->id)) as $item)
       return $item['livello'];
     return 0;
+  }
 
+  /**
+   * Dato l'id dell'edificio, mi restituisce il livello. Questa funzione ha 
+   * bisogno di un utente loggato. Infatti fa uso della classe UtenteWeb.
+   * Per ovvie ragioni, non può funzionare se è un utente che non ha
+   * effettuato il login ad utilizzarla.
+   *
+   * @param int $idedificio
+   * @return int 
+   */
+  public function getLivelloProprietario($idedificio, $idutente) {
+
+    foreach ($this->find(array(), array('idedificio' => $idedificio, 'idutente' => $idutente)) as $item)
+      return $item['livello'];
+    return 0;
+  }
+
+  /**
+   * Dato l'id dell'edificio, mi restituisce l'id costruzione.
+   *
+   * @param int $idedificio
+   * @return int 
+   */
+  public function getIdCostruzione($idedificio, $idutente) {
+    foreach ($this->find(array(), array('idedificio' => $idedificio, 'idutente' => $idutente)) as $item)
+      return $item['livello'];
+    return 0;
+  }
+
+  /**
+   * Dato l'id dell'edificio, mi restituisce il proprietario.
+   *
+   * @param int $idcostruzione
+   * @return int $idutente
+   */
+  public function getIdOwner($idcostruzione) {
+    foreach ($this->find(array('idutente'), array('idedificio' => $idcostruzione)) as $item)
+      return $item['idutente'];
+    return 0;
   }
 
   /**
@@ -65,15 +101,14 @@ class MCostruzioni extends Model {
    * @param int $livello
    * @return bool 
    */
-  public function exists ( $idutente, $idedificio, $livello ) {
+  public function exists($idutente, $idedificio, $livello) {
 
     $e = new MEdifici;
 
-    foreach ( $this->find ( array ( ), array ( 'idedificio' => $idedificio, 'idutente' => $idutente ) ) as $item )
-      if ( $item['livello'] >= $livello )
+    foreach ($this->find(array(), array('idedificio' => $idedificio, 'idutente' => $idutente)) as $item)
+      if ($item['livello'] >= $livello)
         return true;
     return false;
-
   }
 
 }

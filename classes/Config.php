@@ -132,10 +132,9 @@ class Config extends Yagolands {
    * @param int $id
    * @return array
    */
-  public static function getRisorseUtente($id = null) {
+  public static function getRisorseUtente($idutente) {
 
     $utenti = new MUtenti;
-    $idutente = $id ? $id : UtenteWeb::status()->user->id;
 
     foreach ($utenti->find(Config::risorse(), array('id' => $idutente)) as $item)
       return array(

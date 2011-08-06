@@ -97,7 +97,7 @@ class Mercato extends Controller {
 
     foreach ($offerte->find(array(), array('id' => $obj->contest)) as $itemOfferta) {
       $risorseDiChiOffre = Config::getRisorseUtente($itemOfferta['idutente']);
-      $risorseDiChiCerca = Config::getRisorseUtente();
+      $risorseDiChiCerca = Config::getRisorseUtente(UtenteWeb::status()->user->id);
 
       /* Utente che accetta l'offerta  */
       $utenti->update(array(

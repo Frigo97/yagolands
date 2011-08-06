@@ -20,7 +20,7 @@ class Caserma extends Controller {
     $idTroops = $_POST['unita'];
     $quantita = $_POST['numeroTruppe'];
 
-    $risorseUtente = Config::getRisorseUtente();
+    $risorseUtente = Config::getRisorseUtente(UtenteWeb::status()->user->id);
     $risorsetruppa = $truppe->getResources($idTroops);
 
     $nehai = true;

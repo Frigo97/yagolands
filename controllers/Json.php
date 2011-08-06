@@ -12,7 +12,7 @@ class Json extends Controller {
   public function actionElencoofferte() {
 
     $offerte = new MOfferte;
-    $risorseUtente = Config::getRisorseUtente();
+    $risorseUtente = Config::getRisorseUtente(UtenteWeb::status()->user->id);
 
     $listaDiOfferte = array();
 
@@ -195,7 +195,7 @@ class Json extends Controller {
       JSONMessages::message();
 
 
-    $mierisorse = Config::getRisorseUtente();
+    $mierisorse = Config::getRisorseUtente(UtenteWeb::status()->user->id);
 
     if ($costruzione->countwhere($costruzioni->getPosition()) == 1) {
       if ($costruzione->countwhere(
@@ -330,7 +330,7 @@ class Json extends Controller {
    * Questo JSON restituisce le risorse dell'utente corrente
    */
   public function actionRisorse() {
-    JSONMessages::message(Config::getRisorseUtente());
+    JSONMessages::message(Config::getRisorseUtente(UtenteWeb::status()->user->id));
   }
 
   /**

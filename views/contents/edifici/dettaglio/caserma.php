@@ -11,7 +11,7 @@ $edifici = new MEdifici;
 $costruzioni = new MCostruzioni;
 
 $this->modelTruppe = $truppe->findAll();
-$risorseUtente = Config::getRisorseUtente();
+$risorseUtente = Config::getRisorseUtente(UtenteWeb::status()->user->id);
 ?>
 
 
