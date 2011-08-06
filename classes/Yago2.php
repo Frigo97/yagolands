@@ -109,9 +109,33 @@ class Yago2 extends Controller {
      * /Library/WebServer/Documents/yago2/classes/Log.php on line 21
      */
     $date_default_timezone_set = date_default_timezone_set('Europe/Rome');
+
+    /* Mmmm usare un cronjob per questo è sbagliato: le risorse possono
+     * cambiare da un secondo all'altro. */
+    $pdo = new Model;
+    $utenti = new MUtenti;
+    $costruzioni = new MCostruzioni;
+    $edifici = new MEdifici;
+    $esercito = new MEsercito;
+    foreach ($utenti->findAll() as $itemUtenti) {
+      foreach (array('magazzino', 'granaio') as $itemContenitore) {
+        $idCostruzione = $costruzioni->getIdCostruzione($edifici->getId($itemContenitore), $itemUtenti['id']);
+        $livello = $costruzioni->getLivelloProprietario($idCostruzione, $itemUtenti['id']);
+        $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
+        $risorseUtente = Config::getRisorseUtente($itemUtenti['id']);
+        $arrayRisorse = $itemContenitore == 'magazzino' ? array('ferro', 'legno', 'roccia') : array('grano');
+        foreach ($arrayRisorse as $itemRisorse) {
+          $nomeRisorsa = $itemRisorse;
+          if ($risorseUtente[$nomeRisorsa] > $capienzaMassima) {
+            $risorseUtente[$nomeRisorsa] = $capienzaMassima;
+          }
+          $utenti->update($risorseUtente, array('id' => $itemUtenti['id']));
+        }
+      }
+    }
+
     $obj = new Yago2();
     $obj->render();
-    
   }
 
   /**

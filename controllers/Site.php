@@ -78,10 +78,10 @@ class Site extends Controller {
     $utenti = new MUtenti;
 
     $utenti->update(array(
-        'ferro' => 1000,
-        'grano' => 1000,
-        'legno' => 1000,
-        'roccia' => 1000,
+        'ferro' => 9999,
+        'grano' => 9999,
+        'legno' => 9999,
+        'roccia' => 9999,
             ), array(
         'id' => UtenteWeb::status()->user->id
     ));

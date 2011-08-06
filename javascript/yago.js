@@ -32,7 +32,7 @@ $(document).ready(function(){
               time_format: 'UTC:HH:MM:ss',
               buzzer: function () {
                 Yago.callEndCodaCalled = false;
-                this.callEndCoda();
+                document.location.href = document.location.href;
               }
             });
           }
@@ -144,6 +144,7 @@ $(document).ready(function(){
       });
             
       $.getJSON('index.php?json=json/risorse',function(data){
+        console.log(data);
         $('#ferro').html(data.ferro);
         $('#grano').html(data.grano);
         $('#legno').html(data.legno);

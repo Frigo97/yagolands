@@ -181,6 +181,8 @@ class Json extends Controller {
     $costruzione = new MCostruzioni;
     $coda = new MCodadicostruzione;
     $edificio = new MEdifici;
+    
+    include_once '../crons/codedicostruzione.php';
 
     /**
      * Verifico che in questa posizione ci sia una cella di pianura, in
