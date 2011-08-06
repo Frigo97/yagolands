@@ -27,14 +27,16 @@ $(document).ready(function(){
           }
           $('#coda-lavori').html(htmlcodalavori);
           for(i=0;i<data.costruzioniincoda;i++) {
-            $('#the_final_countdown_'+i+'_text').createTimer({
-              time_in_seconds: $('#the_final_countdown_'+i).val(),
-              time_format: 'UTC:HH:MM:ss',
-              buzzer: function () {
-                Yago.callEndCodaCalled = false;
-                document.location.href = document.location.href;
-              }
-            });
+            if($('#the_final_countdown_'+i).val()>0){
+              $('#the_final_countdown_'+i+'_text').createTimer({
+                time_in_seconds: $('#the_final_countdown_'+i).val(),
+                time_format: 'UTC:HH:MM:ss',
+                buzzer: function () {
+                  Yago.callEndCodaCalled = false;
+                  document.location.href = document.location.href;
+                }
+              });
+            }
           }
           Yago.callEndCodaCalled = true;
         });

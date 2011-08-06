@@ -15,17 +15,23 @@ class MEsercito extends Model {
 
   }
 
-  public function addOne ( $idtruppa ) {
-    if ( $this->countwhere ( array ( 'idtruppa' => $idtruppa ) ) == 0 )
+  /**
+   * Quando ci sono delle truppe in coda di addestramento e questo è terminato,
+   * deve essere aggiunta una truppa all'esercito del giocatore corrispondenten
+   *
+   * @param int $idtruppa 
+   */
+  public function addOne ( $idtruppa, $idutente ) {
+    if ( $this->countwhere ( array ( 'idtruppa' => $idtruppa, 'idutente' => $idutente ) ) == 0 )
       $this->create ( array (
           'idtruppa' => $idtruppa,
-          'idutente' => UtenteWeb::status ()->user->id,
+          'idutente' => $idutente,
           'quantita' => 1
       ) );
     else
       $this->incvalue ( 'quantita', array (
           'idtruppa' => $idtruppa,
-          'idutente' => UtenteWeb::status ()->user->id
+          'idutente' => $idutente
       ) );
 
   }

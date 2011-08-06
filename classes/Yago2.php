@@ -110,8 +110,70 @@ class Yago2 extends Controller {
      */
     $date_default_timezone_set = date_default_timezone_set('Europe/Rome');
 
-    /* Mmmm usare un cronjob per questo è sbagliato: le risorse possono
-     * cambiare da un secondo all'altro. */
+    /* risorse degli utenti */
+    $edifici = new MEdifici();
+    $costruzioni = new MCostruzioni();
+    $utenti = new MUtenti();
+    foreach ($edifici->findAll(array('id', 'camporisorsa'), array('risorsa' => 1)) as $itemEdificio) {
+      foreach ($costruzioni->find(array('id', 'idutente', 'mktimefinelavoro', 'livello'), array('idedificio' => $itemEdificio['id'])) as $itemCostruzione) {
+        $secondipassati = mktime() - $itemCostruzione['mktimefinelavoro'];
+        $secondiperrisorsa = (int) (3600 / Config::risorseAllOra($itemCostruzione['livello']));
+        if ($secondiperrisorsa > 0) {
+          $nomeRisorsa = $itemEdificio['camporisorsa'];
+          $unitadaaggiungere = $secondipassati / $secondiperrisorsa;
+          $temporimanente = ($unitadaaggiungere) - ((int) ($unitadaaggiungere));
+          $minutiperrisorsa = (int) (60 / Config::risorseAllOra($itemCostruzione['livello']));
+          if ($secondipassati > $secondiperrisorsa) {
+            try {
+              $resto = @$secondipassati % @$secondiperrisorsa;
+            } catch (Exception $E) {
+              $resto = 0;
+            }
+            $unità = ($secondipassati - $resto) / $secondiperrisorsa;
+            $risorseUtente = Config::getRisorseUtente($itemCostruzione['idutente']);
+            $risorseUtente[$nomeRisorsa] += $unità;
+            $utenti->update($risorseUtente, array('id' => $itemCostruzione['idutente']));
+            $costruzioni->update(array('mktimefinelavoro' => mktime() + $resto), array('id' => $itemCostruzione['id']));
+          }
+        } else {
+          Log::save(array(
+              'string' => 'yagolands non prevede che vi siano più di 1 risorsa al secondo',
+              'livello' => Log::$ERROR_LEVEL
+          ));
+        }
+      }
+    }
+
+    /* Coda di addesrtamento */
+    $pdo = new Model;
+    $esercito = new MEsercito;
+    $sql = 'select * from codadiaddestramento where fineaddestramento <= \'' . (date('Y-m-d H:i:s')) . '\'';
+    foreach ($pdo->query($sql) as $addestramentoFinito) {
+      $esercito->addOne($addestramentoFinito['idtruppa'], $addestramentoFinito['idutente']);
+      $pdo->query('delete from codadiaddestramento where id = ' . $addestramentoFinito['id']);
+    };
+
+    /* coda di costruzione */
+    $pdo = new Model;
+    $costruzione = new MCostruzioni;
+    foreach ($pdo->query('select * from codadicostruzione where finelavori <= \'' . (date('Y-m-d H:i:s')) . '\'') as $lavorofinito) {
+      Log::save(array('string' => var_dump($lavorofinito, true)));
+      $costruzione->update(array(
+          'datafinelavoro' => date('Y-m-d H:i:s'),
+          'mktimefinelavoro' => mktime(),
+          'idutente' => $lavorofinito['idutente'],
+          'idedificio' => $lavorofinito['idedificioincostruzione'],
+          'livello' => $lavorofinito['livelloincostruzione'],
+          'x' => $lavorofinito['x'],
+          'y' => $lavorofinito['y'],
+              ), array(
+          'x' => $lavorofinito['x'],
+          'y' => $lavorofinito['y'],
+      ));
+      $pdo->query('delete from codadicostruzione where id = ' . $lavorofinito['id']);
+    };
+
+    /* Limitatore di magazzini */
     $pdo = new Model;
     $utenti = new MUtenti;
     $costruzioni = new MCostruzioni;
