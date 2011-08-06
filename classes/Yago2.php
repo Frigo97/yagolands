@@ -109,7 +109,6 @@ class Yago2 extends Controller {
      * /Library/WebServer/Documents/yago2/classes/Log.php on line 21
      */
     $date_default_timezone_set = date_default_timezone_set('Europe/Rome');
-    
     $obj = new Yago2();
     $obj->render();
     
