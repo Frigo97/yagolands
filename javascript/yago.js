@@ -146,7 +146,6 @@ $(document).ready(function(){
       });
             
       $.getJSON('index.php?json=json/risorse',function(data){
-        console.log(data);
         $('#ferro').html(data.ferro);
         $('#grano').html(data.grano);
         $('#legno').html(data.legno);

@@ -17,13 +17,6 @@ class Mercato extends Controller {
     $utenti = new MUtenti;
     foreach ($utenti->find(array(), $utenti->getPosition()) as $itemUtenti) {
       if ($itemUtenti[$_POST['nomeRisorsaOfferta']] < $_POST['quantitaOfferta']) {
-        Log::save(array(
-            'string' => "\$itemUtenti[\$_POST['nomeRisorsaOfferta']] = " .
-            ($itemUtenti[$_POST['nomeRisorsaOfferta']]) . "\r\n" .
-            "\$_POST['quantitaOfferta'] = " .
-            ($_POST['quantitaOfferta']),
-            'livello' => Log::$INFO_LEVEL
-        ));
         return false;
       }
     }
