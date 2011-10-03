@@ -136,6 +136,9 @@ $(document).ready(function(){
           $('#mytroops').append('<div>'+data[i].quantita+' '+data[i].nome+'</div>');   
         }
       });
+
+      $('#azioni-belliche').html('');
+      $('#azioni-belliche').append('<div><em>nessuna azione bellica in corso</em></div>');
             
       /**
        * Questo javascript è visibile. Siamo sicuri che vada bene così?

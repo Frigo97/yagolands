@@ -67,6 +67,8 @@
           <div id="coda-addestramenti"></div>
           <h2>Le tue truppe</h2>
           <div id="mytroops"></div>
+          <h2>Azioni belliche</h2>
+          <div id="azioni-belliche"></div>
         <?php endif; ?>
       </div>
       <div id="side-right" class="testoverde arial size12px">

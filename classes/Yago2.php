@@ -178,20 +178,18 @@ class Yago2 extends Controller {
     $costruzioni = new MCostruzioni;
     $edifici = new MEdifici;
     $esercito = new MEsercito;
-    foreach ($utenti->findAll() as $itemUtenti) {
-      foreach (array('magazzino', 'granaio') as $itemContenitore) {
-        $idCostruzione = $costruzioni->getIdCostruzione($edifici->getId($itemContenitore), $itemUtenti['id']);
-        $livello = $costruzioni->getLivelloProprietario($idCostruzione, $itemUtenti['id']);
-        $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
-        $risorseUtente = Config::getRisorseUtente($itemUtenti['id']);
-        $arrayRisorse = $itemContenitore == 'magazzino' ? array('ferro', 'legno', 'roccia') : array('grano');
-        foreach ($arrayRisorse as $itemRisorse) {
-          $nomeRisorsa = $itemRisorse;
-          if ($risorseUtente[$nomeRisorsa] > $capienzaMassima) {
-            $risorseUtente[$nomeRisorsa] = $capienzaMassima;
-          }
-          $utenti->update($risorseUtente, array('id' => $itemUtenti['id']));
+    foreach (array('magazzino', 'granaio') as $itemContenitore) {
+      $idEdificio = $edifici->getId($itemContenitore);
+      $livello = $costruzioni->getLivello($idEdificio);
+      $capienzaMassima = Config::moltiplicatoreCapienzaEdificio($livello);
+      $risorseUtente = Config::getRisorseUtente(UtenteWeb::status()->user->id);
+      $arrayRisorse = $itemContenitore == 'magazzino' ? array('ferro', 'legno', 'roccia') : array('grano');
+      foreach ($arrayRisorse as $itemRisorse) {
+        $nomeRisorsa = $itemRisorse;
+        if ($risorseUtente[$nomeRisorsa] > $capienzaMassima) {
+          $risorseUtente[$nomeRisorsa] = $capienzaMassima;
         }
+        $utenti->update($risorseUtente, array('id' => UtenteWeb::status()->user->id));
       }
     }
 
